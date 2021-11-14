@@ -13,10 +13,6 @@ inoremap <right> <nop>
 " Quick-save
 "nmap <leader>w :w<CR>
 
-" Open hotkeys
-"map <C-p> :Files<CR>
-"nmap <leader>; :Buffers<CR>
-
 " <leader><leader> toggles between buffers
 "nnoremap <leader><leader> <c-^>
 " Left and right can switch buffers
@@ -30,10 +26,6 @@ nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" use <Tab> as trigger keys
-"imap <Tab> <Plug>(completion_smart_tab)
-"imap <S-Tab> <Plug>(completion_smart_s_tab)
 
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f']

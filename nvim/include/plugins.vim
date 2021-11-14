@@ -11,7 +11,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 Plug 'unblevable/quick-scope'
 "Plug 'preservim/nerdtree'
