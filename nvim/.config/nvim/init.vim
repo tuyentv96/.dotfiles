@@ -7,7 +7,6 @@ set guifont=hack_nerd_font:h22
 
 " Install plugins first. We may configure plugins for specific languages later.
 runtime! include/plugins.vim
-
 runtime! plugin/nvimtree.vim
 
 lua require('impatient')
