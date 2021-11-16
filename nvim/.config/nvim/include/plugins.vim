@@ -16,6 +16,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'unblevable/quick-scope'
+Plug 'phaazon/hop.nvim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -36,6 +37,8 @@ Plug 'rhysd/vim-clang-format'
 Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }

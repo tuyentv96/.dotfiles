@@ -1,9 +1,7 @@
 " There's no need to do syntax highlighting past this many columns. The default
 " of 3000 is a bit and degrades performance.
-set synmaxcol=200
+set synmaxcol=500
 
-" While typing a search, start highlighting results.
-set incsearch
 
 " When scrolling, always keep the cursor N lines from the edges.
 set scrolloff=10
@@ -36,10 +34,6 @@ set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
-
-set relativenumber " Relative line numbers
-set number " Also show current absolute line
-
 " rust
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
@@ -56,13 +50,14 @@ let g:go_bin_path = expand("~/go/bin")
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified' ] ],
+      \             [ 'readonly', 'gitbranch', 'filename', 'modified' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
       \              [ 'fileencoding', 'filetype' ] ],
       \ },
       \ 'component_function': {
-      \   'filename': 'LightlineFilename'
+      \   'filename': 'LightlineFilename',
+      \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
 function! LightlineFilename()

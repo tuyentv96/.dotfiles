@@ -4,6 +4,8 @@ require("luamodule.nvimcmp")
 require("luamodule.treesitter")
 require("luamodule.nvimtree")
 
+require'hop'.setup()
+
 P = function(v)
   print(vim.inspect(v))
   return v

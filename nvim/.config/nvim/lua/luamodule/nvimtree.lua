@@ -67,7 +67,7 @@ require'nvim-tree'.setup {
   update_focused_file = {
     enable      = true,
     update_cwd  = false,
-    ignore_list = {'.git$'}
+    ignore_list = {'.git'}
   },
   system_open = {
     cmd  = nil,
@@ -78,11 +78,11 @@ require'nvim-tree'.setup {
     custom = {}
   },
   view = {
-    width = 20,
+    width = 40,
     height = 30,
     hide_root_folder = false,
     side = 'left',
-    auto_resize = false,
+    auto_resize = true,
     mappings = {
       custom_only = false,
       list = {}

@@ -14,7 +14,6 @@ set nofoldenable
 set ttyfast
 " https://github.com/vim/vim/issues/1735#issuecomment-383353563
 set lazyredraw
-set synmaxcol=500
 set laststatus=2
 set relativenumber " Relative line numbers
 set number " Also show current absolute line
