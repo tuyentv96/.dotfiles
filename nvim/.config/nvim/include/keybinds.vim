@@ -13,6 +13,9 @@ inoremap <right> <nop>
 " Quick-save
 "nmap <leader>w :w<CR>
 
+" Quit all unsaved
+nnoremap <leader>qa :qa!<CR>
+
 " Left and right can switch buffers
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
@@ -40,6 +43,7 @@ noremap <leader>nt :NvimTreeToggle<CR>
 
 inoremap <C-c> <esc>
 
+" paste from clipboard
 xnoremap <leader>p "_dP
 
 " Paste from clipboard
@@ -53,8 +57,10 @@ nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 
+" cut to clipboard
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
-nnoremap <leader>h :noh<CR>
+" clear highlight
+nnoremap <silent> <leader>h :noh<CR>
 
