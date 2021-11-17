@@ -64,3 +64,6 @@ vnoremap <leader>d "_d
 " clear highlight
 nnoremap <silent> <leader>h :noh<CR>
 
+nnoremap L <C-W>l
+nnoremap H <C-W>h
+
