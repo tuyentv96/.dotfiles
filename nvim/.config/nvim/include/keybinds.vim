@@ -64,6 +64,8 @@ vnoremap <leader>d "_d
 " clear highlight
 nnoremap <silent> <leader>h :noh<CR>
 
-nnoremap L <C-W>l
-nnoremap H <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <C-k> <C-W>k
+nnoremap <C-j> <C-W>j
+nnoremap <C-h> <C-W>h
 

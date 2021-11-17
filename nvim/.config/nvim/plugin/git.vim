@@ -1,4 +1,5 @@
 nnoremap <leader>ga :Git fetch --all<CR>
+nnoremap <leader>gp :Git -c push.default=current push<CR>
 nnoremap <leader>gru :Git rebase upstream/master<CR>
 nnoremap <leader>gro :Git rebase origin/master<CR>
 
