@@ -1,9 +1,9 @@
 nnoremap <leader>ga :Git fetch --all<CR>
 nnoremap <leader>gp :Git -c push.default=current push<CR>
-nnoremap <leader>gru :Git rebase upstream/master<CR>
-nnoremap <leader>gro :Git rebase origin/master<CR>
+nnoremap <leader>gr :Git rebase origin/master<CR>
+nnoremap <leader>gf :Git pull --rebase<CR>
 
-nmap <leader>gj :diffget //3<CR>
-nmap <leader>gf :diffget //2<CR>
+nmap <leader>gl :diffget //3<CR>
+nmap <leader>gh :diffget //2<CR>
 nmap <leader>gs :G<CR>
 

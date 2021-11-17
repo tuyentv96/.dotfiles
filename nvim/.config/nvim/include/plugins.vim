@@ -39,6 +39,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 
 " Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
