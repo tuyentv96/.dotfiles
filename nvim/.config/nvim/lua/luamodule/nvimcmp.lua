@@ -14,14 +14,7 @@ local source_mapping = {
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			-- For `vsnip` user.
-			-- vim.fn["vsnip#anonymous"](args.body)
-
-			-- For `luasnip` user.
 			require("luasnip").lsp_expand(args.body)
-
-			-- For `ultisnips` user.
-			-- vim.fn["UltiSnips#Anon"](args.body)
 		end,
 	},
 	  formatting = {
@@ -60,20 +53,9 @@ cmp.setup({
       end,
 	},
 	sources = {
-        -- tabnine completion? yayaya
         { name = "cmp_tabnine" },
-
 		{ name = "nvim_lsp" },
-
-		-- For vsnip user.
-		-- { name = 'vsnip' },
-
-		-- For luasnip user.
 		{ name = "luasnip" },
-
-		-- For ultisnips user.
-		-- { name = 'ultisnips' },
-
 		{ name = "buffer" },
 	},
 })
@@ -81,7 +63,7 @@ cmp.setup({
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
     max_lines = 1000,
-    max_num_results = 20,
+    max_num_results = 10,
     sort = true,
 	run_on_every_keystroke = true,
 	snippet_placeholder = '..',

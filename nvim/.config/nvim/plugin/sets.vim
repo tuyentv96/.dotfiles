@@ -83,10 +83,10 @@ set wildmode=list:longest
 set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
 
 " Use wide tabs
-set shiftwidth=8
-set softtabstop=8
-set tabstop=8
-set noexpandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
 
 " Wrapping options
 set formatoptions=tc " wrap text and comments using textwidth
