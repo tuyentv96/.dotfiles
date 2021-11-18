@@ -3,6 +3,7 @@
 colorscheme gruvbox 
 set termguicolors
 set background=dark
+set encoding=utf8
 
 " =============================================================================
 " # GUI settings
