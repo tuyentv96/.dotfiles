@@ -12,7 +12,8 @@ nnoremap <silent> <leader>ws  <cmd>lua require('telescope.builtin').lsp_workspac
 " nnoremap <silent> gws         <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> <leader>rn  <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>f   <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <silent> <leader>ca  <cmd>lua vim.lsp.buf.code_action()<CR>
+" nnoremap <silent> <leader>ca  <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>ca  <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
 " nnoremap <silent> <leader>ws  <cmd>lua require'metals'.worksheet_hover()<CR>
 " nnoremap <silent> <leader>a   <cmd>lua require'metals'.open_all_diagnostics()<CR>
 nnoremap <silent> <space>d    <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
