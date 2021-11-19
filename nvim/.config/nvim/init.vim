@@ -53,7 +53,7 @@ Plug 'rust-lang/rust.vim'
 " Install common neovim LSP client configurations.
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
-Plug 'folke/lsp-colors.nvim'
+" Plug 'folke/lsp-colors.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'ray-x/lsp_signature.nvim'
 
