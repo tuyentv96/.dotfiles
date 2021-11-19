@@ -32,6 +32,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 " Neovim Tree shitter
 Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat','do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
+Plug 'Yggdroot/indentLine'
 
 " Syntactic language support
 Plug 'cespare/vim-toml'
