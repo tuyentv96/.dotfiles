@@ -1,4 +1,3 @@
--- Setup nvim-cmp.
 local cmp = require("cmp")
 local lspkind = require('lspkind')
 
@@ -12,13 +11,13 @@ local source_mapping = {
 
 
 cmp.setup({
-	snippet = {
-		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
-		end,
-	},
+    snippet = {
+        expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+        end,
+    },
 	  formatting = {
-		          format = function(entry, vim_item)
+            format = function(entry, vim_item)
             vim_item.kind = lspkind.presets.default[vim_item.kind]
             local menu = source_mapping[entry.source.name]
             if entry.source.name == 'cmp_tabnine' then
