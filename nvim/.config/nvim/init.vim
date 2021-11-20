@@ -12,13 +12,12 @@ Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'gruvbox-community/gruvbox'
 
-"Plug 'justinmk/vim-sneak'
 Plug 'nvim-lua/plenary.nvim'
 
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-Plug 'unblevable/quick-scope'
+" Plug 'unblevable/quick-scope'
 Plug 'phaazon/hop.nvim'
 
 " Git
