@@ -65,3 +65,5 @@ let g:nvim_tree_icons = {
     \ }
 
  
+noremap <leader>nt :NvimTreeToggle<CR>
+

@@ -45,10 +45,10 @@ set scrolloff=10
 set formatoptions=tcro
 
 " Don't switch window focus when using HTTP client.
-let g:http_client_focus_output_window=0
+" let g:http_client_focus_output_window=0
 
 " Don't conceal things in markup languages.
-let g:pandoc#syntax#conceal#use = 0
+" let g:pandoc#syntax#conceal#use = 0
 
 " When there's more than one match, complete the longest common prefix among
 " them and show the rest of the options.

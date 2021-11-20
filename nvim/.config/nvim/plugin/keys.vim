@@ -25,21 +25,20 @@ nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Trigger a highlight in the appropriate direction when pressing these keys:
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
-highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
-let g:qs_max_chars=150
+" highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
+" highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
+" let g:qs_max_chars=150
 
 " Move selected lines
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-noremap <leader>nt :NvimTreeToggle<CR>
 
 inoremap <C-c> <esc>
 
