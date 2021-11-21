@@ -23,6 +23,7 @@ Plug 'phaazon/hop.nvim'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-rhubarb'
 
 " Tree explorer
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
@@ -43,6 +44,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
+Plug 'jiangmiao/auto-pairs'
 
 " Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }

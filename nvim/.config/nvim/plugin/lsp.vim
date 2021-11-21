@@ -7,8 +7,8 @@ nnoremap <silent> K           <cmd>lua vim.lsp.buf.hover()<CR>
 " nnoremap <silent> gr          <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gr          <cmd>lua require('telescope.builtin').lsp_references()<CR>
 nnoremap <silent> gi          <cmd>lua require('telescope.builtin').lsp_implementations()<CR>
-nnoremap <silent> <leader>wd  <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>
-nnoremap <silent> <leader>ws  <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
+nnoremap <silent> <leader>ld  <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>
+nnoremap <silent> <leader>ls  <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
 " nnoremap <silent> gws         <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> <leader>rn  <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>f   <cmd>lua vim.lsp.buf.formatting()<CR>

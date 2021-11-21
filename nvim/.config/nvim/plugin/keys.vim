@@ -11,7 +11,9 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 " Quick-save
-"nmap <leader>w :w<CR>
+nnoremap <leader>w :w<CR>
+
+nnoremap <leader>q :q<CR>
 
 " Quit all unsaved
 nnoremap <leader>qa :qa!<CR>
