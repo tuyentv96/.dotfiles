@@ -22,7 +22,7 @@ nnoremap <silent> ]c          <cmd>lua vim.lsp.diagnostic.goto_next { wrap = fal
 
 augroup lsp
     au!
-    au FileType scala,sbt lua require('metals').initialize_or_attach(Metals_config)
+    au FileType scala,sbt lua require('metals').initialize_or_attach(metals_config)
 augroup end
 
 " Ensure autocmd works for Filetype

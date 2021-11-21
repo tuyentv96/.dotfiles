@@ -3,6 +3,8 @@ require("luamodule.lsp")
 require("luamodule.nvimcmp")
 require("luamodule.treesitter")
 require("luamodule.nvimtree")
+require("luamodule.rust")
+require("luamodule.dap")
 
 require'hop'.setup()
 

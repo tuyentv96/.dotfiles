@@ -17,7 +17,6 @@ Plug 'nvim-lua/plenary.nvim'
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-" Plug 'unblevable/quick-scope'
 Plug 'phaazon/hop.nvim'
 
 " Git
@@ -50,13 +49,14 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'scalameta/nvim-metals'
 Plug 'rust-lang/rust.vim'
+Plug 'simrat39/rust-tools.nvim'
 
 " Install common neovim LSP client configurations.
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
-" Plug 'folke/lsp-colors.nvim'
 Plug 'mfussenegger/nvim-dap'
-Plug 'ray-x/lsp_signature.nvim'
+Plug 'leoluz/nvim-dap-go'
+Plug 'rcarriga/nvim-dap-ui'
 
 " nvim-cmp 
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -65,6 +65,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'onsails/lspkind-nvim'
+Plug 'ray-x/lsp_signature.nvim'
 
 " nvim-snippet 
 Plug 'L3MON4D3/LuaSnip'
