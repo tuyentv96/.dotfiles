@@ -57,6 +57,7 @@ Plug 'nvim-lua/lsp_extensions.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'leoluz/nvim-dap-go'
 Plug 'rcarriga/nvim-dap-ui'
+Plug 'mfussenegger/nvim-dap-python'
 
 " nvim-cmp 
 Plug 'hrsh7th/cmp-nvim-lsp'
