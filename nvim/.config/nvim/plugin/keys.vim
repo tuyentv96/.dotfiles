@@ -37,6 +37,7 @@ nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>
 " highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
 " let g:qs_max_chars=150
 
+nnoremap <C-d> :bp<bar>sp<bar>bn<bar>bd<CR>
 " Move selected lines
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv

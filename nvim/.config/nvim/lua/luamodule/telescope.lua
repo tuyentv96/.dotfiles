@@ -28,6 +28,15 @@ require("telescope").setup({
             override_file_sorter = true,
         },
     },
+    pickers = {
+        buffers = {
+          mappings = {
+            i = {
+              ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+            }
+          }
+        }
+    },
 })
 
 require("telescope").load_extension("fzy_native")
