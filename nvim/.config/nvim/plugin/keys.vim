@@ -66,8 +66,18 @@ vnoremap <leader>d "_d
 " clear highlight
 nnoremap <silent> <leader>h :noh<CR>
 
+" move between buffers
 nnoremap <C-l> <C-W>l
 nnoremap <C-k> <C-W>k
 nnoremap <C-j> <C-W>j
 nnoremap <C-h> <C-W>h
 
+" provide hjkl movements in Insert mode via the <Alt> modifier key
+inoremap <A-h> <C-o>h
+inoremap <A-j> <C-o>j
+inoremap <A-k> <C-o>k
+inoremap <A-l> <C-o>l
+
+inoremap <A-b> <C-o>b
+inoremap <A-w> <C-o>w
+inoremap <A-e> <C-o>e
