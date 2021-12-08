@@ -25,23 +25,10 @@ nnoremap <right> :bn<CR>
 " Open new file adjacent to current file
 nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use <Tab> and <S-Tab> to navigate through popup menu
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Trigger a highlight in the appropriate direction when pressing these keys:
-" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-" highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
-" highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
-" let g:qs_max_chars=150
-
 nnoremap <C-d> :bp<bar>sp<bar>bn<bar>bd<CR>
 " Move selected lines
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
 
 inoremap <C-c> <esc>
 
