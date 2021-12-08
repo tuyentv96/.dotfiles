@@ -3,10 +3,6 @@ set shell=/bin/bash
 
 call plug#begin('~/.vim/plugged')
 
-" Speed up
-Plug 'dstein64/vim-startuptime'
-Plug 'lewis6991/impatient.nvim'
-
 " GUI
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
@@ -57,7 +53,6 @@ Plug 'nvim-lua/lsp_extensions.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'leoluz/nvim-dap-go'
 Plug 'rcarriga/nvim-dap-ui'
-Plug 'mfussenegger/nvim-dap-python'
 
 " nvim-cmp 
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -76,7 +71,6 @@ call plug#end()
 
 runtime! plugin/nvimtree.vim
 
-lua require('impatient')
 lua require('luamodule')
 
 runtime! plugin/hop.vim

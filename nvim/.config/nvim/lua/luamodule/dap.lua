@@ -38,6 +38,3 @@ require("dapui").setup({
   windows = { indent = 1 },
 })
 
-require('dap-python').test_runner = 'pytest'
-require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
-
