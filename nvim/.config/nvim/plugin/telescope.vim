@@ -13,8 +13,8 @@ nnoremap <leader>fh :lua require('telescope.builtin').help_tags()<cr>
 "nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>vrc :lua require('luamodule.telescope').search_dotfiles()<CR>
 "nnoremap <leader>vc :lua require('luamodule.telescope').chat_selector()<CR>
-nnoremap <leader>gb :lua require('luamodule.telescope').git_branches()<CR>
-nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
-nnoremap <leader>gcb :lua require('telescope.builtin').git_bcommits()<CR>
+" nnoremap <leader>gb :lua require('luamodule.telescope').git_branches()<CR>
+" nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
+nnoremap <leader>gb :lua require('telescope.builtin').git_bcommits()<CR>
 "nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 

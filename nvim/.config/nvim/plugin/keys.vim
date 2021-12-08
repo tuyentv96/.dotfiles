@@ -15,9 +15,6 @@ nnoremap <leader>w :w<CR>
 
 nnoremap <leader>q :q<CR>
 
-" Quit all unsaved
-nnoremap <leader>qa :qa!<CR>
-
 " Left and right can switch buffers
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
