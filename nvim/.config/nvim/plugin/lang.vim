@@ -22,15 +22,15 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
-      \   'gitbranch': 'FugitiveHead'
+      \   'gitbranch': 'GitbranchName'
       \ },
       \ }
 function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
-
-"let g:auto_save_silent = 1  " do not display the auto-save notification
-autocmd TextChanged,TextChangedI <buffer> silent write
+function! GitbranchName()
+  return ' '..FugitiveHead() 
+endfunction
 
 " =============================================================================
 " # Editor settings

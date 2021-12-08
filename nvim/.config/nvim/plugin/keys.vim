@@ -35,12 +35,6 @@ inoremap <C-c> <esc>
 " paste from clipboard
 xnoremap <leader>p "_dP
 
-" Paste from clipboard
-"nnoremap <leader>p "+p
-"nnoremap <leader>P "+P
-"vnoremap <leader>p "+p
-"vnoremap <leader>P "+P
-
 " Copy to clipboard
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
