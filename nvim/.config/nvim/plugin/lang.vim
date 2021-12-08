@@ -11,6 +11,7 @@ let g:go_fmt_command = "goimports"
 let g:go_bin_path = expand("~/go/bin")
 
 " Lightline
+let g:lightline = {'colorscheme' : 'gruvbox_material'}
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],

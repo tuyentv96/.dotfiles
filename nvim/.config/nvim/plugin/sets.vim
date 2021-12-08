@@ -1,8 +1,10 @@
 
 " deal with colors
-colorscheme gruvbox 
-set termguicolors
+" colorscheme gruvbox 
 set background=dark
+let g:gruvbox_material_background = 'medium'
+colorscheme gruvbox-material
+set termguicolors
 set encoding=utf8
 
 " =============================================================================
