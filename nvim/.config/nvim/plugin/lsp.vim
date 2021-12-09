@@ -1,7 +1,8 @@
 lua require("luamodule")
 
 " LSP config (the mappings used in the default file don't quite work right)
-nnoremap <silent> gd          <cmd>lua vim.lsp.buf.definition()<CR>
+" nnoremap <silent> gd          <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gd          <cmd>lua require('telescope.builtin').lsp_definitions()<CR>
 nnoremap <silent> K           <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gr          <cmd>lua require('telescope.builtin').lsp_references()<CR>
 nnoremap <silent> gi          <cmd>lua require('telescope.builtin').lsp_implementations()<CR>
