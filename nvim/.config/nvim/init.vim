@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 " GUI
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'gruvbox-community/gruvbox'
+" Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 
 Plug 'nvim-lua/plenary.nvim'
