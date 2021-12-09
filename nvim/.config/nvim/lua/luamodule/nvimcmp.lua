@@ -52,17 +52,17 @@ cmp.setup({
       end,
 	},
 	sources = {
+        { name = "nvim_lsp" },
         { name = "cmp_tabnine" },
-		{ name = "nvim_lsp" },
+        { name = "buffer" },
 		{ name = "luasnip" },
-		{ name = "buffer" },
 	},
 })
 
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
     max_lines = 1000,
-    max_num_results = 10,
+    max_num_results = 5,
     sort = true,
 	run_on_every_keystroke = true,
 	snippet_placeholder = '..',
