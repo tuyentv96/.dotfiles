@@ -57,6 +57,10 @@ cmp.setup({
         { name = "buffer" },
 		{ name = "luasnip" },
 	},
+    experimental = {
+      native_menu = false,
+      ghost_text = false,
+    },
 })
 
 local tabnine = require('cmp_tabnine.config')
