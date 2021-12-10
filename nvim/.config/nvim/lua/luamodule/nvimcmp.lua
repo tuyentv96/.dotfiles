@@ -17,7 +17,7 @@ cmp.setup({
         end,
     },
 	  formatting = {
-            format = function(entry, vim_item)
+        format = function(entry, vim_item)
             vim_item.kind = lspkind.presets.default[vim_item.kind]
             local menu = source_mapping[entry.source.name]
             if entry.source.name == 'cmp_tabnine' then
@@ -28,28 +28,28 @@ cmp.setup({
             end
             vim_item.menu = menu
             return vim_item
-    end
-  },
+        end
+    },
 	mapping = {
-	      -- None of this made sense to me when first looking into this since there
-      -- is no vim docs, but you can't have select = true here _unless_ you are
-      -- also using the snippet stuff. So keep in mind that if you remove
-      -- snippets you need to remove this select
-      ["<CR>"] = cmp.mapping.confirm({ select = true }),
-      ["<Tab>"] = function(fallback)
+        -- None of this made sense to me when first looking into this since there
+        -- is no vim docs, but you can't have select = true here _unless_ you are
+        -- also using the snippet stuff. So keep in mind that if you remove
+        -- snippets you need to remove this select
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<Tab>"] = function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         else
           fallback()
         end
-      end,
-      ["<S-Tab>"] = function(fallback)
+        end,
+        ["<S-Tab>"] = function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         else
           fallback()
         end
-      end,
+        end,
 	},
 	sources = {
         { name = "nvim_lsp" },
@@ -58,8 +58,8 @@ cmp.setup({
 		{ name = "luasnip" },
 	},
     experimental = {
-      native_menu = false,
-      ghost_text = false,
+        native_menu = false,
+        ghost_text = false,
     },
 })
 
