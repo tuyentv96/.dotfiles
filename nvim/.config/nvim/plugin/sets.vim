@@ -7,6 +7,11 @@ colorscheme gruvbox-material
 set termguicolors
 set encoding=utf8
 
+hi VirtualTextError ctermfg=167 ctermbg=237 guifg=#ea6962 guibg=#45403
+hi VirtualTextWarning ctermfg=214 ctermbg=237 guifg=#d8a657 guibg=#45403
+hi VirtualTextInfo ctermfg=109 ctermbg=237 guifg=#7daea3 guibg=#45403
+hi VirtualTextHint ctermfg=142 ctermbg=237 guifg=#a9b665 guibg=#45403
+
 " =============================================================================
 " # GUI settings
 " =============================================================================
