@@ -27,3 +27,25 @@ augroup end
 " Ensure autocmd works for Filetype
 set shortmess-=F
 
+augroup code
+    au!
+    au Filetype rust nnoremap <leader>cr :RustRun <CR>
+    au Filetype rust nnoremap <leader>lr :RustRunnables <CR>
+    au Filetype rust nnoremap <leader>ld :RustDebuggables <CR>
+    au Filetype rust nnoremap <leader>tf :RustTest <CR>
+    au Filetype rust nnoremap <leader>ta :RustTest! <CR>
+
+    au Filetype go nnoremap <leader>cr :GoRun <CR>
+    au Filetype go nnoremap <leader>cb :GoBuild <CR>
+    au Filetype go nnoremap <leader>tf :GoTestFunc <CR>
+    au Filetype go nnoremap <leader>ta :GoTest <CR>
+
+augroup end
+
+function! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
+endfunction
+

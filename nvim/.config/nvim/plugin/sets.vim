@@ -7,11 +7,13 @@ colorscheme gruvbox-material
 set termguicolors
 set encoding=utf8
 
-hi VirtualTextError ctermfg=167 ctermbg=237 guifg=#ea6962 guibg=#45403
-hi VirtualTextWarning ctermfg=214 ctermbg=237 guifg=#d8a657 guibg=#45403
-hi VirtualTextInfo ctermfg=109 ctermbg=237 guifg=#7daea3 guibg=#45403
-hi VirtualTextHint ctermfg=142 ctermbg=237 guifg=#a9b665 guibg=#45403
+let g:gruvbox_material_diagnostic_text_highlight = 1
+let g:gruvbox_material_diagnostic_line_highlight = 1
+let g:gruvbox_material_diagnostic_virtual_text = 'colored'
+let g:gruvbox_material_visual = 'reverse'
+let g:gruvbox_material_menu_selection_background = 'green'
 
+" let g:gruvbox_material_ui_contrast = 'high'
 " =============================================================================
 " # GUI settings
 " =============================================================================
@@ -31,7 +33,6 @@ set diffopt+=algorithm:patience
 set diffopt+=indent-heuristic
 "set colorcolumn=80 " and give me a colored column
 set showcmd " Show (partial) command in status line.
-" set mouse=a " Enable mouse usage (all modes) in terminals
 
 " Show those damn hidden characters
 " Verbose: set listchars=nbsp:¬,eol:¶,extends:»,precedes:«,trail:•
@@ -117,3 +118,4 @@ set undofile
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+

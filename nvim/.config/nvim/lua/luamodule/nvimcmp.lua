@@ -9,7 +9,6 @@ local source_mapping = {
 	path = "[Path]",
 }
 
-
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -52,10 +51,10 @@ cmp.setup({
         end,
 	},
 	sources = {
-        { name = "nvim_lsp" },
-        { name = "cmp_tabnine" },
-        { name = "buffer" },
-		{ name = "luasnip" },
+        { name = "nvim_lsp", max_item_count = 10},
+        { name = "cmp_tabnine", max_item_count = 5},
+        { name = "buffer", max_item_count = 5},
+		{ name = "luasnip", max_item_count = 5},
 	},
     experimental = {
         native_menu = false,
