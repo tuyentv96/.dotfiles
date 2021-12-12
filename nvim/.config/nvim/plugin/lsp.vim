@@ -1,7 +1,6 @@
 lua require("luamodule")
 
 " LSP config (the mappings used in the default file don't quite work right)
-" nnoremap <silent> gd          <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gd          <cmd>lua require('telescope.builtin').lsp_definitions()<CR>
 nnoremap <silent> K           <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gr          <cmd>lua require('telescope.builtin').lsp_references()<CR>
@@ -30,8 +29,8 @@ set shortmess-=F
 augroup code
     au!
     au Filetype rust nnoremap <leader>cr :RustRun <CR>
-    au Filetype rust nnoremap <leader>lr :RustRunnables <CR>
-    au Filetype rust nnoremap <leader>ld :RustDebuggables <CR>
+    au Filetype rust nnoremap <leader>rl :RustRunnables <CR>
+    au Filetype rust nnoremap <leader>dl :RustDebuggables <CR>
     au Filetype rust nnoremap <leader>tf :RustTest <CR>
     au Filetype rust nnoremap <leader>ta :RustTest! <CR>
 
@@ -41,11 +40,4 @@ augroup code
     au Filetype go nnoremap <leader>ta :GoTest <CR>
 
 augroup end
-
-function! GetBufferList()
-  redir =>buflist
-  silent! ls!
-  redir END
-  return buflist
-endfunction
 

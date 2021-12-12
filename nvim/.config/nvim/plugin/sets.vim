@@ -12,6 +12,7 @@ let g:gruvbox_material_diagnostic_line_highlight = 1
 let g:gruvbox_material_diagnostic_virtual_text = 'colored'
 let g:gruvbox_material_visual = 'reverse'
 let g:gruvbox_material_menu_selection_background = 'green'
+let g:go_doc_keywordprg_enabled = 0
 
 " let g:gruvbox_material_ui_contrast = 'high'
 " =============================================================================

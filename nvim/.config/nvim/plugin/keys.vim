@@ -10,8 +10,9 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+
 " Quick-save
-nnoremap <leader>w :w<CR>
+nnoremap <leader>s :w<CR>
 
 nnoremap <leader>q :q<CR>
 
@@ -63,6 +64,13 @@ inoremap <A-e> <C-o>e
 nnoremap <C-f>j :%!jq .<CR>
 
 
+function! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
+endfunction
+
 function! ToggleList(bufname, pfx)
   let buflist = GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
@@ -83,6 +91,7 @@ function! ToggleList(bufname, pfx)
   endif
 endfunction
 
-nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
-nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
+nmap <silent> <leader>ll :call ToggleList("Location List", 'l')<CR>
+nmap <silent> <leader>fl :call ToggleList("Quickfix List", 'c')<CR>
 
+nnoremap <silent> <leader>wr <C-w>o :NvimTreeToggle<CR> <C-w>l
