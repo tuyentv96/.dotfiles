@@ -1,9 +1,14 @@
+USER = vim.fn.expand('$USER')
+local sumneko_root_path = "/Users/" .. USER .. "/.vscode/extensions/sumneko.lua-2.5.3/server"
+local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
+
+
 -- Shorten function name
 local cmd = vim.cmd
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-keymap("n", "fgd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
+keymap("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 keymap("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
 keymap("n", "gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
@@ -17,22 +22,23 @@ keymap("n", "<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_action
 keymap("n", "<leader>[c", "<cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>", opts)
 keymap("n", "<leader>]c", "<cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>", opts)
 
-cmd([[augroup code]])
+cmd([[
+    augroup code
+    autocmd!
 
-cmd([[autocmd!]])
-cmd([[autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>]])
-cmd([[autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>]])
-cmd([[autocmd FileType rust nnoremap <leader>dl :RustDebuggables <CR>]])
-cmd([[autocmd FileType rust nnoremap <leader>tf :RustTest <CR>]])
-cmd([[autocmd FileType rust nnoremap <leader>ta :RustTest! <CR>]])
+    autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>
+    autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>
+    autocmd FileType rust nnoremap <leader>dl :RustDebuggables <CR>]
+    autocmd FileType rust nnoremap <leader>tf :RustTest <CR>
+    autocmd FileType rust nnoremap <leader>ta :RustTest! <CR>]
 
-cmd([[autocmd FileType go nnoremap <leader>cr :GoRun <CR>]])
-cmd([[autocmd FileType go nnoremap <leader>cb :GoBuild <CR>]])
-cmd([[autocmd FileType go nnoremap <leader>tf :GoTestFunc <CR>]])
-cmd([[autocmd FileType go nnoremap <leader>ta :GoTest <CR>]])
+    autocmd FileType go nnoremap <leader>cr :GoRun <CR>
+    autocmd FileType go nnoremap <leader>cb :GoBuild <CR>]
+    autocmd FileType go nnoremap <leader>tf :GoTestFunc <CR>
+    autocmd FileType go nnoremap <leader>ta :GoTest <CR>
 
-cmd([[augroup end]])
-
+    augroup end
+]])
 
 require "lsp_signature".setup({
   hi_parameter = "LspSignatureActiveParameter",
@@ -44,7 +50,7 @@ require "lsp_signature".setup({
   max_width = 80, -- max_width of signature floating_window, line will be wrapped if exceed max_width
   always_trigger = false,
   hint_enable = false, -- virtual hint enable
-  -- floating_window = false,
+  floating_window = true,
 })
 
 local shared_diagnostic_settings = vim.lsp.with(
@@ -56,13 +62,30 @@ local shared_diagnostic_settings = vim.lsp.with(
     }
 )
 
-local lsp_config = require("lspconfig")
+local border_style = {
+  { "╭", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╮", "FloatBorder" },
+  { "│", "FloatBorder" },
+  { "╯", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╰", "FloatBorder" },
+  { "│", "FloatBorder" },
+}
+
+-- snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local pop_opts = { border = border_style }
+local lsp_config = require("lspconfig")
 local dap = require("dap")
 
 lsp_config.util.default_config = vim.tbl_extend("force", lsp_config.util.default_config, {
     handlers = {
-      ["textDocument/publishDiagnostics"] = shared_diagnostic_settings,
+        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts),
+        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts),
+        ["textDocument/publishDiagnostics"] = shared_diagnostic_settings,
     },
     capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities),
 })
@@ -120,16 +143,18 @@ metals_config.on_attach = function(client, bufnr)
     require("metals").setup_dap()
 end
 
-cmd([[augroup lsp]])
-cmd([[autocmd!]])
-cmd([[autocmd FileType scala setlocal omnifunc=v:lua.vim.lsp.omnifunc]])
-cmd([[autocmd FileType scala,sbt lua require("metals").initialize_or_attach(metals_config)]])
-cmd([[augroup end]])
+cmd([[
+    augroup lsp
+    autocmd!
+    autocmd FileType scala setlocal omnifunc=v:lua.vim.lsp.omnifunc
+    autocmd FileType scala,sbt lua require("metals").initialize_or_attach(metals_config)
+    augroup end
+]])
 
 -- Need for symbol highlights to work correctly
-vim.cmd([[hi! link LspReferenceText CursorColumn]])
-vim.cmd([[hi! link LspReferenceRead CursorColumn]])
-vim.cmd([[hi! link LspReferenceWrite CursorColumn]])
+-- vim.cmd([[hi! link LspReferenceText CursorColumn]])
+-- vim.cmd([[hi! link LspReferenceRead CursorColumn]])
+-- vim.cmd([[hi! link LspReferenceWrite CursorColumn]])
 
 -- Rust
 lsp_config.rust_analyzer.setup({
@@ -155,5 +180,31 @@ lsp_config.gopls.setup({
     settings = {
       gopls = { analyses = { unusedparams = true }, staticcheck = true },
     },
+
 })
+
+-- lua
+require'lspconfig'.sumneko_lua.setup {
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+  settings = {
+      Lua = {
+          runtime = {
+              -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+              version = 'LuaJIT',
+              -- Setup your lua path
+              path = vim.split(package.path, ';')
+          },
+          diagnostics = {
+              -- Get the language server to recognize the `vim` global
+              globals = {'vim'}
+          },
+          workspace = {
+            maxPreload = 5000, -- Add this if missing or increase it
+            preloadFileSize = 5000, -- Add this if missing or increase it
+              -- Make the server aware of Neovim runtime files
+              library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
+          }
+      }
+  }
+}
 

@@ -12,3 +12,4 @@ keymap("n", "<leader>gc", ":G commit<CR>", opts)
 keymap("n", "<leader>gl", ":diffget //3<CR>", opts)
 keymap("n", "<leader>gh", ":diffget //2<CR>", opts)
 keymap("n", "<leader>gs", ":G <CR>", opts)
+

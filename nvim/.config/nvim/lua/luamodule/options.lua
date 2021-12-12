@@ -15,7 +15,7 @@ local options = {
     -- c - auto-wrap comments by respecting textwidth
     -- r - auto-insert comment leading after <CR> in insert mode
     -- o - auto-insert comment leading after O in normal mode
-    formatoptions = tcro,
+    formatoptions = 'tcro',
     cmdheight = 1,
     completeopt = { "menuone", "noselect", "noinsert" }, 
     fileencoding = "utf-8", 
@@ -34,7 +34,6 @@ local options = {
     undofile = true,
     updatetime = 300, 
     
-    wrap = false,
     writebackup = false, 
     backup = false,
     swapfile = false,

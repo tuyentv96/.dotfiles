@@ -1,6 +1,6 @@
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -58,15 +58,20 @@ return require('packer').startup(function()
   use 'leoluz/nvim-dap-go'
   use 'rcarriga/nvim-dap-ui'
 
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/nvim-cmp'
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+        { 'hrsh7th/cmp-nvim-lsp' },
+        { 'hrsh7th/cmp-buffer' },
+        { 'hrsh7th/cmp-path' },
+        { 'hrsh7th/cmp-nvim-lua' },
+        { 'L3MON4D3/LuaSnip' },
+        { 'saadparwaiz1/cmp_luasnip' },
+    }
+  }
+
   use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
   use 'onsails/lspkind-nvim'
   use 'ray-x/lsp_signature.nvim'
-  
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
 end)
 

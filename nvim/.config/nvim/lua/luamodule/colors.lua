@@ -1,4 +1,4 @@
-vim.api.nvim_set_option('background', 'dark')
+vim.opt.background = 'dark'
 
 vim.g.gruvbox_material_background = 'medium'
 vim.g.gruvbox_material_diagnostic_text_highlight = 1
