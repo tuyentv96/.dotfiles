@@ -1,9 +1,19 @@
 local pickers = require("telescope.pickers")
-local finders = require("telescope.finders")
-local previewers = require("telescope.previewers")
-local action_state = require("telescope.actions.state")
-local conf = require("telescope.config").values
 local actions = require("telescope.actions")
+
+-- Shorten function name
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').git_files()<CR>", opts)
+keymap("n", "<Leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>", opts)
+keymap("n", "<Leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
+keymap("n", "<Leader>fs", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ') })", opts)
+keymap("n", "<Leader>fs", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') })", opts)
+keymap("n", "<Leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
+keymap("n", "<Leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
+keymap("n", "<Leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
+keymap("n", "<Leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>", opts)
 
 require("telescope").setup({
     defaults = {
@@ -43,24 +53,3 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("fzy_native")
-
-local M = {}
-M.search_dotfiles = function()
-    require("telescope.builtin").find_files({
-        prompt_title = "< VimRC >",
-        cwd = vim.env.DOTFILES,
-        hidden = true,
-    })
-end
-
-M.git_branches = function()
-    require("telescope.builtin").git_branches({
-        attach_mappings = function(_, map)
-            map("i", "<c-d>", actions.git_delete_branch)
-            map("n", "<c-d>", actions.git_delete_branch)
-            return true
-        end,
-    })
-end
-
-return M 

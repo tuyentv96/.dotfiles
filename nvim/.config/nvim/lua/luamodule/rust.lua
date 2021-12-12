@@ -68,3 +68,8 @@ end
 local dap = require("dap")
 setup_rust_configuration(dap)
 
+vim.g.rustfmt_autosave = 1
+vim.g.rustfmt_emit_files = 1
+vim.g.rustfmt_fail_silently = 0
+vim.g.rust_clip_command = 'xclip -selection clipboard'
+

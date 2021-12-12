@@ -1,3 +1,51 @@
+-- Shorten function name
+local cmd = vim.cmd
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+keymap("n", "fgd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
+keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+keymap("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
+keymap("n", "gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
+keymap("n", "<leader>dw", "<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", opts)
+keymap("n", "<leader>dd", "<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", opts)
+keymap("n", "<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "<leader>ls", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", opts)
+keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+keymap("n", "<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>", opts)
+keymap("n", "<leader>[c", "<cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>", opts)
+keymap("n", "<leader>]c", "<cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>", opts)
+
+cmd([[augroup code]])
+
+cmd([[autocmd!]])
+cmd([[autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>]])
+cmd([[autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>]])
+cmd([[autocmd FileType rust nnoremap <leader>dl :RustDebuggables <CR>]])
+cmd([[autocmd FileType rust nnoremap <leader>tf :RustTest <CR>]])
+cmd([[autocmd FileType rust nnoremap <leader>ta :RustTest! <CR>]])
+
+cmd([[autocmd FileType go nnoremap <leader>cr :GoRun <CR>]])
+cmd([[autocmd FileType go nnoremap <leader>cb :GoBuild <CR>]])
+cmd([[autocmd FileType go nnoremap <leader>tf :GoTestFunc <CR>]])
+cmd([[autocmd FileType go nnoremap <leader>ta :GoTest <CR>]])
+
+cmd([[augroup end]])
+
+
+require "lsp_signature".setup({
+  hi_parameter = "LspSignatureActiveParameter",
+  doc_lines = 0,
+  handler_opts = {
+    border = "none",
+  },
+  max_height = 12, -- max height of signature floating_window, if content is more than max_height, you can scroll down
+  max_width = 80, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+  always_trigger = false,
+  hint_enable = false, -- virtual hint enable
+  -- floating_window = false,
+})
 
 local shared_diagnostic_settings = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -9,8 +57,8 @@ local shared_diagnostic_settings = vim.lsp.with(
 )
 
 local lsp_config = require("lspconfig")
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+local dap = require("dap")
 
 lsp_config.util.default_config = vim.tbl_extend("force", lsp_config.util.default_config, {
     handlers = {
@@ -19,6 +67,7 @@ lsp_config.util.default_config = vim.tbl_extend("force", lsp_config.util.default
     capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities),
 })
 
+-- Scala
 metals_config = require("metals").bare_config()
 metals_config.settings = {
     showImplicitArguments = true,
@@ -34,8 +83,6 @@ metals_config.settings = {
 metals_config.init_options.statusBarProvider = "on"
 metals_config.handlers["textDocument/publishDiagnostics"] = shared_diagnostic_settings
 metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
-local dap = require("dap")
 
 dap.configurations.scala = {
     {
@@ -73,19 +120,18 @@ metals_config.on_attach = function(client, bufnr)
     require("metals").setup_dap()
 end
 
-require "lsp_signature".setup({
-    hi_parameter = "LspSignatureActiveParameter",
-    doc_lines = 0,
-    handler_opts = {
-      border = "none",
-    },
-    max_height = 12, -- max height of signature floating_window, if content is more than max_height, you can scroll down
-    max_width = 80, -- max_width of signature floating_window, line will be wrapped if exceed max_width
-    always_trigger = false,
-    hint_enable = false, -- virtual hint enable
-    -- floating_window = false,
-})
+cmd([[augroup lsp]])
+cmd([[autocmd!]])
+cmd([[autocmd FileType scala setlocal omnifunc=v:lua.vim.lsp.omnifunc]])
+cmd([[autocmd FileType scala,sbt lua require("metals").initialize_or_attach(metals_config)]])
+cmd([[augroup end]])
 
+-- Need for symbol highlights to work correctly
+vim.cmd([[hi! link LspReferenceText CursorColumn]])
+vim.cmd([[hi! link LspReferenceRead CursorColumn]])
+vim.cmd([[hi! link LspReferenceWrite CursorColumn]])
+
+-- Rust
 lsp_config.rust_analyzer.setup({
     on_attach = on_attach,
     flags = {
@@ -100,8 +146,10 @@ lsp_config.rust_analyzer.setup({
     },
 })
   
+-- Python
 lsp_config.pyright.setup({})
 
+-- Golang
 lsp_config.gopls.setup({
     cmd = { "gopls"},
     settings = {
