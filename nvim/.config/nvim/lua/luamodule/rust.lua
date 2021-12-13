@@ -1,5 +1,5 @@
-
-local extension_path = '/Users/tuyen/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
+require("luamodule.utils")
+local extension_path = HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/bin/lldb'
 
