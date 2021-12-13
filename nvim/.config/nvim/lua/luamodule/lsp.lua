@@ -1,26 +1,21 @@
-USER = vim.fn.expand('$USER')
-local sumneko_root_path = "/Users/" .. USER .. "/.vscode/extensions/sumneko.lua-2.5.3/server"
+require("luamodule.utils")
+
+local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.3/server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 
-
--- Shorten function name
-local cmd = vim.cmd
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
-keymap("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
-keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-keymap("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
-keymap("n", "gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
-keymap("n", "<leader>dw", "<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", opts)
-keymap("n", "<leader>dd", "<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", opts)
-keymap("n", "<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-keymap("n", "<leader>ls", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", opts)
-keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-keymap("n", "<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>", opts)
-keymap("n", "<leader>[c", "<cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>", opts)
-keymap("n", "<leader>]c", "<cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>", opts)
+nmap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
+nmap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+nmap("gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>")
+nmap("gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>")
+nmap("<leader>dw", "<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>")
+nmap("<leader>dd", "<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>")
+nmap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
+nmap("<leader>ls", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
+nmap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+nmap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+nmap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
+nmap("<leader>[c", "<cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>")
+nmap("<leader>]c", "<cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>")
 
 cmd([[
     augroup code
@@ -136,9 +131,9 @@ dap.configurations.scala = {
 }
 
 metals_config.on_attach = function(client, bufnr)
-    vim.cmd([[autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()]])
-    vim.cmd([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
-    vim.cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
+    cmd([[autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()]])
+    cmd([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
+    cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
 
     require("metals").setup_dap()
 end
@@ -152,9 +147,9 @@ cmd([[
 ]])
 
 -- Need for symbol highlights to work correctly
--- vim.cmd([[hi! link LspReferenceText CursorColumn]])
--- vim.cmd([[hi! link LspReferenceRead CursorColumn]])
--- vim.cmd([[hi! link LspReferenceWrite CursorColumn]])
+-- cmd([[hi! link LspReferenceText CursorColumn]])
+-- cmd([[hi! link LspReferenceRead CursorColumn]])
+-- cmd([[hi! link LspReferenceWrite CursorColumn]])
 
 -- Rust
 lsp_config.rust_analyzer.setup({

@@ -1,18 +1,17 @@
 -- require('dap-go').setup()
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
 
-keymap("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()", opts)
-keymap("n", "F5", ":lua require'dap'.continue()", opts)
-keymap("n", "F6", ":lua require'dap'.terminate()", opts)
-keymap("n", "F7", ":lua require'dap'.step_over()", opts)
-keymap("n", "F8", ":lua require'dap'.step_into()", opts)
-keymap("n", "F9", ":lua require'dap'.continue()", opts)
-keymap("n", "F10", ":lua require'dap'.step_out()", opts)
-keymap("n", "<leader>du", ":lua require('dapui').toggle()", opts)
-keymap("n", "<leader>dh", ":lua require('dapui').eval()", opts)
-keymap("n", "<leader>dv", ":lua require('dapui').float_element(scopes,{enter = true})<CR>", opts)
+require("luamodule.utils")
+
+nmap("<leader>db", ":lua require'dap'.toggle_breakpoint()")
+nmap("F5", ":lua require'dap'.continue()")
+nmap("F6", ":lua require'dap'.terminate()")
+nmap("F7", ":lua require'dap'.step_over()")
+nmap("F8", ":lua require'dap'.step_into()")
+nmap("F9", ":lua require'dap'.continue()")
+nmap("F10", ":lua require'dap'.step_out()")
+nmap("<leader>du", ":lua require('dapui').toggle()")
+nmap("<leader>dh", ":lua require('dapui').eval()")
+nmap("<leader>dv", ":lua require('dapui').float_element(scopes,{enter = true})<CR>")
 
 require("dapui").setup({
   icons = { expanded = "▾", collapsed = "▸" },
