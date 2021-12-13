@@ -1,4 +1,4 @@
-require("luamodule.utils")
+require("core.utils")
 
 --Remap space as leader key
 nmap("<Space>", "<Nop>")
@@ -17,8 +17,8 @@ nmap("<leader>s", ":w<CR>")
 nmap("<leader>q", ":q<CR>")
 
 -- Left and right can switch buffers
-nmap("<left>", ":bp<CR>")
-nmap("<right>", ":bn<CR>")
+nmap("m", ":bp<CR>")
+nmap(",", ":bn<CR>")
 
 -- Open new file adjacent to current file
 nmap("<leader>o", ':e <C-R>=expand("%:p:h") . "/" <CR>')

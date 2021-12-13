@@ -1,5 +1,5 @@
 local actions = require("telescope.actions")
-require("luamodule.utils")
+require("core.utils")
 
 nmap("<C-p>", "<cmd>lua require('telescope.builtin').git_files()<CR>")
 nmap("<Leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")

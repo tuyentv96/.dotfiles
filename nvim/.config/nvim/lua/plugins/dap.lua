@@ -1,6 +1,6 @@
 -- require('dap-go').setup()
 
-require("luamodule.utils")
+require("core.utils")
 
 nmap("<leader>db", ":lua require'dap'.toggle_breakpoint()")
 nmap("F5", ":lua require'dap'.continue()")

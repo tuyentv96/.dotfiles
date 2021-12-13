@@ -3,19 +3,29 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-
-  use 'dstein64/vim-startuptime'
-  use 'EdenEast/nightfox.nvim'
-  use 'machakann/vim-highlightedyank'
+  use "nvim-lua/plenary.nvim"
+  use {
+    "NvChad/nvim-base16.lua",
+    -- after = "packer.nvim",
+    -- config = function()
+    --    require("colors").init()
+    -- end,
+  }
+  use "kyazdani42/nvim-web-devicons"
   use 'sainnhe/gruvbox-material'
+  use 'machakann/vim-highlightedyank'
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
+  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim','nvim-telescope/telescope-fzy-native.nvim'} }
+    requires = { 
+        {'nvim-lua/plenary.nvim'},
+        {'nvim-telescope/telescope-fzy-native.nvim'}, 
+    }
   }
   use 'phaazon/hop.nvim'
 
@@ -25,9 +35,7 @@ return require('packer').startup(function(use)
 
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons',
-    }
+    after = 'nvim-web-devicons'
   }
 
   use {

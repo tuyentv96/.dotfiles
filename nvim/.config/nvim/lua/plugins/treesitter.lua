@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup({
-  playground = { enable = true },
+  playground = { enable = false },
   query_linter = {
     enable = true,
     use_virtual_text = true,
@@ -9,5 +9,6 @@ require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
     disable = { },
+    additional_vim_regex_highlighting = false,
   },
 })

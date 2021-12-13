@@ -1,5 +1,5 @@
 
-require("luamodule.utils")
+require("core.utils")
 require'hop'.setup()
 
 nmap("s", "<cmd>lua require'hop'.hint_char2({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, inclusive_jump = false })<cr>")

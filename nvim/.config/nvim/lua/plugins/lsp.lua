@@ -1,4 +1,4 @@
-require("luamodule.utils")
+require("core.utils")
 
 local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.3/server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"

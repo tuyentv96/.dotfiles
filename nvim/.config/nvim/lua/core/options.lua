@@ -1,3 +1,5 @@
+require("core.utils")
+
 local options = {
     foldenable = false,
     ttyfast = true,
@@ -32,6 +34,7 @@ local options = {
     termguicolors = true, 
     timeoutlen = 1000,
     undofile = true,
+    undodir = HOME.."/.vim/undodir",
     updatetime = 300, 
     
     writebackup = false, 
@@ -49,7 +52,35 @@ local options = {
   }
   
 vim.opt.shortmess:remove("F"):append("c")
+vim.cmd("syntax on")
 
 for k, v in pairs(options) do
     vim.opt[k] = v
+end
+
+
+-- disable some builtin vim plugins
+local disabled_built_ins = {
+   "2html_plugin",
+   "getscript",
+   "getscriptPlugin",
+   "gzip",
+   "logipat",
+   "netrw",
+   "netrwPlugin",
+   "netrwSettings",
+   "netrwFileHandlers",
+   "matchit",
+   "tar",
+   "tarPlugin",
+   "rrhelper",
+   "spellfile_plugin",
+   "vimball",
+   "vimballPlugin",
+   "zip",
+   "zipPlugin",
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+   vim.g["loaded_" .. plugin] = 1
 end

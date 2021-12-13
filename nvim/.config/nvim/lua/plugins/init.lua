@@ -1,0 +1,13 @@
+require('plugins.lualine')
+require('plugins.hop')
+require('plugins.git')
+require("plugins.telescope")
+require("plugins.lsp")
+require("plugins.nvimcmp")
+require("plugins.treesitter")
+require("plugins.nvimtree")
+require("plugins.dap")
+require("plugins.rust")
+require("plugins.go")
+require("plugins.bufferline")
+
