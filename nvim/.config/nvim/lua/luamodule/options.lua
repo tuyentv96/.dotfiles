@@ -48,7 +48,7 @@ local options = {
     sidescrolloff = 8,
   }
   
-vim.opt_global.shortmess:remove("F"):append("c")
+vim.opt.shortmess:remove("F"):append("c")
 
 for k, v in pairs(options) do
     vim.opt[k] = v

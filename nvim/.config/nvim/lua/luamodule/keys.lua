@@ -1,7 +1,7 @@
 require("luamodule.utils")
 
 --Remap space as leader key
-nmap('<Space>', '<Nop>')
+nmap("<Space>", "<Nop>")
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -17,8 +17,8 @@ nmap("<leader>s", ":w<CR>")
 nmap("<leader>q", ":q<CR>")
 
 -- Left and right can switch buffers
-nmap("left", ":bp<CR>")
-nmap("right", ":bn<CR>")
+nmap("<left>", ":bp<CR>")
+nmap("<right>", ":bn<CR>")
 
 -- Open new file adjacent to current file
 nmap("<leader>o", ':e <C-R>=expand("%:p:h") . "/" <CR>')

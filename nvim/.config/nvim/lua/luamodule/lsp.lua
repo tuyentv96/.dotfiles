@@ -179,7 +179,7 @@ lsp_config.gopls.setup({
 })
 
 -- lua
-require'lspconfig'.sumneko_lua.setup {
+lsp_config.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
   settings = {
       Lua = {
