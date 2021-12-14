@@ -33,18 +33,6 @@ local function setup_rust_configuration(dap)
             program = function()
               return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
             end,
-            cargo= {
-                args= {
-                    "build",
-                    "--bin=rust-hello",
-                    "--package=rust-hello"
-                },
-                filter= {
-                    name= "rust-hello",
-                    kind= "bin"
-                }
-            },
-
             cwd = '${workspaceFolder}',
             stopOnEntry = false,
             args = {},

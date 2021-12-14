@@ -1,23 +1,17 @@
 vim.api.nvim_set_option('shell', '/bin/bash')
 
-require('core.plugins')
--- require('colors').init()
-require('core.options')
-require('core.mappings')
-require('core.theme')
-require('plugins')
+local core_modules = {
+   "core.plugins",
+   "core.options",
+   "core.mappings",
+   "core.themes",
+   "plugins"
+}
 
-P = function(v)
-  print(vim.inspect(v))
-  return v
-end
-
-if pcall(require, 'plenary') then
-  RELOAD = require('plenary.reload').reload_module
-
-  R = function(name)
-    RELOAD(name)
-    return require(name)
-  end
+for _, module in ipairs(core_modules) do
+   local ok, err = pcall(require, module)
+   if not ok then
+      error("Error loading " .. module .. "\n\n" .. err)
+   end
 end
 

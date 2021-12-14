@@ -1,7 +1,5 @@
 local cmd = vim.cmd
 local g = vim.g
-local tree = require('nvim-tree')
-
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
 -- default mappings
