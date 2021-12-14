@@ -1,5 +1,9 @@
 vim.cmd [[packadd packer.nvim]]
 
+function get_config(name)
+    return string.format("require(\"plugins/%s\")", name)
+end
+
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use "nvim-lua/plenary.nvim"
@@ -13,7 +17,9 @@ return require('packer').startup(function(use)
   use 'machakann/vim-highlightedyank'
   use {
     'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    event = "VimEnter",
+    config = get_config("lualine")
   }
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   use {
@@ -29,11 +35,18 @@ return require('packer').startup(function(use)
     requires = { 
         {'nvim-lua/plenary.nvim'},
         {'nvim-telescope/telescope-fzy-native.nvim'}, 
-    }
+    },
+    config = get_config("telescope")
   }
-  use 'phaazon/hop.nvim'
+  use {
+    'phaazon/hop.nvim',
+    config = get_config("hop")
+  }
 
-  use 'tpope/vim-fugitive'
+  use {
+    'tpope/vim-fugitive',
+    config = get_config('git')
+  }
   use 'junegunn/gv.vim'
   use 'tpope/vim-rhubarb'
 
@@ -42,13 +55,14 @@ return require('packer').startup(function(use)
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
+    config = get_config("nvimtree")
   }
 
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     event = "BufRead",
-    config = "plugins.treesitter"
+    config = get_config("treesitter")
   }
   use 'Yggdroot/indentLine'
   use 'cespare/vim-toml'
