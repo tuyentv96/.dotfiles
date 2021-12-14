@@ -20,12 +20,12 @@ return require('packer').startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-  use {
-    'norcalli/nvim-colorizer.lua',
-    setup = function()
-            require'colorizer'.setup()
-    end,
-  }
+  -- use {
+  --   'norcalli/nvim-colorizer.lua',
+  --   setup = function()
+  --           require'colorizer'.setup()
+  --   end,
+  -- }
 
   use {
     'nvim-telescope/telescope.nvim',
