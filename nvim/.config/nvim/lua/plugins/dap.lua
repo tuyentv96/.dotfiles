@@ -1,58 +1,17 @@
--- require('dap-go').setup()
+local dap = require("dap")
 
 require("core.utils")
 
-nmap("<leader>db", ":lua require'dap'.toggle_breakpoint()")
-nmap("F5", ":lua require'dap'.continue()")
-nmap("F6", ":lua require'dap'.terminate()")
-nmap("F7", ":lua require'dap'.step_over()")
-nmap("F8", ":lua require'dap'.step_into()")
-nmap("F9", ":lua require'dap'.continue()")
-nmap("F10", ":lua require'dap'.step_out()")
-nmap("<leader>du", ":lua require('dapui').toggle()")
-nmap("<leader>dh", ":lua require('dapui').eval()")
+nmap("<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>")
+nmap("<leader>dc", ":lua require'dap'.continue()<CR>")
+nmap("F6", ":lua require'dap'.terminate()<CR>")
+nmap("F7", ":lua require'dap'.step_over()<CR>")
+nmap("F8", ":lua require'dap'.step_into()<CR>")
+nmap("F9", ":lua require'dap'.continue()<CR>")
+nmap("F10", ":lua require'dap'.step_out()<CR>")
+nmap("<leader>du", ":lua require('dapui').toggle()<CR>")
+nmap("<leader>dh", ":lua require('dapui').eval()<CR>")
 nmap("<leader>dv", ":lua require('dapui').float_element(scopes,{enter = true})<CR>")
-
-require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸" },
-  mappings = {
-    -- Use a table to apply multiple mappings
-    expand = { "<CR>", "<2-LeftMouse>" },
-    open = "o",
-    remove = "d",
-    edit = "e",
-    repl = "r",
-  },
-  sidebar = {
-    -- You can change the order of elements in the sidebar
-    elements = {
-      -- Provide as ID strings or tables with "id" and "size" keys
-      { id = "breakpoints", size = 0.15 },
-      { id = "stacks", size = 0.25 },
-      { id = "watches", size = 0.20 },
-      { id = "scopes", size = 0.40 },
-    },
-    size = 40,
-    position = "left", -- Can be "left", "right", "top", "bottom"
-  },
-  tray = {
-    elements = { "repl" },
-    size = 10,
-    position = "bottom", -- Can be "left", "right", "top", "bottom"
-  },
-  floating = {
-    max_height = 0.5, -- These can be integers or a float between 0 and 1.
-    max_width = 0.5, -- Floats will be treated as percentage of your screen.
-    border = "rounded", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = { "q", "<Esc>" },
-    },
-  },
-  windows = { indent = 1 },
-})
-
-
-local dap = require("dap")
 
 dap.adapters.go = function(callback, config)
     local stdout = vim.loop.new_pipe(false)
@@ -88,7 +47,7 @@ dap.adapters.go = function(callback, config)
       200)
   end
   -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
-  dap.configurations.go = {
+dap.configurations.go = {
     {
       type = "go",
       name = "Debug",
@@ -110,5 +69,60 @@ dap.adapters.go = function(callback, config)
       mode = "test",
       program = "./${relativeFileDirname}"
     } 
+}
+
+
+dap.configurations.scala = {
+    {
+      type = "scala",
+      request = "launch",
+      name = "Run",
+      metals = {
+        runType = "run",
+        args = {},
+      },
+    },
+    {
+      type = "scala",
+      request = "launch",
+      name = "Test File",
+      metals = {
+        runType = "testFile",
+      },
+    },
+    {
+      type = "scala",
+      request = "launch",
+      name = "Test Target",
+      metals = {
+        runType = "testTarget",
+      },
+    },
+}
+
+dap.configurations.rust = {
+    {
+        name = "Launch",
+        type = "rt_lldb",
+        request = "launch",
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        args = {},
+
+        -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+        --
+        --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+        --
+        -- Otherwise you might get the following error:
+        --
+        --    Error on launch: Failed to attach to the target process
+        --
+        -- But you should be aware of the implications:
+        -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+        runInTerminal = false,
+    },
 }
 

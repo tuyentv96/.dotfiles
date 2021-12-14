@@ -8,7 +8,7 @@ nmap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 nmap("gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>")
 nmap("gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>")
 nmap("<leader>dw", "<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>")
-nmap("<leader>dd", "<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<CR>")
+nmap("<leader>dd", ":Telescope diagnostics <CR>")
 nmap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
 nmap("<leader>ls", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
 nmap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
@@ -35,18 +35,6 @@ cmd([[
     augroup end
 ]])
 
-require "lsp_signature".setup({
-  hi_parameter = "LspSignatureActiveParameter",
-  doc_lines = 0,
-  handler_opts = {
-    border = "none",
-  },
-  max_height = 12, -- max height of signature floating_window, if content is more than max_height, you can scroll down
-  max_width = 80, -- max_width of signature floating_window, line will be wrapped if exceed max_width
-  always_trigger = false,
-  hint_enable = false, -- virtual hint enable
-  floating_window = true,
-})
 
 local shared_diagnostic_settings = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -74,7 +62,6 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local pop_opts = { border = border_style }
 local lsp_config = require("lspconfig")
-local dap = require("dap")
 
 lsp_config.util.default_config = vim.tbl_extend("force", lsp_config.util.default_config, {
     handlers = {
@@ -102,33 +89,6 @@ metals_config.init_options.statusBarProvider = "on"
 metals_config.handlers["textDocument/publishDiagnostics"] = shared_diagnostic_settings
 metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-dap.configurations.scala = {
-    {
-      type = "scala",
-      request = "launch",
-      name = "Run",
-      metals = {
-        runType = "run",
-        args = { "firstArg", "secondArg", "thirdArg" },
-      },
-    },
-    {
-      type = "scala",
-      request = "launch",
-      name = "Test File",
-      metals = {
-        runType = "testFile",
-      },
-    },
-    {
-      type = "scala",
-      request = "launch",
-      name = "Test Target",
-      metals = {
-        runType = "testTarget",
-      },
-    },
-}
 
 metals_config.on_attach = function(client, bufnr)
     cmd([[autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()]])

@@ -85,13 +85,21 @@ return require('packer').startup(function(use)
   }
   use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
   use 'rust-lang/rust.vim'
-  use 'simrat39/rust-tools.nvim'
+  use {
+    'simrat39/rust-tools.nvim',
+    config = get_config('rust')
+  }
 
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/lsp_extensions.nvim'
-  use 'mfussenegger/nvim-dap'
-  use 'leoluz/nvim-dap-go'
-  use 'rcarriga/nvim-dap-ui'
+  use {
+    'mfussenegger/nvim-dap',
+    config = get_config('dap')
+  }
+  use {
+    'rcarriga/nvim-dap-ui',
+    config = get_config('dapui')
+  }
 
   use {
     'hrsh7th/nvim-cmp',
@@ -107,6 +115,15 @@ return require('packer').startup(function(use)
   }
 
   use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
-  use 'ray-x/lsp_signature.nvim'
+  use {
+    'ray-x/lsp_signature.nvim',
+    config = get_config('lspsignature')
+  }
+
+  use {
+    "akinsho/nvim-toggleterm.lua",
+    config = get_config("toggleterm")
+  }
+
 end)
 

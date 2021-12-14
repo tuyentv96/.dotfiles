@@ -4,8 +4,8 @@
 -- require("plugins.telescope")
 require("plugins.lsp")
 require("plugins.nvimcmp")
-require("plugins.dap")
-require("plugins.rust")
+-- require("plugins.dap")
+-- require("plugins.rust")
 -- require("plugins.go")
 -- require("plugins.bufferline")
 
