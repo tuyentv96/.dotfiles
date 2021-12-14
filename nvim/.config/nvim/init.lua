@@ -1,7 +1,7 @@
 vim.api.nvim_set_option('shell', '/bin/bash')
 
 require('core.plugins')
-require('colors')
+-- require('colors').init()
 require('core.options')
 require('core.mappings')
 require('core.theme')

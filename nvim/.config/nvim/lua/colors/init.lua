@@ -1,6 +1,6 @@
 local M = {}
 
-local theme = "gruvbox"
+local theme = "everforest"
 M.init = function()
    local present, base16 = pcall(require, "base16")
 
@@ -52,7 +52,6 @@ local colors = {
 -- returns a table of colors for givem or current theme
 M.get = function()
     return colors
-   -- return require("hl_themes." .. theme)
 end
 
 return M

@@ -4,13 +4,14 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use "nvim-lua/plenary.nvim"
-  use {
-    "NvChad/nvim-base16.lua",
-    -- after = "packer.nvim",
-    -- config = function()
-    --    require("colors").init()
-    -- end,
-  }
+  use 'dstein64/vim-startuptime'
+  -- use {
+  --   "NvChad/nvim-base16.lua",
+  --   after = "packer.nvim",
+  --   config = function()
+  --      require("colors").init()
+  --   end,
+  -- }
   use "kyazdani42/nvim-web-devicons"
   use 'sainnhe/gruvbox-material'
   use 'machakann/vim-highlightedyank'
@@ -19,6 +20,12 @@ return require('packer').startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {
+    'norcalli/nvim-colorizer.lua',
+    setup = function()
+            require'colorizer'.setup()
+    end,
+  }
 
   use {
     'nvim-telescope/telescope.nvim',
