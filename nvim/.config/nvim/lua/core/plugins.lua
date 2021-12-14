@@ -21,7 +21,11 @@ return require('packer').startup(function(use)
     event = "VimEnter",
     config = get_config("lualine")
   }
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = get_config('bufferline')
+  }
   use {
     'norcalli/nvim-colorizer.lua',
     event = "BufRead",
@@ -77,6 +81,7 @@ return require('packer').startup(function(use)
   use {
     "fatih/vim-go",
     run = ":GoUpdateBinaries'",
+    config = get_config('go')
   }
   use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
   use 'rust-lang/rust.vim'

@@ -6,6 +6,6 @@ require("plugins.lsp")
 require("plugins.nvimcmp")
 require("plugins.dap")
 require("plugins.rust")
-require("plugins.go")
-require("plugins.bufferline")
+-- require("plugins.go")
+-- require("plugins.bufferline")
 
