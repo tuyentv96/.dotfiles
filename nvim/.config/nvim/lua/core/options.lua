@@ -53,6 +53,7 @@ local options = {
   
 vim.opt.shortmess:remove("F"):append("c")
 vim.cmd("syntax on")
+vim.cmd("let $LANG='en_US.UTF-8'")
 
 for k, v in pairs(options) do
     vim.opt[k] = v
