@@ -42,7 +42,10 @@ return require('packer').startup(function(use)
 
   use {
     'kyazdani42/nvim-tree.lua',
-    after = 'nvim-web-devicons'
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
   }
 
   use {
