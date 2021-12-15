@@ -18,6 +18,7 @@ local options = {
     -- r - auto-insert comment leading after <CR> in insert mode
     -- o - auto-insert comment leading after O in normal mode
     formatoptions = 'tcro',
+    linebreak = true,
     cmdheight = 1,
     completeopt = { "menuone", "noselect", "noinsert" }, 
     fileencoding = "utf-8", 
@@ -47,7 +48,6 @@ local options = {
     softtabstop = 4,
 
     signcolumn = "yes", 
-    wrap = false,
     sidescrolloff = 8,
   }
   

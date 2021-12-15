@@ -23,7 +23,6 @@ cmd([[
 
     autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>
     autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>
-    autocmd FileType rust nnoremap <leader>dl :RustDebuggables <CR>]
     autocmd FileType rust nnoremap <leader>tf :RustTest <CR>
     autocmd FileType rust nnoremap <leader>ta :RustTest! <CR>]
 
