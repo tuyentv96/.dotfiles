@@ -32,6 +32,9 @@ function xnoremap(shortcut, command)
   noremap('t', shortcut, command)
 end
 
+function onoremap(shortcut, command)
+  noremap('o', shortcut, command)
+end
 
 function nmap(shortcut, command)
   map('n', shortcut, command)

@@ -1,10 +1,15 @@
+local present, dapui = pcall(require, "dapui")
+if not present then
+   return
+end
+
 require("core.utils")
 
 nnoremap("<leader>du", ":lua require('dapui').toggle()<CR>")
 nnoremap("<leader>dh", ":lua require('dapui').eval()<CR>")
 nnoremap("<leader>dv", ":lua require('dapui').float_element('scopes',{enter = true})<CR>")
 
-require("dapui").setup({
+dapui.setup({
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
     -- Use a table to apply multiple mappings

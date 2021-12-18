@@ -1,3 +1,8 @@
+local present, rusttools = pcall(require, "rust-tools")
+if not present then
+   return
+end
+
 require("core.utils")
 local extension_path = HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
@@ -22,7 +27,7 @@ local opts = {
     }
 }
 
-require('rust-tools').setup(opts)
+rusttools.setup(opts)
 
 
 vim.g.rustfmt_autosave = 1

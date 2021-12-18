@@ -1,9 +1,9 @@
-local colors = require("colors").get()
-
 local present, bufferline = pcall(require, "bufferline")
 if not present then
    return
 end
+
+local colors = require("colors").get()
 
 bufferline.setup {
     options = {

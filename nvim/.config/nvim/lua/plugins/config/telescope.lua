@@ -1,3 +1,8 @@
+local present, telescope = pcall(require, "telescope")
+if not present then
+   return
+end
+
 local actions = require("telescope.actions")
 require("core.utils")
 
@@ -10,7 +15,7 @@ nnoremap("<Leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 nnoremap("<Leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
 nnoremap("<Leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>")
 
-require("telescope").setup({
+telescope.setup({
     defaults = {
         file_sorter = require("telescope.sorters").get_fzy_sorter,
         prompt_prefix = " >",

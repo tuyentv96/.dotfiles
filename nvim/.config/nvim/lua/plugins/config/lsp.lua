@@ -1,3 +1,8 @@
+local present, lsp_config = pcall(require, "lspconfig")
+if not present then
+   return
+end
+
 require("core.utils")
 
 local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.3/server"

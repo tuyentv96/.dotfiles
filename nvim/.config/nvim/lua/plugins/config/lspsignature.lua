@@ -1,4 +1,9 @@
-require "lsp_signature".setup({
+local present, lsp_signature = pcall(require, "lsp_signature")
+if not present then
+   return
+end
+
+lsp_signature.setup({
   hi_parameter = "LspSignatureActiveParameter",
   doc_lines = 0,
   handler_opts = {

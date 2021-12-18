@@ -1,3 +1,9 @@
+local present, nvimtree = pcall(require, "nvim-tree")
+if not present then
+   return
+end
+
+
 local cmd = vim.cmd
 local g = vim.g
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
@@ -84,7 +90,7 @@ vim.g.nvim_tree_icons = {
 }
 
 
-require'nvim-tree'.setup {
+nvimtree.setup {
   disable_netrw       = false,
   hijack_netrw        = true,
   open_on_setup       = false,

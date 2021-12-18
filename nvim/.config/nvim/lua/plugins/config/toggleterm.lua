@@ -1,4 +1,9 @@
-require("toggleterm").setup{
+local present, toggleterm = pcall(require, "toggleterm")
+if not present then
+   return
+end
+
+toggleterm.setup{
   -- size can be a number or function which is passed the current terminal
   size = 20,
   open_mapping = [[<c-y>]],

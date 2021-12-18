@@ -1,11 +1,10 @@
 vim.api.nvim_set_option('shell', '/bin/bash')
 
 local core_modules = {
-   "core.plugins",
+   "plugins",
    "core.options",
    "core.mappings",
    "core.themes",
-   "plugins",
 }
 
 for _, module in ipairs(core_modules) do
