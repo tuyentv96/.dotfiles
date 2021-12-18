@@ -1,67 +1,77 @@
 require("core.utils")
 
 --Remap space as leader key
-nmap("<Space>", "<Nop>")
+nnoremap("<Space>", "<Nop>")
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- No arrow keys --- force yourself to use the home row
-nmap("<up>", "<nop>")
-nmap("<down>", "<nop>")
-nmap("<left>", "<nop>")
-nmap("<right>", "<nop>")
+nnoremap("<up>", "<nop>")
+nnoremap("<down>", "<nop>")
+nnoremap("<left>", "<nop>")
+nnoremap("<right>", "<nop>")
 
 -- Quick-save
-nmap("<leader>s", ":w<CR>")
-nmap("<leader>q", ":q<CR>")
+nnoremap("<leader>s", ":w<CR>")
+nnoremap("<leader>q", ":q<CR>")
 
 -- Left and right can switch buffers
-nmap("m", ":bp<CR>")
-nmap(",", ":bn<CR>")
+nnoremap("m", ":bp<CR>")
+nnoremap(",", ":bn<CR>")
 
 -- Open new file adjacent to current file
-nmap("<leader>o", ':e <C-R>=expand("%:p:h") . "/" <CR>')
+nnoremap("<leader>o", ':e <C-R>=expand("%:p:h") . "/" <CR>')
 
-nmap("<C-d>", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+nnoremap("<C-d>", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
 -- Move selected lines
-vmap("J", ":m '>+1<CR>gv=gv")
-vmap("K", ":m '<-2<CR>gv=gv")
+vnoremap("J", ":m '>+1<CR>gv=gv")
+vnoremap("K", ":m '<-2<CR>gv=gv")
 
 -- paste from clipboard
-xmap("<leader>p", '"_dP')
+xnoremap("<leader>p", '"_dP')
 
 -- Copy to clipboard
-nmap("<leader>y", '"+y')
-vmap("<leader>y", '"+y')
-nmap("<leader>Y", 'gg"+yG')
+nnoremap("<leader>y", '"+y')
+vnoremap("<leader>y", '"+y')
+nnoremap("<leader>Y", 'gg"+yG')
 
 -- cut to clipboard
-nmap("<leader>d", '"_d')
-vmap("<leader>d", '"_d')
+nnoremap("<leader>d", '"_d')
+vnoremap("<leader>d", '"_d')
 
 -- clear highlight
-nmap("<leader>h", ":noh<CR>")
+nnoremap("<leader>h", ":noh<CR>")
 
 -- move between windows
-nmap("<C-h>", "<C-w>h")
-nmap("<C-j>", "<C-w>j")
-nmap("<C-k>", "<C-w>k")
-nmap("<C-l>", "<C-w>l")
+nnoremap("<C-h>", "<C-w>h")
+nnoremap("<C-j>", "<C-w>j")
+nnoremap("<C-k>", "<C-w>k")
+nnoremap("<C-l>", "<C-w>l")
 
-nmap("<leader>nt", ":NvimTreeToggle<cr>")
-nmap("<leader>wr", "<C-w>o :NvimTreeToggle<CR> <C-w>l")
+nnoremap("<leader>nt", ":NvimTreeToggle<cr>")
+nnoremap("<leader>wr", "<C-w>o :NvimTreeToggle<CR> <C-w>l")
 
 -- Resize with arrows
-nmap("<C-Up>", ":resize -2<CR>")
-nmap("<C-Down>", ":resize +2<CR>")
-nmap("<C-Left>", ":vertical resize -2<CR>")
-nmap("<C-Right>", ":vertical resize +2<CR>")
+nnoremap("<C-Up>", ":resize -2<CR>")
+nnoremap("<C-Down>", ":resize +2<CR>")
+nnoremap("<C-Left>", ":vertical resize -2<CR>")
+nnoremap("<C-Right>", ":vertical resize +2<CR>")
 
 
 -- provide hjkl movements in Insert mode via the <Alt> modifier key
-imap("<A-h>", "<C-o>h")
-imap("<A-j>", "<C-o>j")
-imap("<A-k>", "<C-o>k")
-imap("<A-l>", "<C-o>l")
+inoremap("<A-h>", "<C-o>h")
+inoremap("<A-j>", "<C-o>j")
+inoremap("<A-k>", "<C-o>k")
+inoremap("<A-l>", "<C-o>l")
+
+-- search center
+nnoremap("n","nzz")
+nnoremap("N","Nzz")
+nnoremap("*","*zz")
+nnoremap("#","#zz")
+nnoremap("g","* g*zz")
+
+nmap("H","^")
+nmap("L","$")

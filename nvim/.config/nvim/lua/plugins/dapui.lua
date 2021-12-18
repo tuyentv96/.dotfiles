@@ -1,8 +1,8 @@
 require("core.utils")
 
-nmap("<leader>du", ":lua require('dapui').toggle()<CR>")
-nmap("<leader>dh", ":lua require('dapui').eval()<CR>")
-nmap("<leader>dv", ":lua require('dapui').float_element('scopes',{enter = true})<CR>")
+nnoremap("<leader>du", ":lua require('dapui').toggle()<CR>")
+nnoremap("<leader>dh", ":lua require('dapui').eval()<CR>")
+nnoremap("<leader>dv", ":lua require('dapui').float_element('scopes',{enter = true})<CR>")
 
 require("dapui").setup({
   icons = { expanded = "▾", collapsed = "▸" },

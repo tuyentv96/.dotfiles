@@ -3,19 +3,19 @@ require("core.utils")
 local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.3/server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 
-nmap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
-nmap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-nmap("gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>")
-nmap("gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>")
-nmap("<leader>dw", "<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>")
-nmap("<leader>dd", ":Telescope diagnostics <CR>")
-nmap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
-nmap("<leader>ls", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
-nmap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-nmap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
-nmap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
-nmap("<leader>[c", "<cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>")
-nmap("<leader>]c", "<cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>")
+nnoremap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
+nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+nnoremap("gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>")
+nnoremap("gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>")
+nnoremap("<leader>dw", "<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>")
+nnoremap("<leader>dd", ":Telescope diagnostics <CR>")
+nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
+nnoremap("<leader>ls", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
+nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+nnoremap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
+nnoremap("<leader>[c", "<cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>")
+nnoremap("<leader>]c", "<cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>")
 
 cmd([[
     augroup code

@@ -1,14 +1,14 @@
 local actions = require("telescope.actions")
 require("core.utils")
 
-nmap("<C-p>", "<cmd>lua require('telescope.builtin').git_files()<CR>")
-nmap("<Leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
-nmap("<Leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
-nmap("<Leader>fs", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ') })<CR>")
-nmap("<Leader>fw", "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
-nmap("<Leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
-nmap("<Leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
-nmap("<Leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>")
+nnoremap("<C-p>", "<cmd>lua require('telescope.builtin').git_files()<CR>")
+nnoremap("<Leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
+nnoremap("<Leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
+nnoremap("<Leader>fs", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ') })<CR>")
+nnoremap("<Leader>fw", "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
+nnoremap("<Leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
+nnoremap("<Leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
+nnoremap("<Leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>")
 
 require("telescope").setup({
     defaults = {

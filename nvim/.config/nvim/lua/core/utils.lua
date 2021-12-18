@@ -1,8 +1,37 @@
 HOME =os.getenv("HOME")
 
-function map(mode, shortcut, command)
+function noremap(mode, shortcut, command)
   vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
 end
+
+function map(mode, shortcut, command)
+  vim.api.nvim_set_keymap(mode, shortcut, command, { silent = true })
+end
+
+function nnoremap(shortcut, command)
+  noremap('n', shortcut, command)
+end
+
+function inoremap(shortcut, command)
+  noremap('i', shortcut, command)
+end
+
+function vnoremap(shortcut, command)
+  noremap('v', shortcut, command)
+end
+
+function cnoremap(shortcut, command)
+  noremap('c', shortcut, command)
+end
+
+function tnoremap(shortcut, command)
+  noremap('t', shortcut, command)
+end
+
+function xnoremap(shortcut, command)
+  noremap('t', shortcut, command)
+end
+
 
 function nmap(shortcut, command)
   map('n', shortcut, command)

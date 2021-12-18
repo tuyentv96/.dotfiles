@@ -4,7 +4,7 @@ function get_config(name)
     return string.format("require(\"plugins/%s\")", name)
 end
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
   -- Packer can manage itself
   use "nvim-lua/plenary.nvim"
   use {
@@ -125,5 +125,11 @@ return require('packer').startup(function(use)
     config = get_config("toggleterm")
   }
 
-end)
+end,
+config = {
+  display = {
+    open_fn = require('packer.util').float,
+  }
+}}
+)
 
