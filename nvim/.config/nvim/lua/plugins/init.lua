@@ -33,6 +33,10 @@ return require('packer').startup({function(use)
             require'colorizer'.setup()
     end,
   }
+  use {
+    'christoomey/vim-tmux-navigator',
+    config = get_config('navigator')
+  }
 
   use {
     'nvim-telescope/telescope.nvim',

@@ -60,6 +60,10 @@ function xmap(shortcut, command)
   map('t', shortcut, command)
 end
 
+function omap(shortcut, command)
+  map('o', shortcut, command)
+end
+
 cmd = vim.cmd
 
 local M = {}

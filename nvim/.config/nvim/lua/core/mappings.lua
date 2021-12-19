@@ -44,20 +44,14 @@ vnoremap("<leader>d", '"_d')
 -- clear highlight
 nnoremap("<leader>h", ":noh<CR>")
 
--- move between windows
-nnoremap("<C-h>", "<C-w>h")
-nnoremap("<C-j>", "<C-w>j")
-nnoremap("<C-k>", "<C-w>k")
-nnoremap("<C-l>", "<C-w>l")
-
 nnoremap("<leader>nt", ":NvimTreeToggle<cr>")
 nnoremap("<leader>wr", "<C-w>o :NvimTreeToggle<CR> <C-w>l")
 
 -- Resize with arrows
-nnoremap("<C-Up>", ":resize -2<CR>")
-nnoremap("<C-Down>", ":resize +2<CR>")
-nnoremap("<C-Left>", ":vertical resize -2<CR>")
-nnoremap("<C-Right>", ":vertical resize +2<CR>")
+nnoremap("<A-k>", ":resize -5<CR>")
+nnoremap("<A-j>", ":resize +5<CR>")
+nnoremap("<A-l>", ":vertical resize -5<CR>")
+nnoremap("<A-h>", ":vertical resize +5<CR>")
 
 
 -- provide hjkl movements in Insert mode via the <Alt> modifier key
@@ -71,7 +65,11 @@ nnoremap("n","nzz")
 nnoremap("N","Nzz")
 nnoremap("*","*zz")
 nnoremap("#","#zz")
-nnoremap("g","* g*zz")
 
 nmap("H","^")
+vmap("H","^")
+omap("H","^")
+
 nmap("L","$")
+vmap("L","$")
+omap("L","$")
