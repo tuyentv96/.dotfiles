@@ -132,6 +132,10 @@ colors: *gruvbox_material_medium_dark
 # draw_bold_text_with_bright_colors: false
 
 key_bindings:
+  - { key: Y,        mods: Alt,     chars: "\x1by"                       }
+  - { key: U,        mods: Alt,     chars: "\x1bu"                       }
+  - { key: I,        mods: Alt,     chars: "\x1bi"                       }
+  - { key: O,        mods: Alt,     chars: "\x1bo"                       }
   - { key: J,        mods: Alt,     chars: "\x1bj"                       }
   - { key: K,        mods: Alt,     chars: "\x1bk"                       }
   - { key: H,        mods: Alt,     chars: "\x1bh"                       }
