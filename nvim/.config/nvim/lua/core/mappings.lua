@@ -48,10 +48,10 @@ nnoremap("<leader>nt", ":NvimTreeToggle<cr>")
 nnoremap("<leader>wr", "<C-w>o :NvimTreeToggle<CR> <C-w>l")
 
 -- Resize with arrows
-nnoremap("<A-k>", ":resize -5<CR>")
-nnoremap("<A-j>", ":resize +5<CR>")
-nnoremap("<A-l>", ":vertical resize -5<CR>")
-nnoremap("<A-h>", ":vertical resize +5<CR>")
+-- nnoremap("<A-k>", ":resize -5<CR>")
+-- nnoremap("<A-j>", ":resize +5<CR>")
+-- nnoremap("<A-l>", ":vertical resize -5<CR>")
+-- nnoremap("<A-h>", ":vertical resize +5<CR>")
 
 
 -- provide hjkl movements in Insert mode via the <Alt> modifier key
