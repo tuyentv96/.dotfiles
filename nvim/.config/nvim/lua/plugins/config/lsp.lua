@@ -18,8 +18,7 @@ nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>ls", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
 nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
-nnoremap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
-nnoremap("<leader>[c", "<cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>")
+nnoremap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>") nnoremap("<leader>[c", "<cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>]c", "<cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>")
 
 cmd([[
@@ -62,18 +61,26 @@ local border_style = {
 
 -- snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+	-- send actions with hover request
+capabilities.experimental = {
+    hoverActions = true,
+    hoverRange = true,
+    serverStatusNotification = true,
+    snippetTextEdit = true,
+    codeActionGroup = true,
+    ssr = true,
+}
 
 local pop_opts = { border = border_style }
-local lsp_config = require("lspconfig")
 
-lsp_config.util.default_config = vim.tbl_extend("force", lsp_config.util.default_config, {
+lsp_config.util.default_config = vim.tbl_deep_extend("force", lsp_config.util.default_config, {
     handlers = {
         ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts),
         ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts),
         ["textDocument/publishDiagnostics"] = shared_diagnostic_settings,
     },
-    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities),
+    capabilities = capabilities,
 })
 
 -- Scala
@@ -116,19 +123,19 @@ cmd([[
 -- cmd([[hi! link LspReferenceWrite CursorColumn]])
 
 -- Rust
-lsp_config.rust_analyzer.setup({
-    on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150,
-    },
-    settings = {
-        ["rust-analyzer"] = {
-          cargo = {
-            allFeatures = true,
-          },
-        },
-    },
-})
+-- lsp_config.rust_analyzer.setup({
+--     on_attach = on_attach,
+--     flags = {
+--         debounce_text_changes = 150,
+--     },
+--     settings = {
+--         ["rust-analyzer"] = {
+--           cargo = {
+--             allFeatures = true,
+--           },
+--         },
+--     },
+-- })
   
 -- Python
 lsp_config.pyright.setup({})
@@ -139,7 +146,6 @@ lsp_config.gopls.setup({
     settings = {
       gopls = { analyses = { unusedparams = true }, staticcheck = true },
     },
-
 })
 
 -- lua

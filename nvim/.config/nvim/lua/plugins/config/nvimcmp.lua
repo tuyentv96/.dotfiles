@@ -7,6 +7,7 @@ local source_mapping = {
 	nvim_lua = "[Lua]",
 	cmp_tabnine = "[TN]",
 	path = "[Path]",
+    luasnip = "[LuaSnip]",
 }
 
 cmp.setup({
@@ -34,27 +35,36 @@ cmp.setup({
         -- is no vim docs, but you can't have select = true here _unless_ you are
         -- also using the snippet stuff. So keep in mind that if you remove
         -- snippets you need to remove this select
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
-        ["<Tab>"] = function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-        end
-        end,
-        ["<S-Tab>"] = function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        else
-          fallback()
-        end
-        end,
-	},
+	  ["<CR>"] = cmp.mapping.confirm {
+         behavior = cmp.ConfirmBehavior.Replace,
+         select = true,
+      },
+      ["<Tab>"] = function(fallback)
+         if cmp.visible() then
+            cmp.select_next_item()
+         elseif require("luasnip").expand_or_jumpable() then
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+         else
+            fallback()
+         end
+      end,
+      ["<S-Tab>"] = function(fallback)
+         if cmp.visible() then
+            cmp.select_prev_item()
+         elseif require("luasnip").jumpable(-1) then
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+         else
+            fallback()
+         end
+      end,
+    },
 	sources = {
         { name = "nvim_lsp", max_item_count = 10},
+        { name = "luasnip", max_item_count = 5},
         { name = "cmp_tabnine", max_item_count = 5},
         { name = "buffer", max_item_count = 5},
-		{ name = "luasnip", max_item_count = 5},
+        { name = "nvim_lua", max_item_count = 5 },
+		{ name = "path", max_item_count = 5},
 	},
     experimental = {
         native_menu = false,

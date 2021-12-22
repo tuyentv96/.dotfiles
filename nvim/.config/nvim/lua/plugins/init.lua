@@ -82,17 +82,6 @@ return require('packer').startup({function(use)
   use 'tpope/vim-commentary'
   use 'jiangmiao/auto-pairs'
 
-  use {
-    "fatih/vim-go",
-    run = ":GoUpdateBinaries'",
-    config = get_config('go')
-  }
-  -- use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
-  use 'rust-lang/rust.vim'
-  use {
-    'simrat39/rust-tools.nvim',
-    config = get_config('rust')
-  }
 
   use {
     'neovim/nvim-lspconfig',
@@ -105,10 +94,23 @@ return require('packer').startup({function(use)
     config = get_config('lsp')
   }
 
+  use {
+      "fatih/vim-go",
+      run = ":GoUpdateBinaries'",
+      config = get_config('go'),
+  }
+  -- use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+  use 'rust-lang/rust.vim'
+  use {
+      'simrat39/rust-tools.nvim',
+      requires = {'neovim/nvim-lspconfig'},
+      config = get_config('rust'),
+  }
+
   use 'nvim-lua/lsp_extensions.nvim'
   use {
     'mfussenegger/nvim-dap',
-    config = get_config('dap')
+    config = get_config('dap'),
   }
   use {
     'rcarriga/nvim-dap-ui',
@@ -116,20 +118,54 @@ return require('packer').startup({function(use)
   }
 
   use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/cmp-buffer' },
-        { 'hrsh7th/cmp-path' },
-        { 'hrsh7th/cmp-nvim-lua' },
-        { 'L3MON4D3/LuaSnip' },
-        { 'saadparwaiz1/cmp_luasnip' },
-        { 'onsails/lspkind-nvim' },
-    },
-    config = get_config('nvimcmp')
+    'rafamadriz/friendly-snippets',
   }
 
-  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+
+  use {
+    'L3MON4D3/LuaSnip',
+    config = get_config('luasnip'),
+  }
+
+   use {
+      "saadparwaiz1/cmp_luasnip",
+   }
+
+   use {
+      "hrsh7th/cmp-nvim-lua",
+   }
+
+   use {
+      "hrsh7th/cmp-nvim-lsp",
+   }
+
+   use {
+      "hrsh7th/cmp-buffer",
+   }
+
+   use {
+      "hrsh7th/cmp-path",
+   }
+
+  use {
+      'tzachar/cmp-tabnine',
+      run='./install.sh',
+      requires = 'hrsh7th/nvim-cmp',
+  }
+
+  use {
+      'hrsh7th/nvim-cmp',
+      requires = {
+          -- { 'hrsh7th/cmp-nvim-lsp' },
+          -- { 'hrsh7th/cmp-buffer' },
+          -- { 'hrsh7th/cmp-path' },
+          -- { 'hrsh7th/cmp-nvim-lua' },
+          -- { 'saadparwaiz1/cmp_luasnip' },
+          { 'onsails/lspkind-nvim' },
+      },
+      config = get_config('nvimcmp')
+  }
+
   use {
     'ray-x/lsp_signature.nvim',
     config = get_config('lspsignature')

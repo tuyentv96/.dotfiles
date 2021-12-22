@@ -20,10 +20,13 @@ bufferline.setup {
         show_tab_indicators = true,
         enforce_regular_tabs = false,
         view = "multiwindow",
-        show_buffer_close_icons = true,
+        show_buffer_close_icons = false,
         separator_style = "thin",
         always_show_bufferline = true,
         diagnostics = false,
+        name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
+            return buf.name
+        end,
     },
 
     highlights = {
