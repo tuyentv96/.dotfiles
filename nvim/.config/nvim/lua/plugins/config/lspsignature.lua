@@ -4,7 +4,8 @@ if not present then
 end
 
 lsp_signature.setup({
-  hi_parameter = "LspSignatureActiveParameter",
+  hi_parameter = "Search",
+  bind = true,
   doc_lines = 0,
   handler_opts = {
     border = "none",

@@ -95,7 +95,11 @@ return require('packer').startup({function(use)
       run = ":GoUpdateBinaries'",
       config = get_config('go'),
   }
-  -- use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+  use({
+      'scalameta/nvim-metals',
+      requires = { "nvim-lua/plenary.nvim" },
+      config = get_config('metals'),
+  })
   use 'rust-lang/rust.vim'
   use {
       'simrat39/rust-tools.nvim',

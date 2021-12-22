@@ -38,16 +38,6 @@ cmd([[
     augroup end
 ]])
 
-
-local shared_diagnostic_settings = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
-        underline = false,
-        signs = true,
-        update_in_insert = true,
-    }
-)
-
 local border_style = {
   { "╭", "FloatBorder" },
   { "─", "FloatBorder" },
@@ -59,97 +49,53 @@ local border_style = {
   { "│", "FloatBorder" },
 }
 
--- snippet support
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-	-- send actions with hover request
-capabilities.experimental = {
-    hoverActions = true,
-    hoverRange = true,
-    serverStatusNotification = true,
-    snippetTextEdit = true,
-    codeActionGroup = true,
-    ssr = true,
-}
-
 local pop_opts = { border = border_style }
 
-lsp_config.util.default_config = vim.tbl_deep_extend("force", lsp_config.util.default_config, {
-    handlers = {
-        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts),
-        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts),
-        ["textDocument/publishDiagnostics"] = shared_diagnostic_settings,
-    },
-    capabilities = capabilities,
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = {
+     prefix = "",
+     spacing = 0,
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false, -- update diagnostics insert mode
 })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 
--- Scala
-metals_config = require("metals").bare_config()
-metals_config.settings = {
-    showImplicitArguments = true,
-    showInferredType = true,
-    excludedPackages = {
-      "akka.actor.typed.javadsl",
-      "com.github.swagger.akka.javadsl",
-      "akka.stream.javadsl",
-    },
-    --fallbackScalaVersion = "2.13.6",
-}
-
-metals_config.init_options.statusBarProvider = "on"
-metals_config.handlers["textDocument/publishDiagnostics"] = shared_diagnostic_settings
-metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
-
-metals_config.on_attach = function(client, bufnr)
-    cmd([[autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()]])
-    cmd([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
-    cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
-
-    require("metals").setup_dap()
+local function config(_config)
+	return vim.tbl_deep_extend("force", {
+		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	}, _config or {})
 end
 
-cmd([[
-    augroup lsp
-    autocmd!
-    autocmd FileType scala setlocal omnifunc=v:lua.vim.lsp.omnifunc
-    autocmd FileType scala,sbt lua require("metals").initialize_or_attach(metals_config)
-    augroup end
-]])
-
--- Need for symbol highlights to work correctly
--- cmd([[hi! link LspReferenceText CursorColumn]])
--- cmd([[hi! link LspReferenceRead CursorColumn]])
--- cmd([[hi! link LspReferenceWrite CursorColumn]])
-
 -- Rust
--- lsp_config.rust_analyzer.setup({
---     on_attach = on_attach,
---     flags = {
---         debounce_text_changes = 150,
---     },
---     settings = {
---         ["rust-analyzer"] = {
---           cargo = {
---             allFeatures = true,
---           },
---         },
---     },
--- })
-  
+lsp_config.rust_analyzer.setup(config({
+    flags = {
+        debounce_text_changes = 150,
+    },
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = {
+                allFeatures = true,
+            },
+        },
+    },
+}))
+
 -- Python
-lsp_config.pyright.setup({})
+lsp_config.pyright.setup(config())
 
 -- Golang
-lsp_config.gopls.setup({
+lsp_config.gopls.setup(config({
     cmd = { "gopls"},
     settings = {
       gopls = { analyses = { unusedparams = true }, staticcheck = true },
     },
-})
+}))
 
 -- lua
-lsp_config.sumneko_lua.setup {
+lsp_config.sumneko_lua.setup(config({
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
   settings = {
       Lua = {
@@ -171,5 +117,7 @@ lsp_config.sumneko_lua.setup {
           }
       }
   }
-}
+}))
+
+
 
