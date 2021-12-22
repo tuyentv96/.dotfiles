@@ -9,7 +9,6 @@ return require('packer').startup({function(use)
   use "nvim-lua/plenary.nvim"
   use {
     'wbthomason/packer.nvim',
-    event = "VimEnter",
   }
   use 'dstein64/vim-startuptime'
   use "kyazdani42/nvim-web-devicons"
@@ -18,7 +17,6 @@ return require('packer').startup({function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    event = "VimEnter",
     config = get_config("lualine")
   }
   use {
@@ -28,7 +26,6 @@ return require('packer').startup({function(use)
   }
   use {
     'norcalli/nvim-colorizer.lua',
-    event = "BufRead",
     config = function()
             require'colorizer'.setup()
     end,
@@ -44,7 +41,7 @@ return require('packer').startup({function(use)
         {'nvim-lua/plenary.nvim'},
         {'nvim-telescope/telescope-fzy-native.nvim'}, 
     },
-    config = get_config("telescope")
+    config = get_config("telescope"),
   }
   use {
     'phaazon/hop.nvim',
@@ -61,7 +58,7 @@ return require('packer').startup({function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+      'kyazdani42/nvim-web-devicons',
     },
     config = get_config("nvimtree")
   }
@@ -69,7 +66,6 @@ return require('packer').startup({function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    event = "BufRead",
     config = get_config("treesitter")
   }
   use 'Yggdroot/indentLine'
@@ -82,7 +78,6 @@ return require('packer').startup({function(use)
   use 'tpope/vim-commentary'
   use 'jiangmiao/auto-pairs'
 
-
   use {
     'neovim/nvim-lspconfig',
     requires = {
@@ -93,6 +88,7 @@ return require('packer').startup({function(use)
     },
     config = get_config('lsp')
   }
+  use 'nvim-lua/lsp_extensions.nvim'
 
   use {
       "fatih/vim-go",
@@ -107,7 +103,6 @@ return require('packer').startup({function(use)
       config = get_config('rust'),
   }
 
-  use 'nvim-lua/lsp_extensions.nvim'
   use {
     'mfussenegger/nvim-dap',
     config = get_config('dap'),
@@ -117,35 +112,24 @@ return require('packer').startup({function(use)
     config = get_config('dapui')
   }
 
-  use {
-    'rafamadriz/friendly-snippets',
-  }
-
-
+  use 'rafamadriz/friendly-snippets'
   use {
     'L3MON4D3/LuaSnip',
     config = get_config('luasnip'),
   }
 
-   use {
-      "saadparwaiz1/cmp_luasnip",
-   }
-
-   use {
-      "hrsh7th/cmp-nvim-lua",
-   }
-
-   use {
-      "hrsh7th/cmp-nvim-lsp",
-   }
-
-   use {
-      "hrsh7th/cmp-buffer",
-   }
-
-   use {
-      "hrsh7th/cmp-path",
-   }
+  use {
+      'hrsh7th/nvim-cmp',
+      requires = {
+          { 'hrsh7th/cmp-nvim-lsp' },
+          { 'hrsh7th/cmp-buffer' },
+          { 'hrsh7th/cmp-path' },
+          { 'hrsh7th/cmp-nvim-lua' },
+          { 'saadparwaiz1/cmp_luasnip' },
+          { 'onsails/lspkind-nvim' },
+      },
+      config = get_config('nvimcmp')
+  }
 
   use {
       'tzachar/cmp-tabnine',
@@ -154,27 +138,14 @@ return require('packer').startup({function(use)
   }
 
   use {
-      'hrsh7th/nvim-cmp',
-      requires = {
-          -- { 'hrsh7th/cmp-nvim-lsp' },
-          -- { 'hrsh7th/cmp-buffer' },
-          -- { 'hrsh7th/cmp-path' },
-          -- { 'hrsh7th/cmp-nvim-lua' },
-          -- { 'saadparwaiz1/cmp_luasnip' },
-          { 'onsails/lspkind-nvim' },
-      },
-      config = get_config('nvimcmp')
-  }
-
-  use {
     'ray-x/lsp_signature.nvim',
     config = get_config('lspsignature')
   }
 
-  use {
-    "akinsho/nvim-toggleterm.lua",
-    config = get_config("toggleterm")
-  }
+  -- use {
+  --   "akinsho/nvim-toggleterm.lua",
+  --   config = get_config("toggleterm")
+  -- }
 
 end,
 config = {
