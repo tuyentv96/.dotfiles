@@ -94,7 +94,7 @@ vim.g.rustfmt_fail_silently = 0
 vim.g.rust_clip_command = 'xclip -selection clipboard'
 
 cmd([[
-    augroup code
+    augroup rust-map
     autocmd!
     autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>
     autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>

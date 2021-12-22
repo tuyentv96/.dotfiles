@@ -22,23 +22,6 @@ nnoremap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()
 nnoremap("<leader>[c", "<cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>]c", "<cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>")
 
-cmd([[
-    augroup code
-    autocmd!
-
-    autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>
-    autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>
-    autocmd FileType rust nnoremap <leader>tf :RustTest <CR>
-    autocmd FileType rust nnoremap <leader>ta :RustTest! <CR>]
-
-    autocmd FileType go nnoremap <leader>cr :GoRun <CR>
-    autocmd FileType go nnoremap <leader>cb :GoBuild <CR>]
-    autocmd FileType go nnoremap <leader>tf :GoTestFunc <CR>
-    autocmd FileType go nnoremap <leader>ta :GoTest <CR>
-
-    augroup end
-]])
-
 local border_style = {
   { "╭", "FloatBorder" },
   { "─", "FloatBorder" },
