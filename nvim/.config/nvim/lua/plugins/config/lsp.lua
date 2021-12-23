@@ -54,18 +54,18 @@ local function config(_config)
 end
 
 -- Rust
-lsp_config.rust_analyzer.setup(config({
-    flags = {
-        debounce_text_changes = 150,
-    },
-    settings = {
-        ["rust-analyzer"] = {
-            cargo = {
-                allFeatures = true,
-            },
-        },
-    },
-}))
+-- lsp_config.rust_analyzer.setup(config({
+--     flags = {
+--         debounce_text_changes = 150,
+--     },
+--     settings = {
+--         ["rust-analyzer"] = {
+--             cargo = {
+--                 allFeatures = true,
+--             },
+--         },
+--     },
+-- }))
 
 -- Python
 lsp_config.pyright.setup(config())

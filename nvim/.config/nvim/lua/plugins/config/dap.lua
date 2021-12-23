@@ -85,6 +85,14 @@ dap.configurations.scala = {
     },
     {
       type = "scala",
+      request = "attach",
+      name = "Attach Remote",
+      port = 5005,
+      hostName = "localhost",
+      buildTarget = "root",
+    },
+    {
+      type = "scala",
       request = "launch",
       name = "Test File",
       metals = {
