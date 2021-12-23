@@ -89,7 +89,9 @@ dap.configurations.scala = {
       name = "Attach Remote",
       port = 5005,
       hostName = "localhost",
-      buildTarget = "root",
+      buildTarget = function()
+        return vim.fn.input("buildTarget: ", "", "file")
+      end,
     },
     {
       type = "scala",
