@@ -5,8 +5,8 @@ end
 
 require("core.utils")
 
-local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.3/server"
-local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
+local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.5/server"
+local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 nnoremap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
 nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
@@ -36,13 +36,13 @@ local border_style = {
 local pop_opts = { border = border_style }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = {
-     prefix = "",
-     spacing = 0,
-  },
-  signs = true,
-  underline = true,
-  update_in_insert = false, -- update diagnostics insert mode
+    virtual_text = {
+        prefix = "",
+        spacing = 0,
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false, -- update diagnostics insert mode
 })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
@@ -102,6 +102,4 @@ lsp_config.sumneko_lua.setup(config({
       }
   }
 }))
-
-
 

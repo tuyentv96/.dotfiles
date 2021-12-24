@@ -22,11 +22,11 @@ dapui.setup({
   sidebar = {
     -- You can change the order of elements in the sidebar
     elements = {
-      -- Provide as ID strings or tables with "id" and "size" keys
-      { id = "breakpoints", size = 0.15 },
-      { id = "stacks", size = 0.25 },
-      { id = "watches", size = 0.20 },
-      { id = "scopes", size = 0.40 },
+        -- Provide as ID strings or tables with "id" and "size" keys
+        { id = "breakpoints", size = 0.15 },
+        { id = "stacks", size = 0.25 },
+        { id = "watches", size = 0.20 },
+        { id = "scopes", size = 0.40 },
     },
     size = 40,
     position = "left", -- Can be "left", "right", "top", "bottom"

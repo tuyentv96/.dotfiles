@@ -23,7 +23,8 @@ nnoremap(",", ":bn<CR>")
 -- Open new file adjacent to current file
 nnoremap("<leader>o", ':e <C-R>=expand("%:p:h") . "/" <CR>')
 
-nnoremap("<C-d>", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+-- close current buffer
+nnoremap("<C-c>", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
 -- Move selected lines
 vnoremap("J", ":m '>+1<CR>gv=gv")
