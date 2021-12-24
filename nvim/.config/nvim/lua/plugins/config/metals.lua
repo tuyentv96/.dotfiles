@@ -3,6 +3,13 @@ local log = require("metals.log")
 local lsp = vim.lsp
 local util = require("metals.util")
 
+local present, lsp_status  = pcall(require, 'lsp-status')
+if not present then
+   return
+end
+
+metals_config.init_options.statusBarProvider = "on"
+
 -- General function used to execute various server commands.
 -- @param command_params (optional, table) Parameters to send to the server (arguments and command).
 -- @param callback (function) callback function for the request response.
@@ -108,7 +115,7 @@ metals_config.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp
 })
 metals_config.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 metals_config.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
-metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(lsp_status.capabilities)
 
 metals_config.on_attach = function(client, bufnr)
     cmd([[autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()]])

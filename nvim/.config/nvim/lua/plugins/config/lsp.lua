@@ -3,6 +3,11 @@ if not present then
    return
 end
 
+local present, lsp_status  = pcall(require, 'lsp-status')
+if not present then
+   return
+end
+
 require("core.utils")
 
 local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.5/server"
@@ -41,15 +46,16 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
         spacing = 0,
     },
     signs = true,
-    underline = true,
+    underline = false,
     update_in_insert = false, -- update diagnostics insert mode
 })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 
 local function config(_config)
+    local capabilities = require("cmp_nvim_lsp").update_capabilities(lsp_status.capabilities)
 	return vim.tbl_deep_extend("force", {
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		capabilities = capabilities,
 	}, _config or {})
 end
 

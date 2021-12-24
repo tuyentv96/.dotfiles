@@ -77,6 +77,11 @@ return require('packer').startup({function(use)
   use 'tpope/vim-repeat'
   use 'tpope/vim-commentary'
   use 'jiangmiao/auto-pairs'
+  
+  use {
+    'nvim-lua/lsp-status.nvim',
+    config = get_config('lspstatus'),
+  }
 
   use {
     'neovim/nvim-lspconfig',
@@ -84,7 +89,7 @@ return require('packer').startup({function(use)
         {
             'scalameta/nvim-metals',
             requires = { "nvim-lua/plenary.nvim" },
-        }
+        },
     },
     config = get_config('lsp')
   }
@@ -145,6 +150,11 @@ return require('packer').startup({function(use)
     'ray-x/lsp_signature.nvim',
     config = get_config('lspsignature')
   }
+
+  -- use {
+  --   'nvim-lua/lsp-status.nvim',
+  --   config = get_config('lspstatus'),
+  -- }
 
   -- use {
   --   "akinsho/nvim-toggleterm.lua",
