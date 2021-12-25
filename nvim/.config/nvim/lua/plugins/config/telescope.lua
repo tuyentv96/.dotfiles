@@ -47,10 +47,10 @@ telescope.setup({
             path_display = {shorten={len=6,exclude={-1,-2,-3} }},
               mappings = {
                 i = {
-                  ["<c-d>"] = actions.delete_buffer,
+                  ["<C-c>"] = actions.delete_buffer,
                 },
                 n = {
-                  ["<c-d>"] = actions.delete_buffer,
+                  ["<C-c>"] = actions.delete_buffer,
                 }
             }
         }
