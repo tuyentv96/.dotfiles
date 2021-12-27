@@ -6,12 +6,13 @@ local options = {
     lazyredraw = true,
     laststatus = 2,
     number = true,
-    relativenumber = true,
+    -- relativenumber = true,
     showcmd = true,
     listchars = "nbsp:¬,extends:»,precedes:«,trail:•",
     synmaxcol = 300,
     scrolloff = 10,
     cursorline = false,
+    cursorcolumn = false,
     -- Convenience for automatic formatting.
     -- t - auto-wrap text by respecting textwidth
     -- c - auto-wrap comments by respecting textwidth
@@ -52,7 +53,7 @@ local options = {
   }
   
 vim.opt.shortmess:remove("F"):append("c")
-vim.cmd("syntax on")
+vim.cmd("syntax off")
 vim.cmd("filetype indent plugin on")
 vim.cmd("let $LANG='en_US.UTF-8'")
 
