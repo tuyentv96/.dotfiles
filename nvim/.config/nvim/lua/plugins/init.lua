@@ -13,7 +13,7 @@ return require('packer').startup({function(use)
   -- use 'dstein64/vim-startuptime'
   use "kyazdani42/nvim-web-devicons"
   use 'sainnhe/gruvbox-material'
-  -- use 'machakann/vim-highlightedyank'
+  use 'machakann/vim-highlightedyank'
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
@@ -24,12 +24,6 @@ return require('packer').startup({function(use)
     requires = 'kyazdani42/nvim-web-devicons',
     config = get_config('bufferline')
   }
-  -- use {
-  --   'norcalli/nvim-colorizer.lua',
-  --   config = function()
-  --           require'colorizer'.setup()
-  --   end,
-  -- }
   use {
     'christoomey/vim-tmux-navigator',
     config = get_config('navigator')
@@ -150,17 +144,6 @@ return require('packer').startup({function(use)
     'ray-x/lsp_signature.nvim',
     config = get_config('lspsignature')
   }
-
-  -- use {
-  --   'nvim-lua/lsp-status.nvim',
-  --   config = get_config('lspstatus'),
-  -- }
-
-  -- use {
-  --   "akinsho/nvim-toggleterm.lua",
-  --   config = get_config("toggleterm")
-  -- }
-
 end,
 config = {
   display = {

@@ -10,6 +10,8 @@ local options = {
     showcmd = true,
     listchars = "nbsp:¬,extends:»,precedes:«,trail:•",
     synmaxcol = 300,
+    signcolumn = "no", 
+    sidescrolloff = 8,
     scrolloff = 10,
     cursorline = false,
     cursorcolumn = false,
@@ -47,10 +49,7 @@ local options = {
     shiftwidth = 4,                          
     tabstop = 4,                             
     softtabstop = 4,
-
-    signcolumn = "yes", 
-    sidescrolloff = 8,
-  }
+}
   
 vim.opt.shortmess:remove("F"):append("c")
 vim.cmd("syntax off")

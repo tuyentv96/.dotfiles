@@ -2,7 +2,7 @@ require("nvim-treesitter.configs").setup({
   playground = { enable = false },
   query_linter = {
     enable = false,
-    use_virtual_text = true,
+    use_virtual_text = false,
     lint_events = { "BufWrite", "CursorHold" },
   },
   -- ensure_installed = "maintained",
@@ -11,5 +11,5 @@ require("nvim-treesitter.configs").setup({
     disable = { },
     additional_vim_regex_highlighting = false,
   },
-  textobjects = { enable = true },
+  textobjects = { enable = false },
 })
