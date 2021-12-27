@@ -10,10 +10,10 @@ return require('packer').startup({function(use)
   use {
     'wbthomason/packer.nvim',
   }
-  use 'dstein64/vim-startuptime'
+  -- use 'dstein64/vim-startuptime'
   use "kyazdani42/nvim-web-devicons"
   use 'sainnhe/gruvbox-material'
-  use 'machakann/vim-highlightedyank'
+  -- use 'machakann/vim-highlightedyank'
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
@@ -24,12 +24,12 @@ return require('packer').startup({function(use)
     requires = 'kyazdani42/nvim-web-devicons',
     config = get_config('bufferline')
   }
-  use {
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-            require'colorizer'.setup()
-    end,
-  }
+  -- use {
+  --   'norcalli/nvim-colorizer.lua',
+  --   config = function()
+  --           require'colorizer'.setup()
+  --   end,
+  -- }
   use {
     'christoomey/vim-tmux-navigator',
     config = get_config('navigator')
@@ -68,10 +68,10 @@ return require('packer').startup({function(use)
     run = ":TSUpdate",
     config = get_config("treesitter")
   }
-  use 'Yggdroot/indentLine'
+  -- use 'Yggdroot/indentLine'
   use 'cespare/vim-toml'
   use 'stephpy/vim-yaml'
-  use 'godlygeek/tabular'
+  -- use 'godlygeek/tabular'
   use 'plasticboy/vim-markdown'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'

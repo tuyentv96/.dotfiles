@@ -14,7 +14,7 @@ local opts = {
 		-- options right now: termopen / quickfix
 		executor = require("rust-tools/executors").termopen,
 
-        autoSetHints = true,
+        autoSetHints = false,
         hover_with_actions = true,
         inlay_hints = {
 

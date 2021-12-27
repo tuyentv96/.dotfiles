@@ -8,7 +8,24 @@ if not present then
    return
 end
 
-metals_config.init_options.statusBarProvider = "on"
+metals_config.init_options = {
+    statusBarProvider = "on",
+    treeViewProvider = false,
+    decorationProvider = false,
+}
+
+metals_config.settings = {
+    showImplicitArguments = false,
+    showInferredType = false,
+    showImplicitConversionsAndClasses = false,
+    superMethodLensesEnabled = false,
+    excludedPackages = {
+        "akka.actor.typed.javadsl",
+        "com.github.swagger.akka.javadsl",
+        "akka.stream.javadsl",
+    },
+    --fallbackScalaVersion = "2.13.6",
+}
 
 -- General function used to execute various server commands.
 -- @param command_params (optional, table) Parameters to send to the server (arguments and command).
@@ -80,16 +97,6 @@ local function setup_dap(execute_command)
 end
 
 
-metals_config.settings = {
-    showImplicitArguments = false,
-    showInferredType = true,
-    excludedPackages = {
-      "akka.actor.typed.javadsl",
-      "com.github.swagger.akka.javadsl",
-      "akka.stream.javadsl",
-    },
-    --fallbackScalaVersion = "2.13.6",
-}
 
 local border_style = {
   { "╭", "FloatBorder" },
@@ -103,7 +110,6 @@ local border_style = {
 }
 local pop_opts = { border = border_style }
 
-metals_config.init_options.statusBarProvider = "on"
 metals_config.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = {
      prefix = "",
@@ -111,7 +117,7 @@ metals_config.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp
   },
   signs = true,
   underline = true,
-  update_in_insert = false, -- update diagnostics insert mode
+  update_in_insert = false,
 })
 metals_config.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 metals_config.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
