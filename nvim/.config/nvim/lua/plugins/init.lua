@@ -10,9 +10,14 @@ return require('packer').startup({function(use)
   use {
     'wbthomason/packer.nvim',
   }
-  -- use 'dstein64/vim-startuptime'
+  use 'dstein64/vim-startuptime'
+  use {
+      "norcalli/nvim-colorizer.lua",
+      config = function ()
+         require 'colorizer'.setup()
+      end
+  }
   use "kyazdani42/nvim-web-devicons"
-  use 'sainnhe/gruvbox-material'
   use 'machakann/vim-highlightedyank'
   use {
     'nvim-lualine/lualine.nvim',
@@ -31,9 +36,9 @@ return require('packer').startup({function(use)
 
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { 
+    requires = {
         {'nvim-lua/plenary.nvim'},
-        {'nvim-telescope/telescope-fzy-native.nvim'}, 
+        {'nvim-telescope/telescope-fzy-native.nvim'},
     },
     config = get_config("telescope"),
   }
@@ -46,8 +51,8 @@ return require('packer').startup({function(use)
     'tpope/vim-fugitive',
     config = get_config('git')
   }
-  use 'junegunn/gv.vim'
-  use 'tpope/vim-rhubarb'
+  -- use 'junegunn/gv.vim'
+  -- use 'tpope/vim-rhubarb'
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -63,15 +68,14 @@ return require('packer').startup({function(use)
     config = get_config("treesitter")
   }
   -- use 'Yggdroot/indentLine'
-  use 'cespare/vim-toml'
-  use 'stephpy/vim-yaml'
+  -- use 'cespare/vim-toml'
+  -- use 'stephpy/vim-yaml'
   -- use 'godlygeek/tabular'
-  use 'plasticboy/vim-markdown'
+  -- use 'plasticboy/vim-markdown'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-commentary'
-  use 'jiangmiao/auto-pairs'
-  
+  -- use 'jiangmiao/auto-pairs'
   use {
     'nvim-lua/lsp-status.nvim',
     config = get_config('lspstatus'),
@@ -87,7 +91,6 @@ return require('packer').startup({function(use)
     },
     config = get_config('lsp')
   }
-  use 'nvim-lua/lsp_extensions.nvim'
 
   use {
       "fatih/vim-go",
@@ -99,7 +102,6 @@ return require('packer').startup({function(use)
       requires = { "nvim-lua/plenary.nvim" },
       config = get_config('metals'),
   })
-  use 'rust-lang/rust.vim'
   use {
       'simrat39/rust-tools.nvim',
       requires = {'neovim/nvim-lspconfig'},

@@ -1,7 +1,7 @@
 local present, rusttools = pcall(require, "rust-tools")
--- if not present then
---    return
--- end
+if not present then
+   return
+end
 
 require("core.utils")
 local extension_path = HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
@@ -29,7 +29,7 @@ local opts = {
             only_current_line_autocmd = "CursorHold",
 
             -- wheter to show parameter hints with the inlay hints or not
-            show_parameter_hints = true,
+            show_parameter_hints = false,
 
             -- prefix for parameter hints
             parameter_hints_prefix = "<- ",
@@ -86,12 +86,6 @@ local opts = {
 }
 
 rusttools.setup(opts)
-
-
-vim.g.rustfmt_autosave = 1
-vim.g.rustfmt_emit_files = 1
-vim.g.rustfmt_fail_silently = 0
-vim.g.rust_clip_command = 'xclip -selection clipboard'
 
 cmd([[
     augroup rust-map

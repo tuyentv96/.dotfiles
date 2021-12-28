@@ -10,7 +10,7 @@ end
 
 require("core.utils")
 
-local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.5/server"
+local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.6/server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 nnoremap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
@@ -47,10 +47,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
     },
     signs = true,
     underline = false,
-    update_in_insert = false, -- update diagnostics insert mode
+    update_in_insert = false,
 })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
+-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 
 local function config(_config)
     local capabilities = require("cmp_nvim_lsp").update_capabilities(lsp_status.capabilities)

@@ -120,7 +120,7 @@ metals_config.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp
   update_in_insert = false,
 })
 metals_config.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
-metals_config.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
+-- metals_config.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(lsp_status.capabilities)
 
 metals_config.on_attach = function(client, bufnr)

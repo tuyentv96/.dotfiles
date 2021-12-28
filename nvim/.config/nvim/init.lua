@@ -4,7 +4,7 @@ local core_modules = {
    "plugins",
    "core.options",
    "core.mappings",
-   "core.themes",
+   "colors",
 }
 
 for _, module in ipairs(core_modules) do

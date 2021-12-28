@@ -2,7 +2,7 @@ require("core.utils")
 
 local options = {
     foldenable = false,
-    ttyfast = true,
+    -- ttyfast = true,
     lazyredraw = true,
     laststatus = 2,
     number = true,
@@ -11,8 +11,8 @@ local options = {
     listchars = "nbsp:¬,extends:»,precedes:«,trail:•",
     synmaxcol = 300,
     signcolumn = "no", 
-    sidescrolloff = 8,
-    scrolloff = 10,
+    sidescrolloff = 5,
+    scrolloff = 5,
     cursorline = false,
     cursorcolumn = false,
     -- Convenience for automatic formatting.
@@ -39,7 +39,7 @@ local options = {
     timeoutlen = 1000,
     undofile = true,
     undodir = HOME.."/.vim/undodir",
-    updatetime = 300, 
+    updatetime = 4000, 
     
     writebackup = false, 
     backup = false,

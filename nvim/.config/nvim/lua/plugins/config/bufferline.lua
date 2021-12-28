@@ -3,7 +3,7 @@ if not present then
    return
 end
 
-local colors = require("colors").get()
+local palette = require("colors.palette")
 
 bufferline.setup {
     options = {
@@ -31,93 +31,70 @@ bufferline.setup {
 
     highlights = {
         background = {
-         guifg = colors.grey_fg,
-         guibg = colors.black2,
+         guifg = palette.fg2,
+         guibg = palette.bg2,
         },
 
-        -- buffers
+        -- -- buffers
         buffer_selected = {
-         guifg = colors.white,
-         guibg = colors.black,
+         guifg = palette.fg0,
+         guibg = palette.bg0,
          gui = "bold",
         },
         buffer_visible = {
-         guifg = colors.light_grey,
-         guibg = colors.black2,
+         guifg = palette.fg2,
+         guibg = palette.bg2,
         },
 
-        -- for diagnostics = "nvim_lsp"
-        error = {
-         guifg = colors.light_grey,
-         guibg = colors.black2,
-        },
-        error_diagnostic = {
-         guifg = colors.light_grey,
-         guibg = colors.black2,
-        },
-
-        -- close buttons
-        close_button = {
-         guifg = colors.light_grey,
-         guibg = colors.black2,
-        },
-        close_button_visible = {
-         guifg = colors.light_grey,
-         guibg = colors.black2,
-        },
-        close_button_selected = {
-         guifg = colors.red,
-         guibg = colors.black,
-        },
         fill = {
-         guifg = colors.grey_fg,
-         guibg = colors.black2,
+         guifg = palette.fg2,
+         guibg = palette.bg2,
         },
         indicator_selected = {
-         guifg = colors.black,
-         guibg = colors.black,
+         guifg = palette.bg0,
+         guibg = palette.bg0,
         },
 
         -- modified
         modified = {
-         guifg = colors.red,
-         guibg = colors.black2,
+         guifg = palette.green,
+         guibg = palette.bg2,
         },
         modified_visible = {
-         guifg = colors.red,
-         guibg = colors.black2,
+         guifg = palette.green,
+         guibg = palette.bg2,
         },
         modified_selected = {
-         guifg = colors.green,
-         guibg = colors.black,
+         guifg = palette.green,
+         guibg = palette.bg0,
         },
 
         -- separators
         separator = {
-         guifg = colors.black2,
-         guibg = colors.black2,
+         guifg = palette.bg2,
+         guibg = palette.bg2,
         },
         separator_visible = {
-         guifg = colors.black2,
-         guibg = colors.black2,
+         guifg = palette.bg2,
+         guibg = palette.bg2,
         },
         separator_selected = {
-         guifg = colors.black2,
-         guibg = colors.black2,
+         guifg = palette.bg2,
+         guibg = palette.bg2,
         },
 
-        -- tabs
-        tab = {
-         guifg = colors.light_grey,
-         guibg = colors.one_bg3,
-        },
-        tab_selected = {
-         guifg = colors.black2,
-         guibg = colors.nord_blue,
-        },
-        tab_close = {
-         guifg = colors.red,
-         guibg = colors.black,
-        },
+      -- tabs
+      tab = {
+         guifg = palette.fg2,
+         guibg = palette.bg2,
+      },
+      tab_selected = {
+         guifg = palette.fg0,
+         guibg = palette.bg0,
+      },
+      tab_close = {
+         guifg = palette.fg2,
+         guibg = palette.bg2,
+      },
     },
-} 
+}
