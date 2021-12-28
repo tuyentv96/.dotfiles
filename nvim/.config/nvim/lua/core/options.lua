@@ -39,7 +39,7 @@ local options = {
     timeoutlen = 1000,
     undofile = true,
     undodir = HOME.."/.vim/undodir",
-    updatetime = 4000, 
+    updatetime = 800, 
     
     writebackup = false, 
     backup = false,
