@@ -6,7 +6,7 @@ local options = {
     lazyredraw = true,
     laststatus = 2,
     number = true,
-    -- relativenumber = true,
+    relativenumber = true,
     showcmd = true,
     listchars = "nbsp:¬,extends:»,precedes:«,trail:•",
     synmaxcol = 300,
@@ -55,6 +55,7 @@ vim.opt.shortmess:remove("F"):append("c")
 vim.cmd("syntax off")
 vim.cmd("filetype indent plugin on")
 vim.cmd("let $LANG='en_US.UTF-8'")
+vim.cmd("set fillchars+=vert:\\ ")
 
 for k, v in pairs(options) do
     vim.opt[k] = v
