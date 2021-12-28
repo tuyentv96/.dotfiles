@@ -13,6 +13,7 @@ return require('packer').startup({function(use)
   use 'dstein64/vim-startuptime'
   use {
       "norcalli/nvim-colorizer.lua",
+      event = "BufRead",
       config = function ()
          require 'colorizer'.setup()
       end
@@ -59,12 +60,14 @@ return require('packer').startup({function(use)
     requires = {
       'kyazdani42/nvim-web-devicons',
     },
+    after = "nvim-web-devicons",
     config = get_config("nvimtree")
   }
 
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
+    event = "BufRead",
     config = get_config("treesitter")
   }
   -- use 'Yggdroot/indentLine'
@@ -117,7 +120,9 @@ return require('packer').startup({function(use)
     config = get_config('dapui')
   }
 
-  use 'rafamadriz/friendly-snippets'
+  use {
+      'rafamadriz/friendly-snippets',
+  }
   use {
     'L3MON4D3/LuaSnip',
     config = get_config('luasnip'),
