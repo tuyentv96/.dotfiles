@@ -141,11 +141,11 @@ return require('packer').startup({function(use)
       config = get_config('nvimcmp')
   }
 
-  use {
-      'tzachar/cmp-tabnine',
-      run='./install.sh',
-      requires = 'hrsh7th/nvim-cmp',
-  }
+  -- use {
+  --     'tzachar/cmp-tabnine',
+  --     run='./install.sh',
+  --     requires = 'hrsh7th/nvim-cmp',
+  -- }
 
   use {
     'ray-x/lsp_signature.nvim',

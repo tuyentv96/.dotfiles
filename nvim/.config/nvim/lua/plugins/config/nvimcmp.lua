@@ -31,10 +31,6 @@ cmp.setup({
         end
     },
 	mapping = {
-        -- None of this made sense to me when first looking into this since there
-        -- is no vim docs, but you can't have select = true here _unless_ you are
-        -- also using the snippet stuff. So keep in mind that if you remove
-        -- snippets you need to remove this select
 	  ["<CR>"] = cmp.mapping.confirm {
          behavior = cmp.ConfirmBehavior.Replace,
          select = true,
@@ -61,7 +57,7 @@ cmp.setup({
 	sources = {
         { name = "nvim_lsp", max_item_count = 10},
         { name = "luasnip", max_item_count = 5},
-        { name = "cmp_tabnine", max_item_count = 5},
+        -- { name = "cmp_tabnine", max_item_count = 5},
         { name = "buffer", max_item_count = 5},
         { name = "nvim_lua", max_item_count = 5 },
 		{ name = "path", max_item_count = 5},
@@ -72,11 +68,10 @@ cmp.setup({
     },
 })
 
-require('cmp_tabnine.config'):setup({
-    max_lines = 1000,
-    max_num_results = 5,
-    sort = true,
-	run_on_every_keystroke = true,
-	snippet_placeholder = '..',
-}) 
-
+-- require('cmp_tabnine.config'):setup({
+--     max_lines = 1000,
+--     max_num_results = 5,
+--     sort = true,
+-- 	run_on_every_keystroke = true,
+-- 	snippet_placeholder = '..',
+-- })

@@ -12,7 +12,7 @@ local options = {
     synmaxcol = 300,
     signcolumn = "no", 
     sidescrolloff = 5,
-    scrolloff = 5,
+    scrolloff = 10,
     cursorline = false,
     cursorcolumn = false,
     -- Convenience for automatic formatting.
