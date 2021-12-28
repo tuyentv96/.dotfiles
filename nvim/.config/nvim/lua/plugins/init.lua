@@ -11,13 +11,13 @@ return require('packer').startup({function(use)
     'wbthomason/packer.nvim',
   }
   use 'dstein64/vim-startuptime'
-  use {
-      "norcalli/nvim-colorizer.lua",
-      event = "BufRead",
-      config = function ()
-         require 'colorizer'.setup()
-      end
-  }
+  -- use {
+  --     "norcalli/nvim-colorizer.lua",
+  --     event = "BufRead",
+  --     config = function ()
+  --        require 'colorizer'.setup()
+  --     end
+  -- }
   use "kyazdani42/nvim-web-devicons"
   use 'machakann/vim-highlightedyank'
   use {
