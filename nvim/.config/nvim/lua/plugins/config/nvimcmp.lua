@@ -2,12 +2,12 @@ local cmp = require("cmp")
 local lspkind = require('lspkind')
 
 local source_mapping = {
-	buffer = "[Buffer]",
-	nvim_lsp = "[LSP]",
-	nvim_lua = "[Lua]",
-	cmp_tabnine = "[TN]",
-	path = "[Path]",
-    luasnip = "[LuaSnip]",
+	buffer           = "[Buffer]",
+	nvim_lsp         = "[LSP]",
+	nvim_lua         = "[Lua]",
+	cmp_tabnine      = "[TN]",
+	path             = "[Path]",
+    luasnip          = "[LuaSnip]",
 }
 
 cmp.setup({
@@ -60,7 +60,7 @@ cmp.setup({
         -- { name = "cmp_tabnine", max_item_count = 5},
         { name = "buffer", max_item_count = 5},
         { name = "nvim_lua", max_item_count = 5 },
-		{ name = "path", max_item_count = 5},
+		-- { name = "path", max_item_count = 5},
 	},
     experimental = {
         native_menu = false,

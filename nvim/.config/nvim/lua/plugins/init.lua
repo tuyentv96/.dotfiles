@@ -73,7 +73,10 @@ return require('packer').startup({function(use)
   -- use 'Yggdroot/indentLine'
   -- use 'cespare/vim-toml'
   -- use 'stephpy/vim-yaml'
-  -- use 'godlygeek/tabular'
+  use {
+      'godlygeek/tabular',
+      config = get_config("tabular"),
+  }
   -- use 'plasticboy/vim-markdown'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
@@ -133,7 +136,7 @@ return require('packer').startup({function(use)
       requires = {
           { 'hrsh7th/cmp-nvim-lsp' },
           { 'hrsh7th/cmp-buffer' },
-          { 'hrsh7th/cmp-path' },
+          -- { 'hrsh7th/cmp-path' },
           { 'hrsh7th/cmp-nvim-lua' },
           { 'saadparwaiz1/cmp_luasnip' },
           { 'onsails/lspkind-nvim' },

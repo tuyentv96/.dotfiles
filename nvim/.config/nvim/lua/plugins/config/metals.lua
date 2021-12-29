@@ -115,8 +115,8 @@ metals_config.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp
      prefix = "",
      spacing = 0,
   },
-  signs = true,
-  underline = true,
+  signs = false,
+  underline = false,
   update_in_insert = false,
 })
 metals_config.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)

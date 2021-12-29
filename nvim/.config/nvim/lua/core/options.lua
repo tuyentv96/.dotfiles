@@ -2,7 +2,6 @@ require("core.utils")
 
 local options = {
     foldenable = false,
-    -- ttyfast = true,
     lazyredraw = true,
     laststatus = 2,
     number = true,
@@ -10,7 +9,7 @@ local options = {
     showcmd = true,
     listchars = "nbsp:¬,extends:»,precedes:«,trail:•",
     synmaxcol = 300,
-    signcolumn = "no", 
+    signcolumn = "no",
     sidescrolloff = 5,
     scrolloff = 10,
     cursorline = false,
@@ -23,34 +22,33 @@ local options = {
     formatoptions = 'tcro',
     linebreak = true,
     cmdheight = 2,
-    completeopt = { "menuone", "noselect", "noinsert" }, 
-    fileencoding = "utf-8", 
+    completeopt = { "menuone", "noselect", "noinsert" },
+    fileencoding = "utf-8",
     encoding = "utf-8",
 
     hlsearch = true,
-    ignorecase = true, 
+    ignorecase = true,
     smartcase = true,
     gdefault = true,
 
     showmode = false,
     splitbelow = true,
-    splitright = true, 
-    termguicolors = true, 
+    splitright = true,
+    termguicolors = true,
     timeoutlen = 1000,
     undofile = true,
     undodir = HOME.."/.vim/undodir",
-    updatetime = 800, 
-    
-    writebackup = false, 
+    updatetime = 800,
+    writebackup = false,
     backup = false,
     swapfile = false,
 
-    expandtab = true, 
-    shiftwidth = 4,                          
-    tabstop = 4,                             
+    expandtab = true,
+    shiftwidth = 4,
+    tabstop = 4,
     softtabstop = 4,
 }
-  
+
 vim.opt.shortmess:remove("F"):append("c")
 vim.cmd("syntax off")
 vim.cmd("filetype indent plugin on")
@@ -60,7 +58,6 @@ vim.cmd("set fillchars+=vert:\\ ")
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
-
 
 -- disable some builtin vim plugins
 local disabled_built_ins = {

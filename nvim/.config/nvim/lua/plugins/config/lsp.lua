@@ -20,7 +20,8 @@ nnoremap("gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>"
 nnoremap("<leader>dw", "<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>")
 nnoremap("<leader>dd", ":Telescope diagnostics <CR>")
 nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
-nnoremap("<leader>ls", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
+nnoremap("<leader>ws", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
+nnoremap("<leader>ds", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 nnoremap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
@@ -45,7 +46,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
         prefix = "",
         spacing = 0,
     },
-    signs = true,
+    signs = false,
     underline = false,
     update_in_insert = false,
 })

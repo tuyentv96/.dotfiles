@@ -2,8 +2,8 @@ local M = {}
 
 function M.prop(fg, bg, style, v)
     return {
-        fg = fg,
-        bg = bg,
+        fg    = fg,
+        bg    = bg,
         style = style,
     }
 end

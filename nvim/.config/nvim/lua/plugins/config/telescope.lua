@@ -17,15 +17,15 @@ nnoremap("<Leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>
 
 telescope.setup({
     defaults = {
-        file_sorter = require("telescope.sorters").get_fzy_sorter,
-        prompt_prefix = " >",
-        color_devicons = true,
+        file_sorter      = require("telescope.sorters").get_fzy_sorter,
+        prompt_prefix    = " >",
+        color_devicons   = true,
 
-        file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-        grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+        file_previewer   = require("telescope.previewers").vim_buffer_cat.new,
+        grep_previewer   = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-        preview = {
-            treesitter = false
+        preview          = {
+            treesitter   = false
         },
 
         mappings = {
