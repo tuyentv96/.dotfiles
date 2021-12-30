@@ -88,8 +88,9 @@ local opts = {
 rusttools.setup(opts)
 
 cmd([[
-    augroup rust-map
+    augroup rust.Commands
     autocmd!
+    autocmd BufWritePre *.rs :silent! lua vim.lsp.buf.formatting_sync() 
     autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>
     autocmd FileType rust nnoremap <leader>ch :RustToggleInlayHints <CR>]
     autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>

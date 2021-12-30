@@ -10,6 +10,10 @@ return require('packer').startup({function(use)
   use {
     'wbthomason/packer.nvim',
   }
+  use {
+      "nathom/filetype.nvim",
+      config = get_config("filetype"),
+  }
   use 'dstein64/vim-startuptime'
   -- use {
   --     "norcalli/nvim-colorizer.lua",
@@ -98,10 +102,14 @@ return require('packer').startup({function(use)
     config = get_config('lsp')
   }
 
+  -- use {
+  --     "fatih/vim-go",
+  --     run = ":GoUpdateBinaries'",
+  --     config = get_config('go'),
+  -- }
   use {
-      "fatih/vim-go",
-      run = ":GoUpdateBinaries'",
-      config = get_config('go'),
+      'ray-x/go.nvim',
+      config = get_config('nvimgo'),
   }
   use({
       'scalameta/nvim-metals',

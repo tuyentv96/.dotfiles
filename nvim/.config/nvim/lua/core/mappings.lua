@@ -45,7 +45,7 @@ vnoremap("<leader>d", '"_d')
 -- clear highlight
 nnoremap("<leader>h", ":noh<CR>")
 
-nnoremap("<leader>nt", ":NvimTreeToggle<cr>")
+nnoremap("<leader>tt", ":NvimTreeToggle<cr>")
 nnoremap("<leader>wr", "<C-w>o :NvimTreeToggle<CR> <C-w>l")
 
 -- Resize with arrows

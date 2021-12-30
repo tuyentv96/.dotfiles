@@ -2,7 +2,7 @@ require("core.utils")
 
 local options = {
     foldenable = false,
-    lazyredraw = true,
+    -- lazyredraw = true,
     laststatus = 2,
     number = true,
     relativenumber = true,

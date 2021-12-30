@@ -124,19 +124,19 @@ metals_config.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hov
 metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(lsp_status.capabilities)
 
 metals_config.on_attach = function(client, bufnr)
-    cmd([[autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()]])
-    cmd([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
-    cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
+    -- cmd([[autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()]])
+    -- cmd([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
+    -- cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
 
     setup_dap(execute_command)
 end
 
 cmd([[
-    augroup lsp
+    augroup scala.Commands
     autocmd!
+    autocmd BufWritePre *.scala :silent! lua vim.lsp.buf.formatting_sync() 
     autocmd FileType scala setlocal omnifunc=v:lua.vim.lsp.omnifunc
     autocmd FileType scala,sb lua require("metals").initialize_or_attach(metals_config)
     augroup end
 ]])
-
 
