@@ -15,7 +15,7 @@ bufferline.setup {
         left_trunc_marker       = "",
         right_trunc_marker      = "",
         max_name_length         = 14,
-        max_prefix_length       = 13,
+        max_prefix_length       = 0,
         tab_size                = 20,
         show_tab_indicators     = true,
         enforce_regular_tabs    = false,
@@ -45,7 +45,18 @@ bufferline.setup {
          guifg = palette.fg2,
          guibg = palette.bg2,
         },
-
+        duplicate_selected = {
+            guifg = palette.fg0,
+            guibg = palette.bg0,
+        },
+        duplicate_visible = {
+            guifg = palette.fg2,
+            guibg = palette.bg2,
+        },
+        duplicate = {
+            guifg = palette.fg2,
+            guibg = palette.bg2,
+        },
         fill = {
          guifg = palette.fg2,
          guibg = palette.bg2,
