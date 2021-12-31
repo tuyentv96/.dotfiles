@@ -1,17 +1,20 @@
 -- Shorten function name
+require("core.utils")
+
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 vim.g.fugitive_dynamic_colors = 0
 
-keymap("n", "<leader>ga", ":Git fetch --all<CR>", opts)
-keymap("n", "<leader>gp", ":Git -c push.default=current push<CR>", opts)
-keymap("n", "<leader>gr", ":Git rebase origin/master<CR>", opts)
-keymap("n", "<leader>gf", ":Git pull --rebase<CR>", opts)
-keymap("n", "<leader>gv", ":GV <CR>", opts)
-keymap("n", "<leader>gc", ":G commit<CR>", opts)
+nnoremap("<leader>ga", ":Git fetch --all<CR>")
+nnoremap("<leader>gp", ":Git -c push.default=current push<CR>")
+nnoremap("<leader>gr", ":Git rebase origin/master<CR>")
+nnoremap("<leader>gf", ":Git pull --rebase<CR>")
+nnoremap("<leader>gv", ":GV <CR>")
+nnoremap("<leader>gc", ":G commit<CR>")
+vnoremap("<leader>gm", ":G blame<CR>")
 
-keymap("n", "<leader>gl", ":diffget //3<CR>", opts)
-keymap("n", "<leader>gh", ":diffget //2<CR>", opts)
-keymap("n", "<leader>gs", ":G <CR>", opts)
+nnoremap("<leader>gl", ":diffget //3<CR>")
+nnoremap("<leader>gh", ":diffget //2<CR>")
+nnoremap("<leader>gs", ":G <CR>")
 
