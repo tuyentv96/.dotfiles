@@ -19,6 +19,7 @@ require("nvim-treesitter.configs").setup({
       'lua',
       'json',
       'org',
+      'dockerfile',
   },
   indent = {
     enable = false,
@@ -30,7 +31,7 @@ require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
     disable = { },
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = {'org'},
   },
   textobjects = { enable = false },
   incremental_selection = {

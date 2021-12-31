@@ -15,13 +15,14 @@ vim.g.maplocalleader = ' '
 -- Quick-save
 nnoremap("<leader>s", ":w<CR>")
 nnoremap("<leader>q", ":q<CR>")
+nnoremap("<leader>wq", ":wq<CR>")
 
 -- Left and right can switch buffers
 nnoremap("m", ":bp<CR>")
 nnoremap(",", ":bn<CR>")
 
 -- Open new file adjacent to current file
-nnoremap("<leader>o", ':e <C-R>=expand("%:p:h") . "/" <CR>')
+nnoremap("<leader>ao", ':e <C-R>=expand("%:p:h") . "/" <CR>')
 
 -- close current buffer
 nnoremap("<C-c>", ":bp<bar>sp<bar>bn<bar>bd<CR>")
@@ -47,6 +48,7 @@ nnoremap("<leader>h", ":noh<CR>")
 
 nnoremap("<leader>tt", ":NvimTreeToggle<cr>")
 nnoremap("<leader>wr", "<C-w>o :NvimTreeToggle<CR> <C-w>l")
+nnoremap("<leader>wo", "<C-w>o")
 
 -- Resize with arrows
 -- nnoremap("<A-u>", ":resize -5<CR>")

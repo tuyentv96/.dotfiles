@@ -10,6 +10,7 @@ local nvimtree   = require("colors.nvimtree")
 local hop        = require("colors.hop")
 local cmp        = require("colors.nvimcmp")
 local git        = require("colors.git")
+local org        = require("colors.org")
 
 local skeletons = {
   terminal,
@@ -20,6 +21,7 @@ local skeletons = {
   hop,
   cmp,
   git,
+  org,
 }
 
 for _, skeleton in ipairs(skeletons) do
