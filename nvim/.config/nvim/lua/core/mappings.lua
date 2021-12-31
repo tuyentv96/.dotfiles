@@ -7,10 +7,10 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- No arrow keys --- force yourself to use the home row
-nnoremap("<up>", "<nop>")
-nnoremap("<down>", "<nop>")
-nnoremap("<left>", "<nop>")
-nnoremap("<right>", "<nop>")
+-- nnoremap("<up>", "<nop>")
+-- nnoremap("<down>", "<nop>")
+-- nnoremap("<left>", "<nop>")
+-- nnoremap("<right>", "<nop>")
 
 -- Quick-save
 nnoremap("<leader>s", ":w<CR>")
@@ -49,11 +49,14 @@ nnoremap("<leader>tt", ":NvimTreeToggle<cr>")
 nnoremap("<leader>wr", "<C-w>o :NvimTreeToggle<CR> <C-w>l")
 
 -- Resize with arrows
-nnoremap("<A-u>", ":resize -5<CR>")
-nnoremap("<A-i>", ":resize +5<CR>")
-nnoremap("<A-o>", ":vertical resize -5<CR>")
-nnoremap("<A-y>", ":vertical resize +5<CR>")
-
+-- nnoremap("<A-u>", ":resize -5<CR>")
+-- nnoremap("<A-i>", ":resize +5<CR>")
+-- nnoremap("<A-o>", ":vertical resize -5<CR>")
+-- nnoremap("<A-y>", ":vertical resize +5<CR>")
+nnoremap("<down>", ":resize -5<CR>")
+nnoremap("<up>", ":resize +5<CR>")
+nnoremap("<right>", ":vertical resize -5<CR>")
+nnoremap("<left>", ":vertical resize +5<CR>")
 
 -- provide hjkl movements in Insert mode via the <Alt> modifier key
 inoremap("<A-h>", "<C-o>h")

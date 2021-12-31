@@ -50,7 +50,7 @@ local options = {
 }
 
 vim.opt.shortmess:remove("F"):append("c")
-vim.cmd("syntax off")
+-- vim.cmd("syntax off")
 vim.cmd("filetype indent plugin on")
 vim.cmd("let $LANG='en_US.UTF-8'")
 vim.cmd("set fillchars+=vert:\\ ")

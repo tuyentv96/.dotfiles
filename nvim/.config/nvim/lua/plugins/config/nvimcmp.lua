@@ -8,6 +8,7 @@ local source_mapping = {
 	cmp_tabnine      = "[TN]",
 	path             = "[Path]",
     luasnip          = "[LuaSnip]",
+    orgmode          = "[Org]",
 }
 
 cmp.setup({
@@ -60,6 +61,8 @@ cmp.setup({
         -- { name = "cmp_tabnine", max_item_count = 5},
         { name = "buffer", max_item_count = 5},
         { name = "nvim_lua", max_item_count = 5 },
+        { name = 'orgmode' }
+
 		-- { name = "path", max_item_count = 5},
 	},
     experimental = {
