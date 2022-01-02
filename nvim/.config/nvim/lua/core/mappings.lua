@@ -18,14 +18,17 @@ nnoremap("<leader>q", ":q<CR>")
 nnoremap("<leader>wq", ":wq<CR>")
 
 -- Left and right can switch buffers
-nnoremap("m", ":bp<CR>")
-nnoremap(",", ":bn<CR>")
+-- nnoremap("m", ":bp<CR>")
+-- nnoremap(",", ":bn<CR>")
+nnoremap("m", ":BufferLineCyclePrev<CR>")
+nnoremap(",", ":BufferLineCycleNext<CR>")
 
 -- Open new file adjacent to current file
 nnoremap("<leader>ao", ':e <C-R>=expand("%:p:h") . "/" <CR>')
 
 -- close current buffer
-nnoremap("<C-c>", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+-- nnoremap("<C-c>", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+nnoremap("<C-c>", ":bdelete<CR>")
 
 -- Move selected lines
 vnoremap("J", ":m '>+1<CR>gv=gv")

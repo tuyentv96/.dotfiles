@@ -2,14 +2,14 @@ require("core.utils")
 
 local options = {
     foldenable = false,
-    -- lazyredraw = true,
+    lazyredraw = true,
     laststatus = 2,
     number = true,
     relativenumber = true,
     showcmd = true,
     listchars = "nbsp:¬,extends:»,precedes:«,trail:•",
     synmaxcol = 300,
-    signcolumn = "no",
+    -- signcolumn = "no",
     sidescrolloff = 5,
     scrolloff = 10,
     cursorline = false,
@@ -54,6 +54,12 @@ vim.opt.shortmess:remove("F"):append("c")
 vim.cmd("filetype indent plugin on")
 vim.cmd("let $LANG='en_US.UTF-8'")
 vim.cmd("set fillchars+=vert:\\ ")
+vim.cmd([[
+    augroup highlight_yank
+        autocmd!
+        au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+    augroup END
+]])
 
 for k, v in pairs(options) do
     vim.opt[k] = v

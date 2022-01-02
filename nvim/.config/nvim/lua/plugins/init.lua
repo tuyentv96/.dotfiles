@@ -23,7 +23,11 @@ return require('packer').startup({function(use)
   --     end
   -- }
   use "kyazdani42/nvim-web-devicons"
-  use 'machakann/vim-highlightedyank'
+  use {
+      'Raimondi/delimitMate',
+      config = get_config('delimit'),
+  }
+  -- use 'machakann/vim-highlightedyank'
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
@@ -107,15 +111,15 @@ return require('packer').startup({function(use)
     config = get_config('lsp')
   }
 
-  -- use {
-  --     "fatih/vim-go",
-  --     run = ":GoUpdateBinaries'",
-  --     config = get_config('go'),
-  -- }
   use {
-      'ray-x/go.nvim',
-      config = get_config('nvimgo'),
+      "fatih/vim-go",
+      run = ":GoUpdateBinaries'",
+      config = get_config('go'),
   }
+  -- use {
+  --     'ray-x/go.nvim',
+  --     config = get_config('nvimgo'),
+  -- }
   use({
       'scalameta/nvim-metals',
       requires = { "nvim-lua/plenary.nvim" },

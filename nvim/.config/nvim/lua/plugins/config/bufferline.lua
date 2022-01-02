@@ -7,7 +7,7 @@ local palette = require("colors.palette")
 
 bufferline.setup {
     options = {
-        offsets                 = { { filetype                                                = "NvimTree", text = "", padding = 1 } },
+        offsets                 = {{ filetype  = "NvimTree", text = "", padding = 1 }},
         buffer_close_icon       = "",
         modified_icon           = "",
         close_icon              = "",
@@ -27,6 +27,21 @@ bufferline.setup {
         name_formatter          = function(buf)  -- buf contains a "name", "path" and "bufnr"
             return buf.name
         end,
+        custom_filter = function(bufnr)
+        -- if the result is false, this buffer will be shown, otherwise, this
+        -- buffer will be hidden.
+
+        -- filter out filetypes you don't want to see
+        local exclude_ft = { "qf", "fugitive", "git", "NvimTree", "dap-repl" }
+        local cur_ft = vim.bo[bufnr].filetype
+        local should_filter = vim.tbl_contains(exclude_ft, cur_ft)
+
+        if should_filter then
+            return false
+        end
+
+        return true
+    end,
     },
 
     highlights = {

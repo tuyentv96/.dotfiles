@@ -17,8 +17,8 @@ nnoremap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
 nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 nnoremap("gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>")
 nnoremap("gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>")
-nnoremap("<leader>dw", "<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>")
-nnoremap("<leader>dd", ":Telescope diagnostics <CR>")
+nnoremap("<leader>dw", "<cmd>lua require('telescope.builtin').diagnostics()<CR>")
+nnoremap("<leader>dd", "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0}) <CR>")
 nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>ws", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
 nnoremap("<leader>ds", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
@@ -44,7 +44,7 @@ local pop_opts = { border = border_style }
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = {
         prefix = "",
-        spacing = 0,
+        spacing = 5,
     },
     signs = false,
     underline = false,
