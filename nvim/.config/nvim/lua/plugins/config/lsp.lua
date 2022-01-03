@@ -25,8 +25,8 @@ nnoremap("<leader>ds", "<cmd>lua require('telescope.builtin').lsp_document_symbo
 nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 nnoremap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
-nnoremap("<leader>[c", "<cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>")
-nnoremap("<leader>]c", "<cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>")
+nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
+nnoremap("<leader>]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 
 local border_style = {
   { "╭", "FloatBorder" },
@@ -44,7 +44,7 @@ local pop_opts = { border = border_style }
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = {
         prefix = "",
-        spacing = 5,
+        spacing = 4,
     },
     signs = false,
     underline = false,

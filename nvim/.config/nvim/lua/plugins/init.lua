@@ -125,6 +125,7 @@ return require('packer').startup({function(use)
       requires = { "nvim-lua/plenary.nvim" },
       config = get_config('metals'),
   })
+  use 'rust-lang/rust.vim'
   use {
       'simrat39/rust-tools.nvim',
       requires = {'neovim/nvim-lspconfig'},
