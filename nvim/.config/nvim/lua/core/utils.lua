@@ -1,67 +1,79 @@
 HOME =os.getenv("HOME")
 
-function noremap(mode, shortcut, command)
-  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
+function noremap(mode, shortcut, command, opts)
+  local options = { noremap = true, silent = true }
+  options = vim.tbl_deep_extend("force", options, opts or {})
+  vim.api.nvim_set_keymap(mode, shortcut, command, options)
 end
 
-function map(mode, shortcut, command)
-  vim.api.nvim_set_keymap(mode, shortcut, command, { silent = true })
+function map(mode, shortcut, command, opts)
+  local options = { silent = true }
+  options = vim.tbl_deep_extend("force", options, opts or {})
+  vim.api.nvim_set_keymap(mode, shortcut, command, options)
 end
 
-function nnoremap(shortcut, command)
+function nnoremap(shortcut, command, opts)
   noremap('n', shortcut, command)
 end
 
-function inoremap(shortcut, command)
-  noremap('i', shortcut, command)
+function inoremap(shortcut, command, opts)
+  noremap('i', shortcut, command, opts)
 end
 
-function vnoremap(shortcut, command)
-  noremap('v', shortcut, command)
+function vnoremap(shortcut, command, opts)
+  noremap('v', shortcut, command, opts)
 end
 
-function cnoremap(shortcut, command)
-  noremap('c', shortcut, command)
+function cnoremap(shortcut, command, opts)
+  noremap('c', shortcut, command, opts)
 end
 
-function tnoremap(shortcut, command)
-  noremap('t', shortcut, command)
+function tnoremap(shortcut, command, opts)
+  noremap('t', shortcut, command, opts)
 end
 
-function xnoremap(shortcut, command)
-  noremap('t', shortcut, command)
+function xnoremap(shortcut, command, opts)
+  noremap('t', shortcut, command, opts)
 end
 
-function onoremap(shortcut, command)
-  noremap('o', shortcut, command)
+function onoremap(shortcut, command, opts)
+  noremap('o', shortcut, command, opts)
 end
 
-function nmap(shortcut, command)
-  map('n', shortcut, command)
+function snoremap(shortcut, command, opts)
+  noremap('s', shortcut, command, opts)
 end
 
-function imap(shortcut, command)
-  map('i', shortcut, command)
+function nmap(shortcut, command, opts)
+  map('n', shortcut, command, opts)
 end
 
-function vmap(shortcut, command)
-  map('v', shortcut, command)
+function imap(shortcut, command, opts)
+  map('i', shortcut, command, opts)
 end
 
-function cmap(shortcut, command)
-  map('c', shortcut, command)
+function vmap(shortcut, command, opts)
+  map('v', shortcut, command, opts)
 end
 
-function tmap(shortcut, command)
-  map('t', shortcut, command)
+function cmap(shortcut, command, opts)
+  map('c', shortcut, command, opts)
 end
 
-function xmap(shortcut, command)
-  map('t', shortcut, command)
+function tmap(shortcut, command, opts)
+  map('t', shortcut, command, opts)
 end
 
-function omap(shortcut, command)
-  map('o', shortcut, command)
+function xmap(shortcut, command, opts)
+  map('t', shortcut, command, opts)
+end
+
+function omap(shortcut, command, opts)
+  map('o', shortcut, command, opts)
+end
+
+function smap(shortcut, command, opts)
+  map('s', shortcut, command, opts)
 end
 
 cmd = vim.cmd

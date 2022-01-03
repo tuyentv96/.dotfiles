@@ -3,9 +3,6 @@ if not present then
    return
 end
 
-
-local cmd = vim.cmd
-local g = vim.g
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
 -- default mappings
@@ -91,7 +88,7 @@ vim.g.nvim_tree_icons = {
 
 
 nvimtree.setup {
-  disable_netrw       = false,
+  disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
