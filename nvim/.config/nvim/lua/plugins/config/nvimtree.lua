@@ -120,7 +120,7 @@ nvimtree.setup {
   },
   filters = {
     dotfiles = false,
-    custom = {}
+    custom = {'.DS_Store','.git'}
   },
   view = {
     width = 40,
@@ -128,12 +128,15 @@ nvimtree.setup {
     hide_root_folder = false,
     side = 'left',
     auto_resize = true,
+    number = false,
+    relativenumber = false,
+	signcolumn = "no",
     mappings = {
       custom_only = false,
       list = {}
     }
   },
   git = {
-    ignore = true
+    ignore = false
   }
 }
