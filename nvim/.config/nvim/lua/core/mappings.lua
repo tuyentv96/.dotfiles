@@ -35,7 +35,7 @@ vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
 -- paste from clipboard
-xnoremap("<leader>p", '"_dP')
+xnoremap("<c-p>", '"_dP')
 
 -- Copy to clipboard
 nnoremap("<leader>y", '"+y')

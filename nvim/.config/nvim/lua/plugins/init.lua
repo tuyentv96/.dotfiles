@@ -172,6 +172,11 @@ return require('packer').startup({function(use)
     'ray-x/lsp_signature.nvim',
     config = get_config('lspsignature')
   }
+
+  use {
+      'akinsho/toggleterm.nvim',
+      config = get_config('toggleterm')
+  }
 end,
 config = {
   display = {
