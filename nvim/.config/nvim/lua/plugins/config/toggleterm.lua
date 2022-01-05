@@ -19,4 +19,4 @@ toggleterm.setup{
   shell = "/usr/local/bin/fish", -- change the default shell
 }
 
-vim.api.nvim_set_keymap("t", "<ESC>", '<C-\\><C-n>', {noremap = true, silent = true}) -- back to normal mode in Terminal 
+vim.api.nvim_set_keymap("t", "<ESC>", '<C-\\><C-n>', {noremap = true, silent = true})

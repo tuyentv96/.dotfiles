@@ -78,11 +78,11 @@ return require('packer').startup({function(use)
     event = "BufRead",
     config = get_config("treesitter")
   }
-  use {
-      'nvim-orgmode/orgmode',
-      after = "nvim-treesitter",
-      config = get_config("orgmode"),
-  }
+  -- use {
+  --     'nvim-orgmode/orgmode',
+  --     after = "nvim-treesitter",
+  --     config = get_config("orgmode"),
+  -- }
   -- use 'Yggdroot/indentLine'
   -- use 'cespare/vim-toml'
   -- use 'stephpy/vim-yaml'
