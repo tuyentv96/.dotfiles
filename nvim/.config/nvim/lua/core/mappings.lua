@@ -20,8 +20,6 @@ nnoremap("<leader>wq", ":wq<CR>")
 -- Left and right can switch buffers
 -- nnoremap("m", ":bp<CR>")
 -- nnoremap(",", ":bn<CR>")
-nnoremap("m", ":BufferLineCyclePrev<CR>")
-nnoremap(",", ":BufferLineCycleNext<CR>")
 
 -- Open new file adjacent to current file
 nnoremap("<leader>ao", ':e <C-R>=expand("%:p:h") . "/" <CR>')

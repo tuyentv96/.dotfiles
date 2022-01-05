@@ -60,8 +60,8 @@ return require('packer').startup({function(use)
     'tpope/vim-fugitive',
     config = get_config('git')
   }
-  -- use 'junegunn/gv.vim'
-  -- use 'tpope/vim-rhubarb'
+  use 'junegunn/gv.vim'
+  use 'tpope/vim-rhubarb'
 
   use {
     'kyazdani42/nvim-tree.lua',

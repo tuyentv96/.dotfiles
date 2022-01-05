@@ -4,6 +4,12 @@ if not present then
 end
 
 local palette = require("colors.palette")
+require("core.utils")
+
+nnoremap("m", ":BufferLineCyclePrev<CR>")
+nnoremap(",", ":BufferLineCycleNext<CR>")
+nnoremap("<leader>wm", ":BufferLineCloseLeft<CR>")
+nnoremap("<leader>w,", ":BufferLineCloseRight<CR>")
 
 bufferline.setup {
     options = {
@@ -14,7 +20,7 @@ bufferline.setup {
         show_close_icon         = false,
         left_trunc_marker       = "",
         right_trunc_marker      = "",
-        max_name_length         = 14,
+        max_name_length         = 20,
         max_prefix_length       = 0,
         tab_size                = 20,
         show_tab_indicators     = true,
@@ -30,6 +36,11 @@ bufferline.setup {
         custom_filter = function(bufnr)
         -- if the result is false, this buffer will be shown, otherwise, this
         -- buffer will be hidden.
+
+        -- filter out no name buffer
+        if vim.fn.bufname(bufnr) ~= "" then
+          return true
+        end
 
         -- filter out filetypes you don't want to see
         local exclude_ft = { "qf", "fugitive", "git", "NvimTree", "dap-repl" }
