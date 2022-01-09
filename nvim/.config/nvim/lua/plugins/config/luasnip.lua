@@ -6,7 +6,7 @@ end
 require("core.utils")
 
 luasnip.config.set_config {
-    history = true,
+    history = false,
     updateevents = "TextChanged,TextChangedI",
     region_check_events = nil,
     enable_autosnippets = nil,

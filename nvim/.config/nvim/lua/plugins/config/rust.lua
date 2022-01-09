@@ -4,9 +4,6 @@ if not present then
 end
 
 require("core.utils")
-local extension_path = HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
-local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/bin/lldb'
 
 local opts = {
     tools = { -- rust-tools options
@@ -80,12 +77,10 @@ local opts = {
     -- whether the hover action window gets automatically focused
     auto_focus = true,
     },
-    dap = {
-        adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
-    }
 }
 
 rusttools.setup(opts)
+
 
 cmd([[
     augroup rust.Commands

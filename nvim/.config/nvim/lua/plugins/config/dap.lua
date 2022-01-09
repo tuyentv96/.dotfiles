@@ -18,10 +18,12 @@ dap.adapters.go = function(callback, config)
     local stdout = vim.loop.new_pipe(false)
     local handle
     local pid_or_err
-    local port = 38697
+    local host = config.host or "127.0.0.1"
+    local port = config.port or "38697"
+    local addr = string.format("%s:%s", host, port)
     local opts = {
       stdio = {nil, stdout},
-      args = {"dap", "-l", "127.0.0.1:" .. port},
+      args = {"dap", "-l", addr},
       detached = true
     }
     handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
@@ -45,15 +47,23 @@ dap.adapters.go = function(callback, config)
       function()
         callback({type = "server", host = "127.0.0.1", port = port})
       end,
-      200)
-  end
+    100)
+end
+
   -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
 dap.configurations.go = {
     {
       type = "go",
       name = "Debug",
       request = "launch",
-      program = "${file}"
+      program = "${file}",
+    },
+    {
+      type = "go",
+      name = "Attach",
+      mode = "local",
+      request = "attach",
+      processId = require('dap.utils').pick_process,
     },
     {
       type = "go",
@@ -62,14 +72,13 @@ dap.configurations.go = {
       mode = "test",
       program = "${file}"
     },
-    -- works with go.mod packages and sub packages 
     {
       type = "go",
       name = "Debug test (go.mod)",
       request = "launch",
       mode = "test",
       program = "./${relativeFileDirname}"
-    } 
+    }
 }
 
 
@@ -83,16 +92,16 @@ dap.configurations.scala = {
         args = {},
       },
     },
-    {
-      type = "scala",
-      request = "attach",
-      name = "Attach Remote",
-      port = 5005,
-      hostName = "localhost",
-      buildTarget = function()
-        return vim.fn.input("buildTarget: ", "", "file")
-      end,
-    },
+    -- {
+    --   type = "scala",
+    --   request = "attach",
+    --   name = "Attach Remote",
+    --   port = 5005,
+    --   hostName = "localhost",
+    --   buildTarget = function()
+    --     return vim.fn.input("buildTarget: ", "", "file")
+    --   end,
+    -- },
     {
       type = "scala",
       request = "launch",
@@ -111,13 +120,29 @@ dap.configurations.scala = {
     },
 }
 
+local extension_path = HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/bin/lldb'
+
+dap.adapters.rt_lldb = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
+dap.adapters.lldb = dap.adapters.rt_lldb
+
 dap.configurations.rust = {
     {
+        -- If you get an "Operation not permitted" error using this, try disabling YAMA:
+        --  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+        name = "Attach to process",
+        type = 'lldb',
+        request = 'attach',
+        pid = require('dap.utils').pick_process,
+        args = {},
+    },
+    {
         name = "Launch",
-        type = "rt_lldb",
+        type = "lldb",
         request = "launch",
         program = function()
-          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
@@ -136,4 +161,6 @@ dap.configurations.rust = {
         runInTerminal = false,
     },
 }
+
+require('dap.ext.vscode').load_launchjs()
 
