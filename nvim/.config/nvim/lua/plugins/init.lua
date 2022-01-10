@@ -94,6 +94,12 @@ return require('packer').startup({function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-commentary'
+  use 'tpope/vim-dadbod'
+  use { "kristijanhusak/vim-dadbod-completion" }
+  use {
+      "kristijanhusak/vim-dadbod-ui",
+      config = get_config("db"),
+  }
   -- use 'jiangmiao/auto-pairs'
   use {
     'nvim-lua/lsp-status.nvim',

@@ -9,6 +9,7 @@ local source_mapping = {
 	path             = "[Path]",
     luasnip          = "[LuaSnip]",
     orgmode          = "[Org]",
+    ['vim-dadbod-completion'] = "[DB]",
 }
 
 cmp.setup({
@@ -32,10 +33,34 @@ cmp.setup({
         end
     },
 	mapping = {
-	  ["<CR>"] = cmp.mapping.confirm {
-         behavior = cmp.ConfirmBehavior.Replace,
-         select = true,
-      },
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<c-y>"] = cmp.mapping(
+          cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+          },
+          { "i", "c" }
+        ),
+
+        ["<c-space>"] = cmp.mapping {
+          i = cmp.mapping.complete(),
+          c = function(
+            _ --[[fallback]]
+          )
+            if cmp.visible() then
+              if not cmp.confirm { select = true } then
+                return
+              end
+            else
+              cmp.complete()
+            end end,
+        },
+	  -- ["<CR>"] = cmp.mapping.confirm {
+         -- behavior = cmp.ConfirmBehavior.Replace,
+         -- select = true,
+      -- },
       ["<Tab>"] = function(fallback)
          if cmp.visible() then
             cmp.select_next_item()
@@ -68,6 +93,14 @@ cmp.setup({
         ghost_text = false,
     },
 })
+
+-- Add vim-dadbod-completion in sql files
+_ = vim.cmd [[
+  augroup DadbodSql
+    au!
+    autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
+  augroup END
+]]
 
 -- require('cmp_tabnine.config'):setup({
 --     max_lines = 1000,

@@ -6,7 +6,7 @@ end
 toggleterm.setup{
   -- size can be a number or function which is passed the current terminal
   size = 20,
-  open_mapping = [[<c-y>]],
+  open_mapping = [[<c-t>]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
   shade_terminals = true,
