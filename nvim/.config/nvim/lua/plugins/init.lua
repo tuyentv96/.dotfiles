@@ -27,6 +27,7 @@ return require('packer').startup({function(use)
       'Raimondi/delimitMate',
       config = get_config('delimit'),
   }
+  use 'famiu/bufdelete.nvim'
   -- use 'machakann/vim-highlightedyank'
   use {
     'nvim-lualine/lualine.nvim',

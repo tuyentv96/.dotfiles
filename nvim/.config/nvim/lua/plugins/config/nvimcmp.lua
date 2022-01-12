@@ -38,28 +38,15 @@ cmp.setup({
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.close(),
-        ["<c-y>"] = cmp.mapping(
-          cmp.mapping.confirm {
+        ["<c-y>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Insert,
             select = true,
-          },
-          { "i", "c" }
-        ),
-
-        ["<c-space>"] = cmp.mapping {
-          i = cmp.mapping.complete(),
-          c = function(
-            _ --[[fallback]]
-          )
-            if cmp.visible() then
-              if not cmp.confirm { select = true } then
-                return
-              end
-            else
-              cmp.complete()
-            end
-        end,
         },
+        ["<CR>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+        },
+        ["<c-space>"] = cmp.mapping.complete(),
 	  -- ["<CR>"] = cmp.mapping.confirm {
          -- behavior = cmp.ConfirmBehavior.Replace,
          -- select = true,
