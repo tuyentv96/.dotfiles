@@ -2,13 +2,13 @@ local cmp = require("cmp")
 local lspkind = require('lspkind')
 
 local source_mapping = {
-	buffer           = "[Buffer]",
-	nvim_lsp         = "[LSP]",
-	nvim_lua         = "[Lua]",
-	cmp_tabnine      = "[TN]",
-	path             = "[Path]",
-    luasnip          = "[LuaSnip]",
-    orgmode          = "[Org]",
+	buffer                    = "[Buffer]",
+	nvim_lsp                  = "[LSP]",
+	nvim_lua                  = "[Lua]",
+	cmp_tabnine               = "[TN]",
+	path                      = "[Path]",
+    luasnip                   = "[LuaSnip]",
+    orgmode                   = "[Org]",
     ['vim-dadbod-completion'] = "[DB]",
 }
 
@@ -33,6 +33,8 @@ cmp.setup({
         end
     },
 	mapping = {
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.close(),
@@ -55,30 +57,31 @@ cmp.setup({
               end
             else
               cmp.complete()
-            end end,
+            end
+        end,
         },
 	  -- ["<CR>"] = cmp.mapping.confirm {
          -- behavior = cmp.ConfirmBehavior.Replace,
          -- select = true,
       -- },
-      ["<Tab>"] = function(fallback)
-         if cmp.visible() then
-            cmp.select_next_item()
-         elseif require("luasnip").expand_or_jumpable() then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
-         else
-            fallback()
-         end
-      end,
-      ["<S-Tab>"] = function(fallback)
-         if cmp.visible() then
-            cmp.select_prev_item()
-         elseif require("luasnip").jumpable(-1) then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
-         else
-            fallback()
-         end
-      end,
+      -- ["<Tab>"] = function(fallback)
+      --    if cmp.visible() then
+      --       cmp.select_next_item()
+      --    elseif require("luasnip").expand_or_jumpable() then
+      --       vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+      --    else
+      --       fallback()
+      --    end
+      -- end,
+      -- ["<S-Tab>"] = function(fallback)
+      --    if cmp.visible() then
+      --       cmp.select_prev_item()
+      --    elseif require("luasnip").jumpable(-1) then
+      --       vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+      --    else
+      --       fallback()
+      --    end
+      -- end,
     },
 	sources = {
         { name = "nvim_lsp", max_item_count = 10},
