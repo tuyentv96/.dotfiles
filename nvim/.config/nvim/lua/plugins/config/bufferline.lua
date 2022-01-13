@@ -38,8 +38,8 @@ bufferline.setup {
         -- buffer will be hidden.
 
         -- filter out filetypes you don't want to see
-        local exclude_ft = { "qf", "git", "NvimTree", "dap-repl" }
-        local cur_ft = vim.bo[bufnr].filetype
+        local exclude_ft    = { "qf", "git", "NvimTree", "dap-repl" }
+        local cur_ft        = vim.bo[bufnr].filetype
         local should_filter = vim.tbl_contains(exclude_ft, cur_ft)
 
         if should_filter then
