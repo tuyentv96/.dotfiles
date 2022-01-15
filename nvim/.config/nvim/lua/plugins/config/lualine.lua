@@ -33,7 +33,7 @@ lualine.setup {
       },
       lualine_x = {'encoding', 'filetype'},
       lualine_y = {},
-      lualine_z = {}
+      lualine_z = {'%l/%L'}
     },
     inactive_sections = {
       lualine_a = {},

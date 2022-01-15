@@ -28,7 +28,6 @@ return require('packer').startup({function(use)
       config = get_config('delimit'),
   }
   use 'famiu/bufdelete.nvim'
-  -- use 'machakann/vim-highlightedyank'
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
