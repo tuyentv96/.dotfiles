@@ -24,6 +24,8 @@ vim.g.go_highlight_diagnostic_errors         = 0
 vim.g.go_highlight_diagnostic_warnings       = 0
 vim.g.go_auto_sameids                        = 0
 vim.g.go_auto_type_info                      = 0
+vim.g.go_def_mapping_enabled = 0
+
 
 cmd([[
     augroup go.Commands
