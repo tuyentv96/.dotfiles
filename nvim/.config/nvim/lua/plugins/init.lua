@@ -1,18 +1,18 @@
 vim.cmd [[packadd packer.nvim]]
 
-function get_config(name)
+local function get_config(name)
     return string.format("require(\"plugins/config/%s\")", name)
 end
 
 return require('packer').startup({function(use)
   -- Packer can manage itself
-  use "nvim-lua/plenary.nvim"
+  use 'nvim-lua/plenary.nvim'
   use {
     'wbthomason/packer.nvim',
   }
   use {
-      "nathom/filetype.nvim",
-      config = get_config("filetype"),
+      'nathom/filetype.nvim',
+      config = get_config('filetype'),
   }
   use 'dstein64/vim-startuptime'
   -- use {
@@ -22,7 +22,7 @@ return require('packer').startup({function(use)
   --        require 'colorizer'.setup()
   --     end
   -- }
-  use "kyazdani42/nvim-web-devicons"
+  use 'kyazdani42/nvim-web-devicons'
   use {
       'Raimondi/delimitMate',
       config = get_config('delimit'),
@@ -31,7 +31,7 @@ return require('packer').startup({function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    config = get_config("lualine")
+    config = get_config('lualine')
   }
   use {
     'akinsho/bufferline.nvim',
@@ -49,11 +49,11 @@ return require('packer').startup({function(use)
         {'nvim-lua/plenary.nvim'},
         {'nvim-telescope/telescope-fzy-native.nvim'},
     },
-    config = get_config("telescope"),
+    config = get_config('telescope'),
   }
   use {
     'phaazon/hop.nvim',
-    config = get_config("hop")
+    config = get_config('hop')
   }
 
   use {
@@ -68,15 +68,15 @@ return require('packer').startup({function(use)
     requires = {
       'kyazdani42/nvim-web-devicons',
     },
-    after = "nvim-web-devicons",
-    config = get_config("nvimtree")
+    after = 'nvim-web-devicons',
+    config = get_config('nvimtree')
   }
 
   use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    event = "BufRead",
-    config = get_config("treesitter")
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    event = 'BufRead',
+    config = get_config('treesitter')
   }
   -- use {
   --     'nvim-orgmode/orgmode',
@@ -88,17 +88,17 @@ return require('packer').startup({function(use)
   -- use 'stephpy/vim-yaml'
   use {
       'godlygeek/tabular',
-      config = get_config("tabular"),
+      config = get_config('tabular'),
   }
   -- use 'plasticboy/vim-markdown'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-commentary'
   use 'tpope/vim-dadbod'
-  use { "kristijanhusak/vim-dadbod-completion" }
+  use { 'kristijanhusak/vim-dadbod-completion' }
   use {
-      "kristijanhusak/vim-dadbod-ui",
-      config = get_config("db"),
+      'kristijanhusak/vim-dadbod-ui',
+      config = get_config('db'),
   }
   -- use 'jiangmiao/auto-pairs'
   use {
@@ -111,15 +111,15 @@ return require('packer').startup({function(use)
     requires = {
         {
             'scalameta/nvim-metals',
-            requires = { "nvim-lua/plenary.nvim" },
+            requires = { 'nvim-lua/plenary.nvim' },
         },
     },
     config = get_config('lsp')
   }
 
   use {
-      "fatih/vim-go",
-      run = ":GoUpdateBinaries'",
+      'fatih/vim-go',
+      run = ':GoUpdateBinaries',
       config = get_config('go'),
   }
   -- use {
@@ -128,7 +128,7 @@ return require('packer').startup({function(use)
   -- }
   use({
       'scalameta/nvim-metals',
-      requires = { "nvim-lua/plenary.nvim" },
+      requires = { 'nvim-lua/plenary.nvim' },
       config = get_config('metals'),
   })
   use 'rust-lang/rust.vim'
