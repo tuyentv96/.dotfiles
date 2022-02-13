@@ -16,8 +16,6 @@ lualine.setup {
       lualine_a = {'mode'},
       lualine_b = {'branch'},
       lualine_c = {
-        {'require"lsp-status".status_progress()'},
-        {'vim.g["metals_status"]'},
         {
           'filename',
           file_status = true,   -- displays file status (readonly status, modified status)
@@ -30,6 +28,8 @@ lualine.setup {
             unnamed = '[No Name]', -- default display name for unnamed buffers
           }
         },
+        {'require"lsp-status".status_progress()'},
+        {'vim.g["metals_status"]'},
       },
       lualine_x = {'encoding', 'filetype'},
       lualine_y = {},

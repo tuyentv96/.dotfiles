@@ -53,26 +53,28 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 
+local function on_attach(client, bufnr)
+    if client.resolved_capabilities.document_highlight then
+        vim.api.nvim_exec([[
+          augroup lsp_document_highlight
+            autocmd! * <buffer>
+            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+          augroup END
+        ]], false)
+    end
+end
+
 local function config(_config)
     local capabilities = require("cmp_nvim_lsp").update_capabilities(lsp_status.capabilities)
 	return vim.tbl_deep_extend("force", {
 		capabilities = capabilities,
+        on_attach = on_attach,
 	}, _config or {})
 end
 
 -- Rust
--- lsp_config.rust_analyzer.setup(config({
---     flags = {
---         debounce_text_changes = 150,
---     },
---     settings = {
---         ["rust-analyzer"] = {
---             cargo = {
---                 allFeatures = true,
---             },
---         },
---     },
--- }))
+lsp_config.rust_analyzer.setup(config())
 
 -- Python
 lsp_config.pyright.setup(config())

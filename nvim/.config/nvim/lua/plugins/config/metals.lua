@@ -123,13 +123,21 @@ metals_config.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hov
 -- metals_config.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(lsp_status.capabilities)
 
-metals_config.on_attach = function(client, bufnr)
-    -- cmd([[autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()]])
-    -- cmd([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
-    -- cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
+local function on_attach(client, bufnr)
+    if client.resolved_capabilities.document_highlight then
+        vim.api.nvim_exec([[
+          augroup lsp_document_highlight
+            autocmd! * <buffer>
+            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+          augroup END
+        ]], false)
+    end
 
     setup_dap(execute_command)
 end
+
+metals_config.on_attach = on_attach
 
 cmd([[
     augroup scala.Commands
