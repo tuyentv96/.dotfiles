@@ -15,6 +15,10 @@ return require('packer').startup({function(use)
       config = get_config('filetype'),
   }
   use 'dstein64/vim-startuptime'
+  use {
+      'ThePrimeagen/git-worktree.nvim',
+      config = get_config('worktree')
+  }
   -- use {
   --     "norcalli/nvim-colorizer.lua",
   --     event = "BufRead",
