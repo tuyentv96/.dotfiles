@@ -1,6 +1,7 @@
 require("core.utils")
 
 local options = {
+    mouse = "a",
     foldenable = false,
     lazyredraw = true,
     laststatus = 2,
