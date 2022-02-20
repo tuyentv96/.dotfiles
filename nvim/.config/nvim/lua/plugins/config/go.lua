@@ -26,14 +26,14 @@ vim.g.go_auto_sameids                        = 0
 vim.g.go_auto_type_info                      = 0
 vim.g.go_def_mapping_enabled = 0
 
+-- autocmd FileType go nnoremap <leader>tf :GoTestFunc <CR>
+-- autocmd FileType go nnoremap <leader>ta :GoTest <CR>
 
 cmd([[
     augroup go.Commands
     autocmd!
     autocmd FileType go nnoremap <leader>cr :GoRun <CR>
     autocmd FileType go nnoremap <leader>cb :GoBuild <CR>]
-    autocmd FileType go nnoremap <leader>tf :GoTestFunc <CR>
-    autocmd FileType go nnoremap <leader>ta :GoTest <CR>
     augroup end
 ]])
 

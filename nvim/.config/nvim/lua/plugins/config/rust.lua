@@ -134,6 +134,8 @@ local opts = {
 
 rusttools.setup(opts)
 
+-- autocmd FileType rust nnoremap <leader>tf :RustTest <CR>
+-- autocmd FileType rust nnoremap <leader>ta :RustTest! <CR>]
 
 cmd([[
     augroup rust.Commands
@@ -142,8 +144,6 @@ cmd([[
     autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>
     autocmd FileType rust nnoremap <leader>ch :RustToggleInlayHints <CR>]
     autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>
-    autocmd FileType rust nnoremap <leader>tf :RustTest <CR>
-    autocmd FileType rust nnoremap <leader>ta :RustTest! <CR>]
     augroup end
 ]])
 
