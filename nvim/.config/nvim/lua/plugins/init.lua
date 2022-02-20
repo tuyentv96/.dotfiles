@@ -187,6 +187,20 @@ return require('packer').startup({function(use)
       'akinsho/toggleterm.nvim',
       config = get_config('toggleterm')
   }
+
+  use {
+      'vim-test/vim-test',
+      config = get_config('vimtest')
+  }
+
+  use {
+      'skywind3000/asyncrun.vim'
+  }
+
+  use {
+      'mfussenegger/nvim-dap-python',
+      config = get_config('dappython')
+  }
 end,
 config = {
   display = {

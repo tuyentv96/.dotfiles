@@ -6,6 +6,8 @@ end
 require("core.utils")
 
 nnoremap("<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
+nnoremap("<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+
 nnoremap("<F5>", ":lua require'dap'.continue()<CR>")
 nnoremap("<F6>", ":lua require'dap'.terminate()<CR>")
 nnoremap("<F7>", ":lua require'dap'.step_over()<CR>")
@@ -163,4 +165,5 @@ dap.configurations.rust = {
 }
 
 require('dap.ext.vscode').load_launchjs()
+
 

@@ -3,7 +3,7 @@ if not present then
    return
 end
 
-require("core.utils")
+local utils = require("core.utils")
 
 local opts = {
     tools = { -- rust-tools options
@@ -52,7 +52,8 @@ local opts = {
     },
     server = {
         -- on_attach is a callback called when the language server attachs to the buffer
-        -- on_attach = on_attach,
+        on_attach = utils.on_attach,
+        capabilities = utils.capabilities,
         settings = {
             -- to enable rust-analyzer settings visit:
             -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc

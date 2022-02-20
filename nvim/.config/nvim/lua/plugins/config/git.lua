@@ -13,6 +13,7 @@ nnoremap("<leader>gf", ":Git pull --rebase<CR>")
 nnoremap("<leader>gv", ":GV <CR>")
 nnoremap("<leader>gc", ":G commit<CR>")
 vnoremap("<leader>gm", ":G blame<CR>")
+nnoremap("<leader>gm", ":G blame<CR>")
 
 nnoremap("<leader>gl", ":diffget //3<CR>")
 nnoremap("<leader>gh", ":diffget //2<CR>")

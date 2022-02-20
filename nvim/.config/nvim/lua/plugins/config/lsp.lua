@@ -8,7 +8,8 @@ if not present then
    return
 end
 
-require("core.utils")
+local utils = require("core.utils")
+
 
 local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.6/server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
@@ -53,34 +54,14 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 
-local function on_attach(client, bufnr)
-    if client.resolved_capabilities.document_highlight then
-        vim.api.nvim_exec([[
-          augroup lsp_document_highlight
-            autocmd! * <buffer>
-            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-          augroup END
-        ]], false)
-    end
-end
-
-local function config(_config)
-    local capabilities = require("cmp_nvim_lsp").update_capabilities(lsp_status.capabilities)
-	return vim.tbl_deep_extend("force", {
-		capabilities = capabilities,
-        on_attach = on_attach,
-	}, _config or {})
-end
-
 -- Rust
-lsp_config.rust_analyzer.setup(config())
+-- lsp_config.rust_analyzer.setup(config())
 
 -- Python
-lsp_config.pyright.setup(config())
+lsp_config.pyright.setup(utils.lsp_config())
 
 -- Golang
-lsp_config.gopls.setup(config({
+lsp_config.gopls.setup(utils.lsp_config({
     cmd = { "gopls"},
     settings = {
       gopls = { analyses = { unusedparams = true }, staticcheck = true },
@@ -88,7 +69,7 @@ lsp_config.gopls.setup(config({
 }))
 
 -- lua
-lsp_config.sumneko_lua.setup(config({
+lsp_config.sumneko_lua.setup(utils.lsp_config({
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
   settings = {
       Lua = {

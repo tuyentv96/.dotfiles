@@ -345,4 +345,26 @@ M.project_files = function(opts)
   if not ok then require"telescope.builtin".find_files(opts) end
 end
 
+M.on_attach = function(client, bufnr)
+    if client.resolved_capabilities.document_highlight then
+        vim.api.nvim_exec([[
+          augroup lsp_document_highlight
+            autocmd! * <buffer>
+            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+          augroup END
+        ]], false)
+    end
+end
+
+M.capabilities = require("cmp_nvim_lsp").update_capabilities(require("lsp-status").capabilities)
+
+M.lsp_config = function(_config)
+	return vim.tbl_deep_extend("force", {
+		capabilities = M.capabilities,
+        on_attach = M.on_attach,
+	}, _config or {})
+end
+
+
 return M

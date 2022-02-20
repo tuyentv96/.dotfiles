@@ -14,7 +14,7 @@ lualine.setup {
     },
     sections = {
       lualine_a = {'mode'},
-      lualine_b = {'branch'},
+      lualine_b = {'branch','diff'},
       lualine_c = {
         {
           'filename',
@@ -31,8 +31,8 @@ lualine.setup {
         {'require"lsp-status".status_progress()'},
         {'vim.g["metals_status"]'},
       },
-      lualine_x = {'encoding', 'filetype'},
-      lualine_y = {},
+      lualine_x = {'encoding'},
+      lualine_y = {'filetype'},
       lualine_z = {'%l/%L'}
     },
     inactive_sections = {
