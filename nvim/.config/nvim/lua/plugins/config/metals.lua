@@ -94,29 +94,8 @@ local function setup_dap(execute_command)
 end
 
 
-
-local border_style = {
-  { "╭", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╮", "FloatBorder" },
-  { "│", "FloatBorder" },
-  { "╯", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╰", "FloatBorder" },
-  { "│", "FloatBorder" },
-}
-local pop_opts = { border = border_style }
-
-metals_config.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = {
-     prefix = "",
-     spacing = 0,
-  },
-  signs = false,
-  underline = false,
-  update_in_insert = false,
-})
-metals_config.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
+metals_config.handlers["textDocument/publishDiagnostics"] = utils.lsp_diagnostics
+metals_config.handlers["textDocument/hover"] = utils.lsp_hover
 -- metals_config.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 metals_config.capabilities = utils.capabilities
 

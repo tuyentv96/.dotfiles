@@ -106,6 +106,9 @@ return require('packer').startup({function(use)
   }
   -- use 'jiangmiao/auto-pairs'
   use {
+      'leoluz/nvim-dap-go'
+  }
+  use {
     'nvim-lua/lsp-status.nvim',
     config = get_config('lspstatus'),
   }

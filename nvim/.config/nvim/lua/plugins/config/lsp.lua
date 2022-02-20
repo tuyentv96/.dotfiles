@@ -3,11 +3,6 @@ if not present then
    return
 end
 
-local present, lsp_status  = pcall(require, 'lsp-status')
-if not present then
-   return
-end
-
 local utils = require("core.utils")
 
 
@@ -29,29 +24,9 @@ nnoremap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()
 nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 
-local border_style = {
-  { "╭", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╮", "FloatBorder" },
-  { "│", "FloatBorder" },
-  { "╯", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╰", "FloatBorder" },
-  { "│", "FloatBorder" },
-}
 
-local pop_opts = { border = border_style }
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = {
-        prefix = "",
-        spacing = 4,
-    },
-    signs = false,
-    underline = false,
-    update_in_insert = false,
-})
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
+vim.lsp.handlers["textDocument/publishDiagnostics"] = utils.lsp_diagnostics
+vim.lsp.handlers["textDocument/hover"] = utils.lsp_hover
 -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
 
 -- Rust

@@ -69,7 +69,7 @@ dap.configurations.go = {
     },
     {
       type = "go",
-      name = "Debug test", -- configuration for debugging test files
+      name = "Debug test file", -- configuration for debugging test files
       request = "launch",
       mode = "test",
       program = "${file}"
@@ -82,6 +82,7 @@ dap.configurations.go = {
       program = "./${relativeFileDirname}"
     }
 }
+-- require('dap-go').setup()
 
 
 dap.configurations.scala = {

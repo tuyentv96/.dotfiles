@@ -136,14 +136,15 @@ rusttools.setup(opts)
 
 -- autocmd FileType rust nnoremap <leader>tf :RustTest <CR>
 -- autocmd FileType rust nnoremap <leader>ta :RustTest! <CR>]
+-- autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>
 
 cmd([[
     augroup rust.Commands
     autocmd!
     autocmd BufWritePre *.rs :silent! lua vim.lsp.buf.formatting_sync() 
     autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>
+    autocmd Filetype rust nnoremap <leader>cb :Cargo build <CR>
     autocmd FileType rust nnoremap <leader>ch :RustToggleInlayHints <CR>]
-    autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>
     augroup end
 ]])
 

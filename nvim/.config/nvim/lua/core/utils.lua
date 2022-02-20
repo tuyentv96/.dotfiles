@@ -357,6 +357,30 @@ M.on_attach = function(client, bufnr)
     end
 end
 
+local border_style = {
+  { "╭", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╮", "FloatBorder" },
+  { "│", "FloatBorder" },
+  { "╯", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╰", "FloatBorder" },
+  { "│", "FloatBorder" },
+}
+local pop_opts = { border = border_style }
+
+M.lsp_diagnostics = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = {
+     prefix = "",
+     spacing = 0,
+  },
+  signs = false,
+  underline = false,
+  update_in_insert = false,
+})
+
+M.lsp_hover = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
+
 M.capabilities = require("cmp_nvim_lsp").update_capabilities(require("lsp-status").capabilities)
 
 M.lsp_config = function(_config)

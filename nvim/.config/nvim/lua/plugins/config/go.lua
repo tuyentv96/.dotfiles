@@ -33,7 +33,8 @@ cmd([[
     augroup go.Commands
     autocmd!
     autocmd FileType go nnoremap <leader>cr :GoRun <CR>
-    autocmd FileType go nnoremap <leader>cb :GoBuild <CR>]
+    autocmd FileType go nnoremap <leader>cb :GoBuild <CR>
+    autocmd FileType go nnoremap <leader>td :lua require('dap-go').debug_test() <CR>
     augroup end
 ]])
 

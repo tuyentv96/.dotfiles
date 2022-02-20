@@ -4,7 +4,7 @@ require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 cmd([[
     augroup dappython.Commands
     autocmd!
-    autocmd Filetype python nnoremap <leader>dn :lua require('dap-python').test_method()<CR>
+    autocmd Filetype python nnoremap <leader>td :lua require('dap-python').test_method()<CR>
     augroup end
 ]])
 
