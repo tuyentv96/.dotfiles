@@ -10,6 +10,10 @@ vim.cmd([[
 
     let g:test#custom_strategies = {'custom': function('ASYNCRUN_CUSTOM')}
     let g:test#strategy = 'custom'
+
+    let test#python#runner = 'pytest'
+    let test#go#runner = 'gotest'
+    let test#scala#runner = 'sbttest'
 ]])
 
 
