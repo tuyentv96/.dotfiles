@@ -6,7 +6,7 @@ end
 local utils = require("core.utils")
 
 
-local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.5.6/server"
+local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-2.6.0/server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 nnoremap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
