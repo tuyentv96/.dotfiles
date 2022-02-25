@@ -14,7 +14,7 @@ return require('packer').startup({function(use)
       'nathom/filetype.nvim',
       config = get_config('filetype'),
   }
-  use 'dstein64/vim-startuptime'
+  -- use 'dstein64/vim-startuptime'
   use {
       'ThePrimeagen/git-worktree.nvim',
       config = get_config('worktree')
@@ -98,12 +98,12 @@ return require('packer').startup({function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-commentary'
-  use 'tpope/vim-dadbod'
-  use { 'kristijanhusak/vim-dadbod-completion' }
-  use {
-      'kristijanhusak/vim-dadbod-ui',
-      config = get_config('db'),
-  }
+  -- use 'tpope/vim-dadbod'
+  -- use { 'kristijanhusak/vim-dadbod-completion' }
+  -- use {
+  --     'kristijanhusak/vim-dadbod-ui',
+  --     config = get_config('db'),
+  -- }
   -- use 'jiangmiao/auto-pairs'
   use {
       'leoluz/nvim-dap-go'
