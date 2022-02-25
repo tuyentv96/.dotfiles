@@ -71,11 +71,11 @@ cmp.setup({
       -- end,
     },
 	sources = {
-        { name = "nvim_lsp", max_item_count = 10},
+        { name = "nvim_lsp", max_item_count = 20},
         { name = "path", max_item_count = 5},
-        { name = "luasnip", max_item_count = 5},
+        { name = "luasnip", max_item_count = 10},
         -- { name = "cmp_tabnine", max_item_count = 5},
-        { name = "buffer", max_item_count = 5},
+        { name = "buffer", max_item_count = 20},
         { name = "nvim_lua", max_item_count = 5 }
 	},
     experimental = {
@@ -85,12 +85,12 @@ cmp.setup({
 })
 
 -- Add vim-dadbod-completion in sql files
-_ = vim.cmd [[
-  augroup DadbodSql
-    au!
-    autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
-  augroup END
-]]
+-- _ = vim.cmd [[
+--   augroup DadbodSql
+--     au!
+--     autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
+--   augroup END
+-- ]]
 
 -- require('cmp_tabnine.config'):setup({
 --     max_lines = 1000,

@@ -5,13 +5,13 @@ end
 
 require("core.utils")
 
--- luasnip.config.set_config {
---     history = false,
---     updateevents = "TextChanged,TextChangedI",
---     region_check_events = nil,
---     enable_autosnippets = nil,
---     ext_opts = nil,
--- }
+luasnip.config.set_config {
+    history = false,
+    updateevents = "TextChanged,TextChangedI",
+    region_check_events = nil,
+    enable_autosnippets = nil,
+    ext_opts = nil,
+}
 
 require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.local/share/nvim/site/pack/packer/start/friendly-snippets" } })
 
