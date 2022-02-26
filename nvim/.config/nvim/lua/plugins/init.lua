@@ -10,15 +10,15 @@ return require('packer').startup({function(use)
   use {
     'wbthomason/packer.nvim',
   }
-  use {
-      'nathom/filetype.nvim',
-      config = get_config('filetype'),
-  }
+  -- use {
+  --     'nathom/filetype.nvim',
+  --     config = get_config('filetype'),
+  -- }
   -- use 'dstein64/vim-startuptime'
-  use {
-      'ThePrimeagen/git-worktree.nvim',
-      config = get_config('worktree')
-  }
+  -- use {
+  --     'ThePrimeagen/git-worktree.nvim',
+  --     config = get_config('worktree')
+  -- }
   -- use {
   --     "norcalli/nvim-colorizer.lua",
   --     event = "BufRead",
@@ -64,8 +64,8 @@ return require('packer').startup({function(use)
     'tpope/vim-fugitive',
     config = get_config('git')
   }
-  use 'junegunn/gv.vim'
-  use 'tpope/vim-rhubarb'
+  -- use 'junegunn/gv.vim'
+  -- use 'tpope/vim-rhubarb'
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -171,6 +171,7 @@ return require('packer').startup({function(use)
           { 'hrsh7th/cmp-nvim-lua' },
           { 'saadparwaiz1/cmp_luasnip' },
           { 'onsails/lspkind-nvim' },
+          { 'hrsh7th/cmp-nvim-lsp-signature-help'},
       },
       config = get_config('nvimcmp')
   }
@@ -181,10 +182,10 @@ return require('packer').startup({function(use)
   --     requires = 'hrsh7th/nvim-cmp',
   -- }
 
-  use {
-    'ray-x/lsp_signature.nvim',
-    config = get_config('lspsignature')
-  }
+  -- use {
+  --   'ray-x/lsp_signature.nvim',
+  --   config = get_config('lspsignature')
+  -- }
 
   use {
       'akinsho/toggleterm.nvim',

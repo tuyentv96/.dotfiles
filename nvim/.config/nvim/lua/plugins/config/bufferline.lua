@@ -23,7 +23,7 @@ bufferline.setup {
         max_name_length         = 20,
         max_prefix_length       = 0,
         tab_size                = 20,
-        show_tab_indicators     = true,
+        show_tab_indicators     = false,
         enforce_regular_tabs    = false,
         view                    = "multiwindow",
         show_buffer_close_icons = false,

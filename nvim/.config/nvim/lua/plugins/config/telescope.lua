@@ -14,7 +14,7 @@ nnoremap("<Leader>fw", "<cmd>lua require('telescope.builtin').grep_string({searc
 nnoremap("<Leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 nnoremap("<Leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
 nnoremap("<Leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>")
-nnoremap("<Leader>gw", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
+-- nnoremap("<Leader>gw", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
 
 
 telescope.setup({
@@ -61,5 +61,5 @@ telescope.setup({
 })
 
 require("telescope").load_extension("fzy_native")
-require("telescope").load_extension("git_worktree")
+-- require("telescope").load_extension("git_worktree")
 

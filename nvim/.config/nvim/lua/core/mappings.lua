@@ -23,6 +23,7 @@ nnoremap("<leader>wq", ":wq<CR>")
 
 -- Open new file adjacent to current file
 nnoremap("<leader>ao", ':e <C-R>=expand("%:p:h") . "/" <CR>')
+nnoremap("<leader>fj", ":%!jq '.' <CR>")
 
 -- close current buffer
 -- nnoremap("<C-c>", ":bp<bar>sp<bar>bn<bar>bd<CR>")

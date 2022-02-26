@@ -1,14 +1,19 @@
 # Dotfiles
 
 ## Dependencies
-- neovim
-- tmux
-- alacritty
-- fish
-- stow
+- neovim (Editor)
+- tmux (Terminal Multiplexer)
+- alacritty (Terminal Emulator)
+- fish (Shell)
+- stow (Symlink Manager)
 
 ## Installation
-- For MacOS, run command: `./mac-install`
+- Install neovim, run: `brew install nvim`
+- Install tmux, run: `brew install tmux`
+- Install alacritty, run: `brew install alacritty`
+- Install fish, run: `brew install fish`
+- Install stow, run: `brew install stow`
+- Setup configs, run: `./mac-install`
 
 ## Clean
-- For MacOS, run command: `./clean`
+- Run: `./clean`
