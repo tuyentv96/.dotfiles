@@ -23,11 +23,11 @@ nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 nnoremap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
 nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
-
+-- inoremap("<C-k>", "<cmd>lua require('core.utils').show_signature_help()<CR>")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = utils.lsp_diagnostics
 vim.lsp.handlers["textDocument/hover"] = utils.lsp_hover
--- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, pop_opts)
+-- vim.lsp.handlers["textDocument/signatureHelp"] = utils.lsp_signature_help
 
 -- Rust
 -- lsp_config.rust_analyzer.setup(config())
@@ -42,6 +42,8 @@ lsp_config.gopls.setup(utils.lsp_config({
       gopls = { analyses = { unusedparams = true }, staticcheck = true },
     },
 }))
+
+lsp_config.dartls.setup{}
 
 -- lua
 lsp_config.sumneko_lua.setup(utils.lsp_config({

@@ -3,8 +3,6 @@ if not present then
    return
 end
 
-local tree_cb = require('nvim-tree.config').nvim_tree_callback
-
 vim.g.nvim_tree_indent_markers = 0
 vim.g.nvim_tree_git_hl = 0
 vim.g.nvim_tree_highlight_opened_files = 0

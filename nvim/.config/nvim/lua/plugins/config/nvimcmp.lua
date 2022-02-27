@@ -18,7 +18,10 @@ cmp.setup({
             require("luasnip").lsp_expand(args.body)
         end,
     },
-	  formatting = {
+    completion = {
+        keyword_length = 1,
+    },
+    formatting = {
         format = function(entry, vim_item)
             vim_item.kind = lspkind.presets.default[vim_item.kind]
             local menu = source_mapping[entry.source.name]
@@ -32,7 +35,7 @@ cmp.setup({
             return vim_item
         end
     },
-	mapping = {
+    mapping = {
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -46,8 +49,8 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Insert,
             select = true,
         },
-        ["<c-space>"] = cmp.mapping.complete(),
-	  -- ["<CR>"] = cmp.mapping.confirm {
+        ["<c-i>"] = cmp.mapping.complete(),
+      -- ["<CR>"] = cmp.mapping.confirm {
          -- behavior = cmp.ConfirmBehavior.Replace,
          -- select = true,
       -- },
@@ -70,15 +73,15 @@ cmp.setup({
       --    end
       -- end,
     },
-	sources = {
-        { name = 'nvim_lsp_signature_help' },
+    sources = {
+        -- { name = 'nvim_lsp_signature_help' },
         { name = "nvim_lsp", max_item_count = 20},
         { name = "path", max_item_count = 5},
         { name = "luasnip", max_item_count = 10},
         -- { name = "cmp_tabnine", max_item_count = 5},
         { name = "buffer", max_item_count = 20},
         { name = "nvim_lua", max_item_count = 5 },
-	},
+    },
     experimental = {
         native_menu = false,
         ghost_text = false,

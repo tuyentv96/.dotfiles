@@ -171,7 +171,7 @@ return require('packer').startup({function(use)
           { 'hrsh7th/cmp-nvim-lua' },
           { 'saadparwaiz1/cmp_luasnip' },
           { 'onsails/lspkind-nvim' },
-          { 'hrsh7th/cmp-nvim-lsp-signature-help'},
+          -- { 'hrsh7th/cmp-nvim-lsp-signature-help'},
       },
       config = get_config('nvimcmp')
   }
@@ -182,10 +182,10 @@ return require('packer').startup({function(use)
   --     requires = 'hrsh7th/nvim-cmp',
   -- }
 
-  -- use {
-  --   'ray-x/lsp_signature.nvim',
-  --   config = get_config('lspsignature')
-  -- }
+  use {
+    'ray-x/lsp_signature.nvim',
+    config = get_config('lspsignature')
+  }
 
   use {
       'akinsho/toggleterm.nvim',

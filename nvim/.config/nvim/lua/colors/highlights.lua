@@ -77,6 +77,7 @@ M.LspDiagnosticsSignHint               = M.AquaSign
 M.LspReferenceText                     = M.CurrentWord
 M.LspReferenceRead                     = M.CurrentWord
 M.LspReferenceWrite                    = M.CurrentWord
+M.LspSignatureActiveParameter          = palette.Red
 
 M.healthError                          = palette.Red
 M.healthSuccess                        = palette.Green

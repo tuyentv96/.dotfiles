@@ -1,5 +1,4 @@
 local utils = require("colors.utils")
-local color = utils.color
 local prop = utils.prop
 
 M = {

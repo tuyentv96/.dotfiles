@@ -15,8 +15,8 @@ luasnip.config.set_config {
 
 require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.local/share/nvim/site/pack/packer/start/friendly-snippets" } })
 
-imap("<C-l>","luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-l>'",{ expr = true })
-imap("<C-k>","luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : ''",{ expr = true })
-inoremap("<C-j>","<cmd>lua require('luasnip').jump(-1)<CR>")
-snoremap("<C-k>","<cmd>lua require('luasnip').jump(1)<CR>")
-snoremap("<C-j>","<cmd>lua require('luasnip').jump(-1)<CR>")
+-- imap("<C-l>","luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-l>'",{ expr = true })
+imap("<C-l>","luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : ''",{ expr = true })
+inoremap("<C-h>","<cmd>lua require('luasnip').jump(-1)<CR>")
+snoremap("<C-l>","<cmd>lua require('luasnip').jump(1)<CR>")
+snoremap("<C-h>","<cmd>lua require('luasnip').jump(-1)<CR>")
