@@ -10,10 +10,10 @@ return require('packer').startup({function(use)
   use {
     'wbthomason/packer.nvim',
   }
-  use {
-      'nathom/filetype.nvim',
-      config = get_config('filetype'),
-  }
+  -- use {
+  --     'nathom/filetype.nvim',
+  --     config = get_config('filetype'),
+  -- }
   -- use 'dstein64/vim-startuptime'
   -- use {
   --     'ThePrimeagen/git-worktree.nvim',

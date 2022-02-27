@@ -1,2 +1,2 @@
-require("filetype").setup({
-})
+-- require("filetype").setup({
+-- })
