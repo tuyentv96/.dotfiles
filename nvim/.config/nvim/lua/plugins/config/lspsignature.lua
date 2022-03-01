@@ -5,7 +5,7 @@ end
 
 lsp_signature.setup({
   debug           = false,
-  bind            = true,
+  bind            = false,
   doc_lines       = 0,
   handler_opts    = {
     border        = "none",
@@ -14,7 +14,7 @@ lsp_signature.setup({
   max_width       = 80,
   always_trigger  = false,
   hint_enable     = false,
-  floating_window = true,
+  floating_window = false,
   hi_parameter    = "LspSignatureActiveParameter",
   toggle_key      = "<C-k>"
 })
