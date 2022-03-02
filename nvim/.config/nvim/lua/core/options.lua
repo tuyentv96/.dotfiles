@@ -66,6 +66,14 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+local set_options = {
+    "hidden",
+}
+
+for _, option in pairs(set_options) do
+    vim.cmd("set " .. option)
+end
+
 -- disable some builtin vim plugins
 local disabled_built_ins = {
    "2html_plugin",

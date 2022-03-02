@@ -9,7 +9,6 @@ vim.g.nvim_tree_highlight_opened_files = 0
 vim.g.nvim_tree_root_folder_modifier = ':~'
 vim.g.nvim_tree_add_trailing = 0
 vim.g.nvim_tree_group_empty = 1
-vim.g.nvim_tree_disable_window_picker = 1
 vim.g.nvim_tree_icon_padding = ' '
 vim.g.nvim_tree_symlink_arrow = ' >> '
 vim.g.nvim_tree_respect_buf_cwd = 0
@@ -93,7 +92,6 @@ nvimtree.setup {
     height = 30,
     hide_root_folder = false,
     side = 'left',
-    auto_resize = true,
     number = false,
     relativenumber = false,
 	signcolumn = "yes",
@@ -110,7 +108,11 @@ nvimtree.setup {
         global = false,
     },
     open_file = {
-        quit_on_open = true,
+        quit_on_open = false,
+        resize_window = false,
+	    window_picker = {
+            enable = false
+        }
     },
   }
 }
