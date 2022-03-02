@@ -42,10 +42,10 @@ return require('packer').startup({function(use)
     requires = 'kyazdani42/nvim-web-devicons',
     config = get_config('bufferline')
   }
-  use {
-    'christoomey/vim-tmux-navigator',
-    config = get_config('navigator')
-  }
+  -- use {
+  --   'christoomey/vim-tmux-navigator',
+  --   config = get_config('navigator')
+  -- }
 
   use {
     'nvim-telescope/telescope.nvim',

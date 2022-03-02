@@ -53,6 +53,12 @@ nnoremap("<leader>tt", ":NvimTreeToggle<cr>")
 nnoremap("<leader>wr", "<C-w>o :NvimTreeToggle<CR> <C-w>l")
 nnoremap("<leader>wo", "<C-w>o")
 
+nnoremap("<C-h>","<C-w>h")
+nnoremap("<C-j>","<C-w>j")
+nnoremap("<C-k>","<C-w>k")
+nnoremap("<C-l>","<C-w>l")
+
+
 -- Resize with arrows
 -- nnoremap("<A-u>", ":resize -5<CR>")
 -- nnoremap("<A-i>", ":resize +5<CR>")
