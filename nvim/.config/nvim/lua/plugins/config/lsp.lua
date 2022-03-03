@@ -33,7 +33,17 @@ vim.lsp.handlers["textDocument/hover"] = utils.lsp_hover
 -- lsp_config.rust_analyzer.setup(config())
 
 -- Python
-lsp_config.pyright.setup(utils.lsp_config())
+lsp_config.pyright.setup(utils.lsp_config({
+     settings = {
+      python = {
+        analysis = {
+          autoSearchPaths = false,
+          diagnosticMode = "workspace",
+          useLibraryCodeForTypes = false
+        }
+      }
+    }
+}))
 
 -- Golang
 lsp_config.gopls.setup(utils.lsp_config({
