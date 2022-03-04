@@ -15,6 +15,7 @@ nnoremap("<F8>", ":lua require'dap'.step_into()<CR>")
 nnoremap("<F9>", ":lua require'dap'.continue()<CR>")
 nnoremap("<F10>", ":lua require'dap'.step_out()<CR>")
 nnoremap("<leader>dl", ":lua require'dap'.run_last()<CR>")
+nnoremap("<leader>dk", ":lua require('dap.ui.widgets').hover()<CR>")
 
 dap.adapters.go = function(callback, config)
     local stdout = vim.loop.new_pipe(false)
