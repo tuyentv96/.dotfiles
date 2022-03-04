@@ -4,10 +4,10 @@ env:
 shell:
   program: /usr/local/bin/fish
   args:
-    - --login
-    # - -l
-    # - -c
-    # - "tmux attach || tmux"
+    # - --login
+    - -l
+    - -c
+    - "tmux attach || tmux"
 
 font:
   size: 12.5
