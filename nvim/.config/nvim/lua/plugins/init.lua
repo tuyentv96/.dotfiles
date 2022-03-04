@@ -150,10 +150,10 @@ return require('packer').startup({function(use)
     'mfussenegger/nvim-dap',
     config = get_config('dap'),
   }
-  use {
-    'rcarriga/nvim-dap-ui',
-    config = get_config('dapui')
-  }
+  -- use {
+  --   'rcarriga/nvim-dap-ui',
+  --   config = get_config('dapui')
+  -- }
 
   use {
       'rafamadriz/friendly-snippets',
