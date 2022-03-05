@@ -39,7 +39,7 @@ local options = {
     timeoutlen = 1000,
     undofile = true,
     undodir = HOME.."/.vim/undodir",
-    updatetime = 800,
+    updatetime = 400,
     writebackup = false,
     backup = false,
     swapfile = false,
@@ -74,28 +74,3 @@ for _, option in pairs(set_options) do
     vim.cmd("set " .. option)
 end
 
--- disable some builtin vim plugins
-local disabled_built_ins = {
-   "2html_plugin",
-   "getscript",
-   "getscriptPlugin",
-   "gzip",
-   "logipat",
-   "netrw",
-   "netrwPlugin",
-   "netrwSettings",
-   "netrwFileHandlers",
-   "matchit",
-   "tar",
-   "tarPlugin",
-   "rrhelper",
-   "spellfile_plugin",
-   "vimball",
-   "vimballPlugin",
-   "zip",
-   "zipPlugin",
-}
-
-for _, plugin in pairs(disabled_built_ins) do
-   vim.g["loaded_" .. plugin] = 1
-end

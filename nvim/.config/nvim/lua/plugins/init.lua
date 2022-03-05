@@ -52,7 +52,7 @@ return require('packer').startup({function(use)
     requires = {
         {'nvim-lua/plenary.nvim'},
         {'nvim-telescope/telescope-fzy-native.nvim'},
-        {'nvim-telescope/telescope-project.nvim'},
+        -- {'nvim-telescope/telescope-project.nvim'},
     },
     config = get_config('telescope'),
   }
@@ -183,10 +183,10 @@ return require('packer').startup({function(use)
   --     requires = 'hrsh7th/nvim-cmp',
   -- }
 
-  use {
-    'ray-x/lsp_signature.nvim',
-    config = get_config('lspsignature')
-  }
+  -- use {
+  --   'ray-x/lsp_signature.nvim',
+  --   config = get_config('lspsignature')
+  -- }
 
   use {
       'akinsho/toggleterm.nvim',

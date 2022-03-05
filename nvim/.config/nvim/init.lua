@@ -1,5 +1,29 @@
 vim.api.nvim_set_option('shell', '/bin/bash')
 
+-- disable some builtin vim plugins
+local disabled_built_ins = {
+   "2html_plugin",
+   "getscript",
+   "getscriptPlugin",
+   "gzip",
+   "logipat",
+   "netrw",
+   "netrwPlugin",
+   "netrwSettings",
+   "netrwFileHandlers",
+   "matchit",
+   "tar",
+   "tarPlugin",
+   "rrhelper",
+   "spellfile_plugin",
+   "vimball",
+   "vimballPlugin",
+   "zip",
+   "zipPlugin",
+}
+
+require("core.utils").disable_plugins(disabled_built_ins)
+
 local core_modules = {
    "plugins",
    "core.options",

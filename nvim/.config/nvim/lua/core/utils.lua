@@ -381,7 +381,13 @@ M.lsp_diagnostics = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 
 M.lsp_hover = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 
-M.lsp_signature_help = vim.lsp.with(vim.lsp.handlers.signature_help, {})
+M.lsp_signature_help = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    offset_y = -2,
+})
+
+M.show_lsp_signature_help = function()
+  vim.lsp.buf.signature_help()
+end
 
 M.capabilities = require("cmp_nvim_lsp").update_capabilities(require("lsp-status").capabilities)
 
@@ -390,6 +396,12 @@ M.lsp_config = function(_config)
 		capabilities = M.capabilities,
         on_attach = M.on_attach,
 	}, _config or {})
+end
+
+M.disable_plugins = function(plugins)
+    for _, plugin in pairs(plugins) do
+       vim.g["loaded_" .. plugin] = 1
+    end
 end
 
 
