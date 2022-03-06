@@ -49,7 +49,7 @@ vnoremap("<leader>d", '"_d')
 -- clear highlight
 nnoremap("<leader>h", ":noh<CR>")
 
-nnoremap("<leader>tt", ":NvimTreeToggle<cr>")
+nnoremap("<leader>n", ":NvimTreeToggle<cr>")
 nnoremap("<leader>wr", "<C-w>o :NvimTreeToggle<CR> <C-w>l")
 nnoremap("<leader>wo", "<C-w>o")
 
