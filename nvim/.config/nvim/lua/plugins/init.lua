@@ -65,6 +65,7 @@ return require('packer').startup({function(use)
     'tpope/vim-fugitive',
     config = get_config('git')
   }
+  use 'tpope/vim-dotenv'
   -- use 'junegunn/gv.vim'
   -- use 'tpope/vim-rhubarb'
 

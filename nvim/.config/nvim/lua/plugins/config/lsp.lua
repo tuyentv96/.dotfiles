@@ -11,8 +11,8 @@ local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 nnoremap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>")
 nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-nnoremap("gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>")
-nnoremap("gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>")
+nnoremap("gr", "<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>")
+nnoremap("gi", "<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>")
 nnoremap("<leader>dw", "<cmd>lua require('telescope.builtin').diagnostics()<CR>")
 nnoremap("<leader>dd", "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0}) <CR>")
 nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")

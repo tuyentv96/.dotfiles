@@ -1,4 +1,5 @@
 HOME =os.getenv("HOME")
+local Path = require "plenary.path"
 
 function noremap(mode, shortcut, command, opts)
   local options = { noremap = true, silent = true }
@@ -401,6 +402,16 @@ end
 M.disable_plugins = function(plugins)
     for _, plugin in pairs(plugins) do
        vim.g["loaded_" .. plugin] = 1
+    end
+end
+
+M.is_file_exist = function(file_path)
+    return Path:new(file_path):exists()
+end
+
+M.load_env_file = function(file_path)
+    if M.is_file_exist(file_path) then
+        vim.cmd([[":Dotenv "..file_path]])
     end
 end
 
