@@ -33,17 +33,19 @@ vim.lsp.handlers["textDocument/signatureHelp"] = utils.lsp_signature_help
 -- lsp_config.rust_analyzer.setup(config())
 
 -- Python
-lsp_config.pyright.setup(utils.lsp_config({
-     settings = {
-      python = {
-        analysis = {
-          autoSearchPaths = false,
-          diagnosticMode = "workspace",
-          useLibraryCodeForTypes = false
-        }
-      }
-    }
-}))
+-- lsp_config.pyright.setup(utils.lsp_config({
+--      settings = {
+--       python = {
+--         analysis = {
+--           autoSearchPaths = false,
+--           diagnosticMode = "workspace",
+--           useLibraryCodeForTypes = false
+--         }
+--       }
+--     }
+-- }))
+
+lsp_config.jedi_language_server.setup{}
 
 -- Golang
 lsp_config.gopls.setup(utils.lsp_config({
