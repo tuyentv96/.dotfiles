@@ -371,10 +371,10 @@ local border_style = {
 local pop_opts = { border = border_style }
 
 M.lsp_diagnostics = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = {
-     prefix = "",
-     spacing = 0,
-  },
+  -- virtual_text = {
+  --    prefix = "",
+  --    spacing = 0,
+  -- },
   signs = false,
   underline = false,
   update_in_insert = false,
