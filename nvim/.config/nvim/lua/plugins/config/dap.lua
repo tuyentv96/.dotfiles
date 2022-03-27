@@ -16,7 +16,8 @@ nnoremap("<F9>", ":lua require'dap'.continue()<CR>")
 nnoremap("<F10>", ":lua require'dap'.step_out()<CR>")
 nnoremap("<leader>dl", ":lua require'dap'.run_last()<CR>")
 nnoremap("<leader>dk", ":lua require('dap.ui.widgets').hover()<CR>")
-nnoremap("<leader>dv", ":lua local widgets = require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>")
+nnoremap("<leader>dv", ":lua require('core.utils').open_dap_float()<CR>")
+-- nnoremap("<leader>db", ":lua require('core.utils').open_dap_sidebar()<CR>")
 
 vim.fn.sign_define('DapBreakpoint', {text='➜', texthl='', linehl='', numhl=''})
 

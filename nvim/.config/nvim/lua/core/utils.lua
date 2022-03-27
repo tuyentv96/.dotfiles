@@ -412,5 +412,16 @@ M.load_env_file = function(file_path)
     end
 end
 
+-- local widgets = require('dap.ui.widgets')
+M.open_dap_float = function()
+    local widgets = require('dap.ui.widgets')
+    widgets.centered_float(widgets.scopes)
+end
+
+M.open_dap_sidebar = function()
+    local widgets = require('dap.ui.widgets')
+    local sidebar=widgets.sidebar(widgets.scopes)
+    sidebar.open()
+end
 
 return M
