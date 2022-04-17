@@ -3,7 +3,7 @@ if not present then
    return
 end
 
-vim.g.nvim_tree_indent_markers = 0
+-- vim.g.nvim_tree_indent_markers = 0
 vim.g.nvim_tree_git_hl = 0
 vim.g.nvim_tree_highlight_opened_files = 0
 vim.g.nvim_tree_root_folder_modifier = ':~'
@@ -60,6 +60,16 @@ nvimtree.setup {
   hijack_directories   = {
     enable = true,
     auto_open = true,
+  },
+  renderer = {
+    indent_markers = {
+      enable = false,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
   },
   update_to_buf_dir   = {
     enable = true,
