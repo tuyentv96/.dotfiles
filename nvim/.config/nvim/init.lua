@@ -1,5 +1,7 @@
 vim.api.nvim_set_option('shell', '/bin/bash')
 
+vim.cmd [[packadd packer.nvim]]
+
 -- disable some builtin vim plugins
 local disabled_built_ins = {
    "2html_plugin",

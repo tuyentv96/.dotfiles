@@ -1,4 +1,3 @@
-vim.cmd [[packadd packer.nvim]]
 
 local function get_config(name)
     return string.format("require(\"plugins/config/%s\")", name)
