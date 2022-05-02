@@ -11,6 +11,7 @@ lualine.setup {
       section_separators = { left = '', right = ''},
       disabled_filetypes = {},
       always_divide_middle = true,
+      globalstatus = true,
     },
     sections = {
       lualine_a = {'mode'},
@@ -33,7 +34,7 @@ lualine.setup {
       },
       lualine_x = {'encoding'},
       lualine_y = {'filetype'},
-      lualine_z = {'%l/%L'}
+      lualine_z = {'%l:%c', '%p%%/%L'}
     },
     inactive_sections = {
       lualine_a = {},
