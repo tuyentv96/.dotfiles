@@ -95,7 +95,7 @@ nvimtree.setup {
   },
   filters = {
     dotfiles = false,
-    custom = {'.DS_Store','.git'}
+    custom = {'.DS_Store'}
   },
   view = {
     width = 40,
