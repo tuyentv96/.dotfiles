@@ -56,6 +56,7 @@ M = {
 
     PmenuThumb       = prop(palette.none,palette.grey0),
     NormalFloat      = prop(palette.fg1,palette.bg3),
+    FloatBorder      = prop(palette.grey1,palette.bg3),
     Question         = prop(palette.yellow,palette.none),
     SpellBad         = prop(palette.none,palette.none, 'undercurl'),
     SpellCap         = prop(palette.none,palette.none, 'undercurl'),

@@ -2,11 +2,12 @@ local present, toggleterm = pcall(require, "toggleterm")
 if not present then
    return
 end
+require("core.utils")
 
 toggleterm.setup{
   -- size can be a number or function which is passed the current terminal
   size = 20,
-  open_mapping = [[<c-t>]],
+  -- open_mapping = [[<c-t>]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
   shade_terminals = true,
@@ -19,4 +20,9 @@ toggleterm.setup{
   shell = "/usr/local/bin/fish",
 }
 
-vim.api.nvim_set_keymap("t", "<ESC>", '<C-\\><C-n>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("t", "<ESC>", '<C-\\><C-n>', {noremap = true, silent = true})
+nnoremap("<C-r>", "<cmd>:ToggleTerm direction=tab<CR>")
+tnoremap("<C-r>", "<cmd>:ToggleTerm direction=tab<CR>")
+nnoremap("<C-t>", "<cmd>:ToggleTerm direction=horizontal<CR>")
+tnoremap("<C-t>", "<cmd>:ToggleTerm direction=horizontal<CR>")
+tnoremap("<ESC>", "<C-\\><C-n>")
