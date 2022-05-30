@@ -21,8 +21,8 @@ toggleterm.setup{
 }
 
 -- vim.api.nvim_set_keymap("t", "<ESC>", '<C-\\><C-n>', {noremap = true, silent = true})
-nnoremap("<C-r>", "<cmd>:ToggleTerm direction=tab<CR>")
-tnoremap("<C-r>", "<cmd>:ToggleTerm direction=tab<CR>")
+nnoremap("<C-y>", "<cmd>:ToggleTerm direction=tab<CR>")
+tnoremap("<C-y>", "<cmd>:ToggleTerm direction=tab<CR>")
 nnoremap("<C-t>", "<cmd>:ToggleTerm direction=horizontal<CR>")
 tnoremap("<C-t>", "<cmd>:ToggleTerm direction=horizontal<CR>")
 tnoremap("<ESC>", "<C-\\><C-n>")
