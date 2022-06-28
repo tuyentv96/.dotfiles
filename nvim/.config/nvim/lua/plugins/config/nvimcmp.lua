@@ -8,8 +8,6 @@ local source_mapping = {
 	cmp_tabnine               = "[TN]",
 	path                      = "[Path]",
     luasnip                   = "[LuaSnip]",
-    orgmode                   = "[Org]",
-    ['vim-dadbod-completion'] = "[DB]",
 }
 
 cmp.setup({
@@ -78,9 +76,9 @@ cmp.setup({
         -- { name = 'nvim_lsp_signature_help' },
         { name = "nvim_lsp", max_item_count = 20},
         { name = "path", max_item_count = 5},
+        { name = "buffer", max_item_count = 10},
+        { name = "cmp_tabnine", max_item_count = 10},
         { name = "luasnip", max_item_count = 10},
-        -- { name = "cmp_tabnine", max_item_count = 5},
-        { name = "buffer", max_item_count = 20},
         { name = "nvim_lua", max_item_count = 5 },
     },
     experimental = {
@@ -89,18 +87,15 @@ cmp.setup({
     },
 })
 
--- Add vim-dadbod-completion in sql files
--- _ = vim.cmd [[
---   augroup DadbodSql
---     au!
---     autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
---   augroup END
--- ]]
-
--- require('cmp_tabnine.config'):setup({
---     max_lines = 1000,
---     max_num_results = 5,
---     sort = true,
--- 	run_on_every_keystroke = true,
--- 	snippet_placeholder = '..',
--- })
+require('cmp_tabnine.config'):setup({
+    max_lines = 1000;
+	max_num_results = 10;
+	sort = true;
+	run_on_every_keystroke = true;
+	snippet_placeholder = '..';
+	ignored_file_types = { -- default is not to ignore
+		-- uncomment to ignore in lua:
+		-- lua = true
+	};
+	show_prediction_strength = true;
+})
