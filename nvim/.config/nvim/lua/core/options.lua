@@ -6,14 +6,14 @@ local options = {
     lazyredraw = true,
     -- laststatus = 2,
     number = true,
-    relativenumber = true,
+    relativenumber = false,
     showcmd = true,
     listchars = "nbsp:¬,extends:»,precedes:«,trail:•",
     synmaxcol = 300,
     -- signcolumn = "no",
     sidescrolloff = 5,
     scrolloff = 10,
-    cursorline = false,
+    cursorline = true,
     cursorcolumn = false,
     -- Convenience for automatic formatting.
     -- t - auto-wrap text by respecting textwidth
