@@ -8,5 +8,5 @@ require'lsp_signature'.setup({
   doc_lines = 0,
   verbose = false,
   fix_pos = false,
-  always_trigger = false,
+  always_trigger = true,
 })
