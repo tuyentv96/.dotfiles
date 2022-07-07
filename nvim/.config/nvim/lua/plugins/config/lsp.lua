@@ -23,7 +23,7 @@ nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 nnoremap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
 nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
-inoremap("<C-k>", "<cmd>lua require('core.utils').show_lsp_signature_help()<CR>")
+-- inoremap("<C-k>", "<cmd>lua require('core.utils').show_lsp_signature_help()<CR>")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = utils.lsp_diagnostics
 vim.lsp.handlers["textDocument/hover"] = utils.lsp_hover

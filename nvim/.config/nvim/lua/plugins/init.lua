@@ -207,6 +207,12 @@ return require('packer').startup({function(use)
       'mfussenegger/nvim-dap-python',
       config = get_config('dappython')
   }
+
+  use {
+      'ray-x/lsp_signature.nvim',
+      config = get_config('lspsignature')
+  }
+
 end,
 config = {
   display = {
