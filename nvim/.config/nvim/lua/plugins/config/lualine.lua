@@ -7,15 +7,18 @@ lualine.setup {
     options = {
       icons_enabled = true,
       theme = 'gruvbox-material',
-      component_separators = { left = '', right = ''},
-      section_separators = { left = '', right = ''},
-      disabled_filetypes = {},
+      component_separators = '|',
+      section_separators = { left = '', right = ''},
+      disabled_filetypes = {     -- Filetypes to disable lualine for.
+          statusline = {},       -- only ignores the ft for statusline.
+          winbar = {},           -- only ignores the ft for winbar.
+      },
       always_divide_middle = true,
-      globalstatus = true,
+      globalstatus = false,
     },
     sections = {
       lualine_a = {'mode'},
-      lualine_b = {'branch','diff'},
+      lualine_b = {{'branch', icon = ''}, 'diff'},
       lualine_c = {
         {
           'filename',
