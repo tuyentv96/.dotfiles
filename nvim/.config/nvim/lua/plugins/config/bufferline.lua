@@ -39,12 +39,13 @@ bufferline.setup {
 
         -- filter out filetypes you don't want to see
         -- local exclude_ft    = { "git", "NvimTree", "dap-repl", "fugitive" }
-        -- local cur_ft        = vim.bo[bufnr].filetype
-        -- local should_filter = vim.tbl_contains(exclude_ft, cur_ft)
+        local exclude_ft    = {"NvimTree"}
+        local cur_ft        = vim.bo[bufnr].filetype
+        local should_filter = vim.tbl_contains(exclude_ft, cur_ft)
 
-        -- if should_filter then
-        --     return false
-        -- end
+        if should_filter then
+            return false
+        end
 
         -- filter out no name buffer
         -- if vim.fn.bufname(bufnr) ~= "" then

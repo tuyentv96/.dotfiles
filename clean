@@ -1,9 +1,12 @@
 #!/usr/bin/env zsh
 
-pushd $DOTFILES
+if [[ -z $STOW_FOLDERS ]]; then
+    STOW_FOLDERS="nvim,tmux,alacritty,fish"
+fi
+
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
     echo "Removing $folder"
     stow -D $folder
+    echo "Removed $folder"
 done
-popd
