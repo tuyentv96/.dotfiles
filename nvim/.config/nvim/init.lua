@@ -24,8 +24,6 @@ local disabled_built_ins = {
    "zipPlugin",
 }
 
-require("core.utils").disable_plugins(disabled_built_ins)
-
 local core_modules = {
    "plugins",
    "core.options",
@@ -40,3 +38,4 @@ for _, module in ipairs(core_modules) do
    end
 end
 
+require("core.utils").disable_plugins(disabled_built_ins)
