@@ -5,6 +5,7 @@ require("nvim-treesitter.configs").setup({
       'rust',
       'go',
       'scala',
+      'java',
       'python',
       'yaml',
       'lua',
