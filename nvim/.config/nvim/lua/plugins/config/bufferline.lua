@@ -89,8 +89,12 @@ bufferline.setup {
          guibg = palette.bg2,
         },
         indicator_selected = {
-         guifg = palette.bg0,
-         guibg = palette.bg0,
+         guifg = palette.green,
+         guibg = palette.green,
+        },
+        indicator_visible = {
+         guifg = palette.yellow,
+         guibg = palette.yellow,
         },
 
         -- modified
