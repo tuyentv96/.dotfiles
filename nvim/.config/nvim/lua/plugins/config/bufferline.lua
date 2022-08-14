@@ -58,85 +58,85 @@ bufferline.setup {
 
     highlights = {
         background = {
-         guifg = palette.fg2,
-         guibg = palette.bg2,
+         fg = palette.fg2,
+         bg = palette.bg2,
         },
 
         -- -- buffers
         buffer_selected = {
-         guifg = palette.fg0,
-         guibg = palette.bg0,
-         gui = "bold",
+         fg = palette.fg0,
+         bg = palette.bg0,
+         bold = true,
         },
         buffer_visible = {
-         guifg = palette.fg2,
-         guibg = palette.bg2,
+         fg = palette.fg2,
+         bg = palette.bg2,
         },
         duplicate_selected = {
-            guifg = palette.fg0,
-            guibg = palette.bg0,
+            fg = palette.fg0,
+            bg = palette.bg0,
         },
         duplicate_visible = {
-            guifg = palette.fg2,
-            guibg = palette.bg2,
+            fg = palette.fg2,
+            bg = palette.bg2,
         },
         duplicate = {
-            guifg = palette.fg2,
-            guibg = palette.bg2,
+            fg = palette.fg2,
+            bg = palette.bg2,
         },
         fill = {
-         guifg = palette.fg2,
-         guibg = palette.bg2,
+         fg = palette.fg2,
+         bg = palette.bg2,
         },
         indicator_selected = {
-         guifg = palette.green,
-         guibg = palette.green,
+         fg = palette.green,
+         bg = palette.green,
         },
         indicator_visible = {
-         guifg = palette.yellow,
-         guibg = palette.yellow,
+         fg = palette.yellow,
+         bg = palette.yellow,
         },
 
         -- modified
         modified = {
-         guifg = palette.green,
-         guibg = palette.bg2,
+         fg = palette.green,
+         bg = palette.bg2,
         },
         modified_visible = {
-         guifg = palette.green,
-         guibg = palette.bg2,
+         fg = palette.green,
+         bg = palette.bg2,
         },
         modified_selected = {
-         guifg = palette.green,
-         guibg = palette.bg0,
+         fg = palette.green,
+         bg = palette.bg0,
         },
 
         -- separators
         separator = {
-         guifg = palette.bg2,
-         guibg = palette.bg2,
+         fg = palette.bg2,
+         bg = palette.bg2,
         },
         separator_visible = {
-         guifg = palette.bg2,
-         guibg = palette.bg2,
+         fg = palette.bg2,
+         bg = palette.bg2,
         },
         separator_selected = {
-         guifg = palette.bg2,
-         guibg = palette.bg2,
+         fg = palette.bg2,
+         bg = palette.bg2,
         },
 
       -- tabs
       tab = {
-         guifg = palette.fg2,
-         guibg = palette.bg2,
+         fg = palette.fg2,
+         bg = palette.bg2,
       },
       tab_selected = {
-         guifg = palette.fg0,
-         guibg = palette.bg0,
+         fg = palette.fg0,
+         bg = palette.bg0,
       },
       tab_close = {
-         guifg = palette.fg2,
-         guibg = palette.bg2,
+         fg = palette.fg2,
+         bg = palette.bg2,
       },
     },
 }
