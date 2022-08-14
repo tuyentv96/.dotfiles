@@ -60,7 +60,7 @@ local opts = {
 		executor = require("rust-tools/executors").termopen,
 
         autoSetHints = false,
-        hover_with_actions = true,
+        -- hover_with_actions = true,
         inlay_hints = {
 
             -- Only show inlay hints for the current line
@@ -100,7 +100,11 @@ local opts = {
     },
     server = {
         -- on_attach is a callback called when the language server attachs to the buffer
-        on_attach = utils.on_attach,
+        on_attach = function(client, bufnr)
+          -- Hover actions
+            vim.keymap.set("n", "<C-a>", rusttools.hover_actions.hover_actions, { buffer = bufnr })
+            utils.on_attach(client, bufnr) 
+        end,
         capabilities = utils.capabilities,
         settings = {
             -- to enable rust-analyzer settings visit:
