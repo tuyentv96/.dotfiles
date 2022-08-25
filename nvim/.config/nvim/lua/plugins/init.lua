@@ -39,7 +39,8 @@ return require('packer').startup({function(use)
   use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = get_config('bufferline')
+    config = get_config('bufferline'),
+    tag = "v2.*",
   }
   use {
     'christoomey/vim-tmux-navigator',
