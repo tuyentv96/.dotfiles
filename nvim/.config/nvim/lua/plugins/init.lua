@@ -189,10 +189,10 @@ return require('packer').startup({function(use)
   --   config = get_config('lspsignature')
   -- }
 
-  use {
-      'akinsho/toggleterm.nvim',
-      config = get_config('toggleterm')
-  }
+  -- use {
+  --     'akinsho/toggleterm.nvim',
+  --     config = get_config('toggleterm')
+  -- }
 
   use {
       'vim-test/vim-test',
