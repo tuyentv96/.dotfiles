@@ -14,6 +14,7 @@ vim.cmd([[
     let test#python#runner = 'pytest'
     let test#go#runner = 'gotest'
     let test#scala#runner = 'sbttest'
+    let test#python#pytest#options = '--log-cli-level=INFO --capture=tee-sys'
 ]])
 
 
