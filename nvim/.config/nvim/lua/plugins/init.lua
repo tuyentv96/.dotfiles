@@ -139,7 +139,7 @@ return require('packer').startup({function(use)
       requires = { 'nvim-lua/plenary.nvim' },
       config = get_config('metals'),
   })
-  use 'rust-lang/rust.vim'
+  -- use 'rust-lang/rust.vim'
   use {
       'simrat39/rust-tools.nvim',
       requires = {'neovim/nvim-lspconfig'},
@@ -199,9 +199,9 @@ return require('packer').startup({function(use)
       config = get_config('vimtest')
   }
 
-  -- use {
-  --     'skywind3000/asyncrun.vim'
-  -- }
+  use {
+      'skywind3000/asyncrun.vim'
+  }
 
   -- use {
   --     'mfussenegger/nvim-dap-python',
