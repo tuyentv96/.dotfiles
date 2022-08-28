@@ -170,7 +170,7 @@ return require('packer').startup({function(use)
           { 'hrsh7th/cmp-nvim-lsp' },
           { 'hrsh7th/cmp-buffer' },
           { 'hrsh7th/cmp-path' },
-          { 'hrsh7th/cmp-nvim-lua' },
+          -- { 'hrsh7th/cmp-nvim-lua' },
           { 'saadparwaiz1/cmp_luasnip' },
           { 'onsails/lspkind-nvim' },
           { 'tzachar/cmp-tabnine', run='./install.sh'}
@@ -208,12 +208,10 @@ return require('packer').startup({function(use)
   --     'mfussenegger/nvim-dap-python',
   --     config = get_config('dappython')
   -- }
-
   use {
       'ray-x/lsp_signature.nvim',
       config = get_config('lspsignature')
   }
-
 end,
 config = {
   display = {
