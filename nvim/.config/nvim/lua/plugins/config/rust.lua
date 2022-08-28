@@ -3,55 +3,55 @@ if not present then
    return
 end
 
-local present, dap = pcall(require, "dap")
-if not present then
-   return
-end
+-- local present, dap = pcall(require, "dap")
+-- if not present then
+--    return
+-- end
 
 
 local utils = require("core.utils")
 
-local extension_path = HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
-local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/bin/lldb'
+-- local extension_path = HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
+-- local codelldb_path = extension_path .. 'adapter/codelldb'
+-- local liblldb_path = extension_path .. 'lldb/bin/lldb'
 
-dap.adapters.rt_lldb = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
-dap.adapters.lldb = dap.adapters.rt_lldb
+--dap.adapters.rt_lldb = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
+--dap.adapters.lldb = dap.adapters.rt_lldb
 
-dap.configurations.rust = {
-    {
-        -- If you get an "Operation not permitted" error using this, try disabling YAMA:
-        --  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-        name = "Attach to process",
-        type = 'lldb',
-        request = 'attach',
-        pid = require('dap.utils').pick_process,
-        args = {},
-    },
-    {
-        name = "Launch",
-        type = "lldb",
-        request = "launch",
-        program = function()
-              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
-        stopOnEntry = false,
-        args = {},
+--dap.configurations.rust = {
+--    {
+--        -- If you get an "Operation not permitted" error using this, try disabling YAMA:
+--        --  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+--        name = "Attach to process",
+--        type = 'lldb',
+--        request = 'attach',
+--        pid = require('dap.utils').pick_process,
+--        args = {},
+--    },
+--    {
+--        name = "Launch",
+--        type = "lldb",
+--        request = "launch",
+--        program = function()
+--              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--        end,
+--        cwd = '${workspaceFolder}',
+--        stopOnEntry = false,
+--        args = {},
 
-        -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-        --
-        --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-        --
-        -- Otherwise you might get the following error:
-        --
-        --    Error on launch: Failed to attach to the target process
-        --
-        -- But you should be aware of the implications:
-        -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-        runInTerminal = false,
-    },
-}
+--        -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+--        --
+--        --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+--        --
+--        -- Otherwise you might get the following error:
+--        --
+--        --    Error on launch: Failed to attach to the target process
+--        --
+--        -- But you should be aware of the implications:
+--        -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+--        runInTerminal = false,
+--    },
+--}
 
 local opts = {
     tools = { -- rust-tools options
@@ -132,7 +132,7 @@ local opts = {
     },
     -- debugging stuff
 	dap = {
-		adapter = dap.adapters.rt_lldb,
+	-- 	adapter = dap.adapters.rt_lldb,
 	},
 }
 
