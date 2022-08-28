@@ -107,9 +107,9 @@ return require('packer').startup({function(use)
   --     config = get_config('db'),
   -- }
   -- use 'jiangmiao/auto-pairs'
-  use {
-      'leoluz/nvim-dap-go'
-  }
+  -- use {
+  --     'leoluz/nvim-dap-go'
+  -- }
   use {
     'nvim-lua/lsp-status.nvim',
     config = get_config('lspstatus'),
@@ -147,10 +147,10 @@ return require('packer').startup({function(use)
       config = get_config('rust'),
   }
 
-  use {
-    'mfussenegger/nvim-dap',
-    config = get_config('dap'),
-  }
+  -- use {
+  --   'mfussenegger/nvim-dap',
+  --   config = get_config('dap'),
+  -- }
   -- use {
   --   'rcarriga/nvim-dap-ui',
   --   config = get_config('dapui')
@@ -204,10 +204,10 @@ return require('packer').startup({function(use)
   --     'skywind3000/asyncrun.vim'
   -- }
 
-  use {
-      'mfussenegger/nvim-dap-python',
-      config = get_config('dappython')
-  }
+  -- use {
+  --     'mfussenegger/nvim-dap-python',
+  --     config = get_config('dappython')
+  -- }
 
   use {
       'ray-x/lsp_signature.nvim',
