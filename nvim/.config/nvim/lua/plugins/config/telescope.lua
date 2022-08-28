@@ -6,7 +6,7 @@ end
 local actions = require("telescope.actions")
 require("core.utils")
 
-nnoremap("<C-p>", "<cmd>lua require('telescope.builtin').git_files()<CR>")
+-- nnoremap("<C-p>", "<cmd>lua require('telescope.builtin').git_files()<CR>")
 nnoremap("<Leader>ff", "<cmd>lua require('core.utils').project_files()<CR>")
 nnoremap("<Leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 nnoremap("<Leader>fs", "<cmd>lua require('telescope.builtin').grep_string({search=vim.fn.input('Grep For > ')})<CR>")

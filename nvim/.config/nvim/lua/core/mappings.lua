@@ -35,7 +35,14 @@ vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
 -- paste from clipboard
-xnoremap("<c-p>", '"_dP')
+-- xnoremap("<c-p>", '"_dP')
+-- vnoremap("x", '"_x')
+-- vnoremap("d", '"_d')
+nnoremap("x", '"_x')
+-- nnoremap("d", '"_d')
+-- nnoremap("D", '"_D')
+-- nnoremap("c", '"_c')
+-- nnoremap("C", '"_C')
 
 -- Copy to clipboard
 nnoremap("<leader>y", '"+y')
