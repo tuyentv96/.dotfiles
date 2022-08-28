@@ -30,7 +30,7 @@ return require('packer').startup({function(use)
       'Raimondi/delimitMate',
       config = get_config('delimit'),
   }
-  use 'famiu/bufdelete.nvim'
+  -- use 'famiu/bufdelete.nvim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},

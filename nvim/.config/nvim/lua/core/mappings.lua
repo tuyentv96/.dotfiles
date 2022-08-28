@@ -27,8 +27,8 @@ nnoremap("<leader>fj", ":%!jq '.' <CR>")
 
 -- close current buffer
 -- nnoremap("<C-c>", ":bp<bar>sp<bar>bn<bar>bd<CR>")
--- nnoremap("<C-c>", ":bdelete<CR>")
-nnoremap("<C-c>", ":Bdelete<CR>")
+nnoremap("<C-c>", ":bdelete<CR>")
+-- nnoremap("<C-c>", ":Bdelete<CR>")
 
 -- Move selected lines
 vnoremap("J", ":m '>+1<CR>gv=gv")
