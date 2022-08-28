@@ -95,3 +95,5 @@ omap("H","^")
 nmap("L","$")
 vmap("L","$")
 omap("L","$")
+
+tmap("<C-o>", "<C-\\><C-n>")

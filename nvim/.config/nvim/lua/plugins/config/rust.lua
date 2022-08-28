@@ -71,7 +71,7 @@ local opts = {
             -- not that this may cause  higher CPU usage.
             -- This option is only respected when only_current_line and
             -- autoSetHints both are true.
-            only_current_line_autocmd = "CursorHold",
+            -- only_current_line_autocmd = "CursorHold",
 
             -- wheter to show parameter hints with the inlay hints or not
             show_parameter_hints = false,
@@ -128,7 +128,7 @@ local opts = {
     },
 
     -- whether the hover action window gets automatically focused
-    auto_focus = true,
+    auto_focus = false,
     },
     -- debugging stuff
 	dap = {
@@ -141,14 +141,14 @@ rusttools.setup(opts)
 -- autocmd FileType rust nnoremap <leader>tf :RustTest <CR>
 -- autocmd FileType rust nnoremap <leader>ta :RustTest! <CR>]
 -- autocmd FileType rust nnoremap <leader>rl :RustRunnables <CR>
+-- autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>
+-- autocmd Filetype rust nnoremap <leader>cb :Cargo build <CR>
+-- autocmd FileType rust nnoremap <leader>ch :RustToggleInlayHints <CR>]
 
-cmd([[
-    augroup rust.Commands
-    autocmd!
-    autocmd BufWritePre *.rs :silent! lua vim.lsp.buf.formatting_sync() 
-    autocmd Filetype rust nnoremap <leader>cr :RustRun <CR>
-    autocmd Filetype rust nnoremap <leader>cb :Cargo build <CR>
-    autocmd FileType rust nnoremap <leader>ch :RustToggleInlayHints <CR>]
-    augroup end
-]])
+-- cmd([[
+--     augroup rust.Commands
+--     autocmd!
+--     autocmd BufWritePre *.rs :silent! lua vim.lsp.buf.formatting_sync() 
+--     augroup end
+-- ]])
 

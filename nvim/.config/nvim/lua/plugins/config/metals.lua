@@ -106,10 +106,10 @@ end
 
 metals_config.on_attach = on_attach
 
+-- autocmd BufWritePre *.scala :silent! lua vim.lsp.buf.formatting_sync() 
 cmd([[
     augroup scala.Commands
     autocmd!
-    autocmd BufWritePre *.scala :silent! lua vim.lsp.buf.formatting_sync() 
     autocmd FileType scala setlocal omnifunc=v:lua.vim.lsp.omnifunc
     autocmd FileType scala,sb lua require("metals").initialize_or_attach(metals_config)
     augroup end

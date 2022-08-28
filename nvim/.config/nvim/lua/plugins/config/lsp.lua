@@ -83,3 +83,10 @@ lsp_config.dartls.setup{}
 --   }
 -- }))
 
+cmd([[
+    augroup Lsp.Autosave.Commands
+    autocmd!
+    autocmd BufWritePre *.rs,*.go,*.scala :silent! lua vim.lsp.buf.formatting_sync() 
+    augroup end
+]])
+

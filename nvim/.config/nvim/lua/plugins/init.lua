@@ -20,7 +20,6 @@ return require('packer').startup({function(use)
   -- }
   -- use {
   --     "norcalli/nvim-colorizer.lua",
-  --     event = "BufRead",
   --     config = function ()
   --        require 'colorizer'.setup()
   --     end
@@ -126,11 +125,11 @@ return require('packer').startup({function(use)
     config = get_config('lsp')
   }
 
-  use {
-      'fatih/vim-go',
-      -- run = ':GoUpdateBinaries',
-      config = get_config('go'),
-  }
+  -- use {
+  --     'fatih/vim-go',
+  --     -- run = ':GoUpdateBinaries',
+  --     config = get_config('go'),
+  -- }
   -- use {
   --     'ray-x/go.nvim',
   --     config = get_config('nvimgo'),
