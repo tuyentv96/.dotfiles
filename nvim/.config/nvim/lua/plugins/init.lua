@@ -112,10 +112,10 @@ return require('packer').startup({function(use)
   -- use {
   --     'leoluz/nvim-dap-go'
   -- }
-  use {
-    'nvim-lua/lsp-status.nvim',
-    config = get_config('lspstatus'),
-  }
+  -- use {
+  --   'nvim-lua/lsp-status.nvim',
+  --   config = get_config('lspstatus'),
+  -- }
 
   use {
     'neovim/nvim-lspconfig',

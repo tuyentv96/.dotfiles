@@ -51,7 +51,7 @@ M.get_git_branch = function()
   if isempty(branch) then
     return ""
   else
-    return branch
+    return  "%#StatusBranch#  " .. branch .. " "
   end
 end
 
@@ -70,17 +70,28 @@ M.get_mode = function ()
   return "%#StatusMode" .. mode:sub(1, 1) .. "# " .. mode .. " %*"
 end
 
+M.lsp_progress = function()
+	local lsp = vim.lsp.util.get_progress_messages()[1]
+	if lsp then
+		local name = lsp.name or ""
+		local msg = lsp.message or ""
+		local percentage = lsp.percentage or 0
+		local title = lsp.title or ""
+		return string.format(" %%<%s: %s %s ", name, title, msg)
+	end
+
+	return ""
+end
+
 M.get_statusline = function()
   vim.g.metals_status = ""
   local parts = {
-    "%#Statusline#",
     "%{%v:lua.status.get_mode()%}",
-    "%#StatusBranch#",
-    "  %{%v:lua.status.get_git_branch()%} ",
+    "%{%v:lua.status.get_git_branch()%} ",
     "%#StatusFile#",
     " %f ",
     " %-m",
-    "%{%v:lua.require'lsp-status'.status_progress()%}",
+    "%{%v:lua.status.lsp_progress()%}",
     "%{%g:metals_status%}",
     "%=",
     " %{&fileencoding?&fileencoding:&encoding} ",
