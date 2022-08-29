@@ -1,0 +1,99 @@
+local M = {}
+
+local isempty = function(s)
+  return s == nil or s == ""
+end
+
+-- mode_map copied from:
+-- https://github.com/nvim-lualine/lualine.nvim/blob/5113cdb32f9d9588a2b56de6d1df6e33b06a554a/lua/lualine/utils/mode.lua
+-- Copyright (c) 2020-2021 hoob3rt
+-- MIT license, see LICENSE for more details.
+local mode_map = {
+  ['n']      = 'NORMAL',
+  ['no']     = 'O-PENDING',
+  ['nov']    = 'O-PENDING',
+  ['noV']    = 'O-PENDING',
+  ['no\22']  = 'O-PENDING',
+  ['niI']    = 'NORMAL',
+  ['niR']    = 'NORMAL',
+  ['niV']    = 'NORMAL',
+  ['nt']     = 'NORMAL',
+  ['v']      = 'VISUAL',
+  ['vs']     = 'VISUAL',
+  ['V']      = 'V-LINE',
+  ['Vs']     = 'V-LINE',
+  ['\22']    = 'V-BLOCK',
+  ['\22s']   = 'V-BLOCK',
+  ['s']      = 'SELECT',
+  ['S']      = 'S-LINE',
+  ['\19']    = 'S-BLOCK',
+  ['i']      = 'INSERT',
+  ['ic']     = 'INSERT',
+  ['ix']     = 'INSERT',
+  ['R']      = 'REPLACE',
+  ['Rc']     = 'REPLACE',
+  ['Rx']     = 'REPLACE',
+  ['Rv']     = 'V-REPLACE',
+  ['Rvc']    = 'V-REPLACE',
+  ['Rvx']    = 'V-REPLACE',
+  ['c']      = 'COMMAND',
+  ['cv']     = 'EX',
+  ['ce']     = 'EX',
+  ['r']      = 'REPLACE',
+  ['rm']     = 'MORE',
+  ['r?']     = 'CONFIRM',
+  ['!']      = 'SHELL',
+  ['t']      = 'TERMINAL',
+}
+
+M.get_git_branch = function()
+  local branch = vim.fn.FugitiveHead()
+  if isempty(branch) then
+    return ""
+  else
+    return branch
+  end
+end
+
+M.get_file_type = function()
+    local f_extension = vim.bo.filetype
+    if isempty(f_extension) then
+        return ""
+    else
+        return "%#StatusBranch# " .. f_extension .. " % "
+    end
+end
+
+M.get_mode = function ()
+  local mode_code = vim.api.nvim_get_mode().mode
+  local mode = mode_map[mode_code] or string.upper(mode_code)
+  return "%#StatusMode" .. mode:sub(1, 1) .. "# " .. mode .. " %*"
+end
+
+M.get_statusline = function()
+  vim.g.metals_status = ""
+  local parts = {
+    "%#Statusline#",
+    "%{%v:lua.status.get_mode()%}",
+    "%#StatusBranch#",
+    "  %{%v:lua.status.get_git_branch()%} ",
+    "%#StatusFile#",
+    " %f ",
+    " %-m",
+    "%{%v:lua.require'lsp-status'.status_progress()%}",
+    "%{%g:metals_status%}",
+    "%=",
+    " %{&fileencoding?&fileencoding:&encoding} ",
+    "%{%v:lua.status.get_file_type()%}",
+    '%#StatusLine# %4l:%L ',
+  }
+  return table.concat(parts)
+end
+
+_G.status = M
+
+M.init = function()
+    vim.o.statusline=M.get_statusline()
+end
+
+return M

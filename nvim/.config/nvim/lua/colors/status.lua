@@ -37,7 +37,7 @@ M = {
     StatusModeT           = prop(palette.bg0, palette.purple, 'bold'),
     StatusModeV           = prop(palette.bg0, palette.red, 'bold'),
 
-    StatusBranch      = prop(palette.red, palette.bg_statusline3),
+    StatusBranch      = prop(palette.fg1, palette.bg_statusline3),
     StatusFile        = prop(palette.fg1, palette.bg_statusline1),
     StatusLineTransition1 = prop(palette.red, palette.bg_statusline1),
     StatusLineTransition2 = prop(palette.red, palette.bg_statusline1),

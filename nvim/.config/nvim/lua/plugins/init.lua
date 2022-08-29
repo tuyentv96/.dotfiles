@@ -1,3 +1,4 @@
+local statusline = require("plugins/config/statusline")
 
 local function get_config(name)
     return string.format("require(\"plugins/config/%s\")", name)
@@ -18,23 +19,25 @@ return require('packer').startup({function(use)
   --     'ThePrimeagen/git-worktree.nvim',
   --     config = get_config('worktree')
   -- }
-  -- use {
-  --     "norcalli/nvim-colorizer.lua",
-  --     config = function ()
-  --        require 'colorizer'.setup()
-  --     end
-  -- }
+  use {
+      "norcalli/nvim-colorizer.lua",
+      config = function ()
+         require 'colorizer'.setup()
+      end
+  }
   use 'kyazdani42/nvim-web-devicons'
   use {
       'Raimondi/delimitMate',
       config = get_config('delimit'),
   }
   -- use 'famiu/bufdelete.nvim'
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    config = get_config('lualine')
-  }
+  -- use {
+  --   'nvim-lualine/lualine.nvim',
+  --   requires = {'kyazdani42/nvim-web-devicons', opt = true},
+  --   config = get_config('lualine')
+  -- }
+  statusline.init()
+
   use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
@@ -218,4 +221,3 @@ config = {
   }
 }}
 )
-
