@@ -77,10 +77,22 @@ M.lsp_progress = function()
 		local msg = lsp.message or ""
 		local percentage = lsp.percentage or 0
 		local title = lsp.title or ""
-		return string.format(" %%<%s: %s %s ", name, title, msg)
+        if percentage > 0 then
+            return string.format(" %%<%s: %s %s (%s%%%%) ", name, title, msg, percentage)
+        else
+            return string.format(" %%<%s: %s %s ", name, title, msg)
+        end
 	end
 
 	return ""
+end
+
+M.metals_lsp_progress = function()
+  if isempty(vim.g.metals_status) then
+    return ""
+  else
+    return  " metals: %{%g:metals_status%} "
+  end
 end
 
 M.file_name = function()
@@ -88,7 +100,6 @@ M.file_name = function()
 end
 
 M.get_statusline = function()
-  vim.g.metals_status = ""
   local parts = {
     "%{%v:lua.status.get_mode()%}",
     "%{%v:lua.status.get_git_branch()%}",
@@ -96,7 +107,7 @@ M.get_statusline = function()
     " %{%v:lua.status.file_name()%} ",
     "%-m",
     "%{%v:lua.status.lsp_progress()%}",
-    "%{%g:metals_status%}",
+    "%{%v:lua.status.metals_lsp_progress()%}",
     "%=",
     " %{&fileencoding?&fileencoding:&encoding} ",
     "%{%v:lua.status.get_file_type()%}",
