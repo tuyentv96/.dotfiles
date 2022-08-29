@@ -30,7 +30,18 @@ vim.lsp.handlers["textDocument/hover"] = utils.lsp_hover
 vim.lsp.handlers["textDocument/signatureHelp"] = utils.lsp_signature_help
 
 -- Rust
--- lsp_config.rust_analyzer.setup(config())
+lsp_config.rust_analyzer.setup(utils.lsp_config({
+        settings = {
+            -- to enable rust-analyzer settings visit:
+            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+            ["rust-analyzer"] = {
+                -- enable clippy on save
+                checkOnSave = {
+                    command = "clippy"
+                },
+            }
+        }
+}))
 
 -- Python
 lsp_config.pyright.setup(utils.lsp_config({

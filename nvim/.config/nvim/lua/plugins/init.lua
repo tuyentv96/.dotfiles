@@ -19,12 +19,12 @@ return require('packer').startup({function(use)
   --     'ThePrimeagen/git-worktree.nvim',
   --     config = get_config('worktree')
   -- }
-  use {
-      "norcalli/nvim-colorizer.lua",
-      config = function ()
-         require 'colorizer'.setup()
-      end
-  }
+  -- use {
+  --     "norcalli/nvim-colorizer.lua",
+  --     config = function ()
+  --        require 'colorizer'.setup()
+  --     end
+  -- }
   use 'kyazdani42/nvim-web-devicons'
   use {
       'Raimondi/delimitMate',
@@ -143,11 +143,11 @@ return require('packer').startup({function(use)
       config = get_config('metals'),
   })
   -- use 'rust-lang/rust.vim'
-  use {
-      'simrat39/rust-tools.nvim',
-      requires = {'neovim/nvim-lspconfig'},
-      config = get_config('rust'),
-  }
+  -- use {
+  --     'simrat39/rust-tools.nvim',
+  --     requires = {'neovim/nvim-lspconfig'},
+  --     config = get_config('rust'),
+  -- }
 
   -- use {
   --   'mfussenegger/nvim-dap',
