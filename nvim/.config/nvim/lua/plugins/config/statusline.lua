@@ -83,14 +83,18 @@ M.lsp_progress = function()
 	return ""
 end
 
+M.file_name = function()
+    return vim.fn.expand('%:~:.')
+end
+
 M.get_statusline = function()
   vim.g.metals_status = ""
   local parts = {
     "%{%v:lua.status.get_mode()%}",
-    "%{%v:lua.status.get_git_branch()%} ",
+    "%{%v:lua.status.get_git_branch()%}",
     "%#StatusFile#",
-    " %f ",
-    " %-m",
+    " %{%v:lua.status.file_name()%} ",
+    "%-m",
     "%{%v:lua.status.lsp_progress()%}",
     "%{%g:metals_status%}",
     "%=",
