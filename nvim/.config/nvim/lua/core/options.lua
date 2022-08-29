@@ -50,7 +50,8 @@ local options = {
     softtabstop = 4,
 }
 
-vim.opt.shortmess:remove("F"):append("c")
+-- vim.opt.shortmess:remove("F"):append("c")
+vim.opt.shortmess:append("c")
 -- vim.cmd("syntax off")
 vim.cmd("filetype indent plugin on")
 vim.cmd("let $LANG='en_US.UTF-8'")
