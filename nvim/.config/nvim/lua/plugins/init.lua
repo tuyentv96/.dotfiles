@@ -131,11 +131,11 @@ return require('packer').startup({function(use)
   --     'ray-x/go.nvim',
   --     config = get_config('nvimgo'),
   -- }
-  -- use({
-  --     'scalameta/nvim-metals',
-  --     requires = { 'nvim-lua/plenary.nvim' },
-  --     config = get_config('metals'),
-  -- })
+  use({
+      'scalameta/nvim-metals',
+      requires = { 'nvim-lua/plenary.nvim' },
+      config = get_config('metals'),
+  })
   -- use 'rust-lang/rust.vim'
   -- use {
   --     'simrat39/rust-tools.nvim',

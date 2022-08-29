@@ -29,17 +29,17 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = utils.lsp_diagnostics
 vim.lsp.handlers["textDocument/hover"] = utils.lsp_hover
 vim.lsp.handlers["textDocument/signatureHelp"] = utils.lsp_signature_help
 
-vim.lsp.handlers["metals/status"] = function(_, status, ctx)
-    status.bufnr = ctx.bufnr
-    status.client_id = ctx.client_id
-    if status.hide then
-        vim.api.nvim_set_var("metals_status", "")
-    else
-        if status.text then
-          vim.api.nvim_set_var("metals_status", status.text)
-        end
-    end
-end
+-- vim.lsp.handlers["metals/status"] = function(_, status, ctx)
+--     status.bufnr = ctx.bufnr
+--     status.client_id = ctx.client_id
+--     if status.hide then
+--         vim.api.nvim_set_var("metals_status", "")
+--     else
+--         if status.text then
+--           vim.api.nvim_set_var("metals_status", status.text)
+--         end
+--     end
+-- end
 
 -- Rust
 lsp_config.rust_analyzer.setup(utils.lsp_config({
@@ -80,30 +80,30 @@ lsp_config.gopls.setup(utils.lsp_config({
 }))
 
 -- Scala Metals
-lsp_config.metals.setup(utils.lsp_config({
-    filetypes = { "scala", "sbt" },
-    init_options = {
-      statusBarProvider = "on",
-      treeViewProvider = false,
-      decorationProvider = false,
-      isHttpEnabled = true,
-      compilerOptions = {
-        snippetAutoIndent = false,
-      },
-    },
-    settings = {
-        showImplicitArguments = false,
-        showInferredType = false,
-        showImplicitConversionsAndClasses = false,
-        superMethodLensesEnabled = false,
-        excludedPackages = {
-            "akka.actor.typed.javadsl",
-            "com.github.swagger.akka.javadsl",
-            "akka.stream.javadsl",
-        },
-    --fallbackScalaVersion = "2.13.6",
-    }
-}))
+--lsp_config.metals.setup(utils.lsp_config({
+--    filetypes = { "scala", "sbt" },
+--    init_options = {
+--      statusBarProvider = "on",
+--      treeViewProvider = false,
+--      decorationProvider = false,
+--      isHttpEnabled = true,
+--      compilerOptions = {
+--        snippetAutoIndent = false,
+--      },
+--    },
+--    settings = {
+--        showImplicitArguments = false,
+--        showInferredType = false,
+--        showImplicitConversionsAndClasses = false,
+--        superMethodLensesEnabled = false,
+--        excludedPackages = {
+--            "akka.actor.typed.javadsl",
+--            "com.github.swagger.akka.javadsl",
+--            "akka.stream.javadsl",
+--        },
+--    --fallbackScalaVersion = "2.13.6",
+--    }
+--}))
 
 lsp_config.dartls.setup{}
 
