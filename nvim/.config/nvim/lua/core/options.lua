@@ -56,12 +56,22 @@ vim.opt.shortmess:remove("F"):append("c")
 vim.cmd("filetype indent plugin on")
 vim.cmd("let $LANG='en_US.UTF-8'")
 vim.cmd("set fillchars+=vert:\\ ")
-vim.cmd([[
-    augroup highlight_yank
-        autocmd!
-        au TextYankPost * silent! lua vim.highlight.on_yank{higroup="Visual", timeout=700}
-    augroup END
-]])
+-- vim.cmd([[
+--     augroup highlight_yank
+--         autocmd!
+--         au TextYankPost * silent! lua vim.highlight.on_yank{higroup="Visual", timeout=700}
+--     augroup END
+-- ]])
+
+local highlight_yank_group = vim.api.nvim_create_augroup("highlight_yank", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  pattern = "*",
+  callback = function()
+      vim.highlight.on_yank{higroup="Visual", timeout=700}
+  end,
+  group = highlight_yank_group,
+})
+
 
 for k, v in pairs(options) do
     vim.opt[k] = v

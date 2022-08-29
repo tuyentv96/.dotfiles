@@ -132,10 +132,18 @@ lsp_config.dartls.setup{}
 --   }
 -- }))
 
-cmd([[
-    augroup Lsp.Autosave.Commands
-    autocmd!
-    autocmd BufWritePre *.rs,*.go,*.scala :silent! lua vim.lsp.buf.formatting_sync() 
-    augroup end
-]])
+-- cmd([[
+--     augroup Lsp.Autosave.Commands
+--     autocmd!
+--     autocmd BufWritePre *.rs,*.go,*.scala :silent! lua vim.lsp.buf.formatting_sync() 
+--     augroup end
+-- ]])
 
+local lsp_autosave_group = vim.api.nvim_create_augroup("lsp_autosave", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = {"*.rs", "*.go", "*.scala"},
+  callback = function()
+      vim.lsp.buf.formatting_sync()
+  end,
+  group = lsp_autosave_group,
+})
