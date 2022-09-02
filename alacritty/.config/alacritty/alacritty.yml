@@ -4,10 +4,22 @@ env:
 shell:
   program: /usr/local/bin/fish
   args:
-    - --login
-    # - -l
-    # - -c
-    # - "tmux attach || tmux"
+    # - --login
+    - -l
+    - -c
+    - "tmux attach || tmux"
+window:
+  dimensions:
+    columns: 133
+    lines: 40
+
+  padding:
+    x: 0
+    y: 0
+
+  dynamic_padding: false
+  startup_mode: Windowed
+  opacity: 1
 
 font:
   size: 12.5
