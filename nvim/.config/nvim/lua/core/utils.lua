@@ -213,7 +213,7 @@ M.on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-    if client.resolved_capabilities.document_highlight then
+    -- if client.resolved_capabilities.document_highlight then
         vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
         vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
         vim.api.nvim_create_autocmd("CursorHold", {
@@ -252,7 +252,7 @@ M.on_attach = function(client, bufnr)
         --     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
         --   augroup END
         -- ]], false)
-    end
+    -- end
 end
 
 local border_style = {
