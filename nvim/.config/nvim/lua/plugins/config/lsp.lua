@@ -20,7 +20,7 @@ nnoremap("<leader>ws", "<cmd>lua require('telescope.builtin').lsp_workspace_symb
 nnoremap("<leader>ds", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
-nnoremap("<leader>ca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>")
+nnoremap("<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 -- inoremap("<C-k>", "<cmd>lua require('core.utils').show_lsp_signature_help()<CR>")
