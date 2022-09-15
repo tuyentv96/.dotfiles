@@ -1,5 +1,3 @@
-local statusline = require("plugins/config/statusline")
-
 local function get_config(name)
     return string.format("require(\"plugins/config/%s\")", name)
 end
@@ -36,7 +34,6 @@ return require('packer').startup({function(use)
   --   requires = {'kyazdani42/nvim-web-devicons', opt = true},
   --   config = get_config('lualine')
   -- }
-  statusline.init()
 
   use {
     'akinsho/bufferline.nvim',

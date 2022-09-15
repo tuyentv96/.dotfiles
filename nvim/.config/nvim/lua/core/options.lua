@@ -85,3 +85,4 @@ for _, option in pairs(set_options) do
     vim.cmd("set " .. option)
 end
 
+require("plugins/config/statusline").init()
