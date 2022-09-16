@@ -30,7 +30,7 @@ telescope.setup({
           }
         },
         path_display = {
-            shorten = 2
+            truncate = 2
         },
         preview          = {
             treesitter = false,
