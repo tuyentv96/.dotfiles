@@ -1,13 +1,94 @@
-local present, lsp_config = pcall(require, "lspconfig")
+local present, lspconfig = pcall(require, "lspconfig")
 if not present then
    return
 end
 
-local utils = require("core.utils")
-
-
 local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-3.3.1/server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+
+vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+local on_attach = function(client, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+    -- if client.resolved_capabilities.document_highlight then
+        vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
+        vim.api.nvim_create_autocmd("CursorHold", {
+            callback = vim.lsp.buf.document_highlight,
+            buffer = bufnr,
+            group = "lsp_document_highlight",
+            desc = "Document Highlight",
+        })
+        vim.api.nvim_create_autocmd("CursorMoved", {
+            callback = vim.lsp.buf.clear_references,
+            buffer = bufnr,
+            group = "lsp_document_highlight",
+            desc = "Clear All the References",
+        })
+
+        -- local document_highlight_group = vim.api.nvim_create_augroup("document_highlight", { clear = true })
+        -- vim.api.nvim_create_autocmd("CursorHold", {
+        --   pattern = "<buffer>",
+        --   callback = function()
+        --       vim.lsp.buf.document_highlight()
+        --   end,
+        --   group = document_highlight_group,
+        -- })
+
+        -- vim.api.nvim_create_autocmd("CursorMoved", {
+        --   pattern = "<buffer>",
+        --   callback = function()
+        --       vim.lsp.buf.clear_references()
+        --   end,
+        --   group = document_highlight_group,
+        -- })
+        -- vim.api.nvim_exec([[
+        --   augroup lsp_document_highlight
+        --     autocmd! * <buffer>
+        --     autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        --     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+        --   augroup END
+        -- ]], false)
+    -- end
+end
+
+local border_style = {
+  { "╭", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╮", "FloatBorder" },
+  { "│", "FloatBorder" },
+  { "╯", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╰", "FloatBorder" },
+  { "│", "FloatBorder" },
+}
+local pop_opts = { border = border_style }
+
+local lsp_diagnostics = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = true,
+  signs = false,
+  underline = false,
+  update_in_insert = false,
+})
+
+local lsp_hover = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
+
+local lsp_signature_help = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    offset_y = -2,
+})
+
+local show_lsp_signature_help = function()
+  vim.lsp.buf.signature_help()
+end
+
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local lsp_config = function(_config)
+	return vim.tbl_deep_extend("force", {
+		capabilities = capabilities,
+        on_attach = on_attach,
+	}, _config or {})
+end
 
 nnoremap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions({initial_mode='normal'})<CR>")
 nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
@@ -25,9 +106,9 @@ nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 -- inoremap("<C-k>", "<cmd>lua require('core.utils').show_lsp_signature_help()<CR>")
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = utils.lsp_diagnostics
-vim.lsp.handlers["textDocument/hover"] = utils.lsp_hover
-vim.lsp.handlers["textDocument/signatureHelp"] = utils.lsp_signature_help
+vim.lsp.handlers["textDocument/publishDiagnostics"] = lsp_diagnostics
+vim.lsp.handlers["textDocument/hover"] = lsp_hover
+vim.lsp.handlers["textDocument/signatureHelp"] = lsp_signature_help
 
 -- vim.lsp.handlers["metals/status"] = function(_, status, ctx)
 --     status.bufnr = ctx.bufnr
@@ -42,7 +123,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = utils.lsp_signature_help
 -- end
 
 -- Rust
-lsp_config.rust_analyzer.setup(utils.lsp_config({
+lspconfig.rust_analyzer.setup(lsp_config({
         settings = {
             -- to enable rust-analyzer settings visit:
             -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
@@ -56,7 +137,7 @@ lsp_config.rust_analyzer.setup(utils.lsp_config({
 }))
 
 -- Python
-lsp_config.pyright.setup(utils.lsp_config({
+lspconfig.pyright.setup(lsp_config({
      settings = {
       python = {
         analysis = {
@@ -68,47 +149,18 @@ lsp_config.pyright.setup(utils.lsp_config({
     }
 }))
 
--- lsp_config.jedi_language_server.setup{}
--- lsp_config.pylsp.setup{}
-
 -- Golang
-lsp_config.gopls.setup(utils.lsp_config({
+lspconfig.gopls.setup(lsp_config({
     cmd = { "gopls"},
     settings = {
       gopls = { analyses = { unusedparams = true }, staticcheck = true },
     },
 }))
 
--- Scala Metals
---lsp_config.metals.setup(utils.lsp_config({
---    filetypes = { "scala", "sbt" },
---    init_options = {
---      statusBarProvider = "on",
---      treeViewProvider = false,
---      decorationProvider = false,
---      isHttpEnabled = true,
---      compilerOptions = {
---        snippetAutoIndent = false,
---      },
---    },
---    settings = {
---        showImplicitArguments = false,
---        showInferredType = false,
---        showImplicitConversionsAndClasses = false,
---        superMethodLensesEnabled = false,
---        excludedPackages = {
---            "akka.actor.typed.javadsl",
---            "com.github.swagger.akka.javadsl",
---            "akka.stream.javadsl",
---        },
---    --fallbackScalaVersion = "2.13.6",
---    }
---}))
-
-lsp_config.dartls.setup{}
+lspconfig.dartls.setup{}
 
 -- lua
--- lsp_config.sumneko_lua.setup(utils.lsp_config({
+-- lspconfig.sumneko_lua.setup(lsp_config({
 --   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
 --   settings = {
 --       Lua = {
@@ -132,13 +184,6 @@ lsp_config.dartls.setup{}
 --   }
 -- }))
 
--- cmd([[
---     augroup Lsp.Autosave.Commands
---     autocmd!
---     autocmd BufWritePre *.rs,*.go,*.scala :silent! lua vim.lsp.buf.formatting_sync() 
---     augroup end
--- ]])
-
 local lsp_autosave_group = vim.api.nvim_create_augroup("lsp_autosave", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = {"*.rs", "*.go", "*.scala"},
@@ -147,3 +192,10 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
   group = lsp_autosave_group,
 })
+
+return {
+    capabilities = capabilities,
+    lsp_diagnostics = lsp_diagnostics,
+    lsp_hover = lsp_hover,
+    on_attach = on_attach,
+}
