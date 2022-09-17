@@ -2,29 +2,46 @@ local present, lspconfig = pcall(require, "lspconfig")
 if not present then
    return
 end
+local lightbulb = require("plugins.config.lightbulb")
 
 local sumneko_root_path = HOME .. "/.vscode/extensions/sumneko.lua-3.3.1/server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
-vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+local lsp_document_highlight_group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+local lsp_code_action_group = vim.api.nvim_create_augroup("lsp_code_action", { clear = true })
+
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
+    if client.supports_method("textDocument/codeAction") then
+    vim.api.nvim_clear_autocmds({ group = lsp_code_action_group, buffer = bufnr })
+    vim.api.nvim_create_autocmd({ "CursorHold" }, {
+      group = lsp_code_action_group,
+      buffer = bufnr,
+      callback = function(params)
+        lightbulb.update_lightbulb()
+      end,
+    })
+    end
+
     -- if client.resolved_capabilities.document_highlight then
-        vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
+        vim.api.nvim_clear_autocmds { buffer = bufnr, group = lsp_document_highlight_group}
         vim.api.nvim_create_autocmd("CursorHold", {
-            callback = vim.lsp.buf.document_highlight,
+            callback = function(params)
+                vim.lsp.buf.clear_references()
+                vim.lsp.buf.document_highlight()
+            end,
             buffer = bufnr,
-            group = "lsp_document_highlight",
+            group = lsp_document_highlight_group,
             desc = "Document Highlight",
         })
-        vim.api.nvim_create_autocmd("CursorMoved", {
-            callback = vim.lsp.buf.clear_references,
-            buffer = bufnr,
-            group = "lsp_document_highlight",
-            desc = "Clear All the References",
-        })
+        -- vim.api.nvim_create_autocmd("CursorMoved", {
+        --     callback = vim.lsp.buf.clear_references,
+        --     buffer = bufnr,
+        --     group = lsp_document_highlight_group,
+        --     desc = "Clear All the References",
+        -- })
 
         -- local document_highlight_group = vim.api.nvim_create_augroup("document_highlight", { clear = true })
         -- vim.api.nvim_create_autocmd("CursorHold", {
@@ -82,7 +99,6 @@ local show_lsp_signature_help = function()
 end
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
 local lsp_config = function(_config)
 	return vim.tbl_deep_extend("force", {
 		capabilities = capabilities,
@@ -101,7 +117,8 @@ nnoremap("<leader>ws", "<cmd>lua require('telescope.builtin').lsp_workspace_symb
 nnoremap("<leader>ds", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
-nnoremap("<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+nnoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+inoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 -- inoremap("<C-k>", "<cmd>lua require('core.utils').show_lsp_signature_help()<CR>")

@@ -25,7 +25,7 @@ M = {
     WarningFloat = prop(palette.yellow,palette.bg3),
     InfoFloat    = prop(palette.blue,palette.bg3),
     HintFloat    = prop(palette.green,palette.bg3),
-    CurrentWord  = prop(palette.none,palette.bg_current_word),
+    CurrentWord  = prop(palette.none,palette.bg_visual_green),
 }
 
 M.VirtualTextWarning                   = palette.Yellow
