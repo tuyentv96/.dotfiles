@@ -91,6 +91,7 @@ local lsp_diagnostics = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, 
 local lsp_hover = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 
 local lsp_signature_help = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    offset_x = 1,
     offset_y = -2,
 })
 
@@ -121,7 +122,7 @@ nnoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 inoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
--- inoremap("<C-k>", "<cmd>lua require('core.utils').show_lsp_signature_help()<CR>")
+inoremap("<C-k>", "<cmd>lua require('core.utils').show_lsp_signature_help()<CR>")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = lsp_diagnostics
 vim.lsp.handlers["textDocument/hover"] = lsp_hover
