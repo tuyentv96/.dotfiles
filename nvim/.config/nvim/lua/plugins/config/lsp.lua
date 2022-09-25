@@ -36,37 +36,6 @@ local on_attach = function(client, bufnr)
             group = lsp_document_highlight_group,
             desc = "Document Highlight",
         })
-        -- vim.api.nvim_create_autocmd("CursorMoved", {
-        --     callback = vim.lsp.buf.clear_references,
-        --     buffer = bufnr,
-        --     group = lsp_document_highlight_group,
-        --     desc = "Clear All the References",
-        -- })
-
-        -- local document_highlight_group = vim.api.nvim_create_augroup("document_highlight", { clear = true })
-        -- vim.api.nvim_create_autocmd("CursorHold", {
-        --   pattern = "<buffer>",
-        --   callback = function()
-        --       vim.lsp.buf.document_highlight()
-        --   end,
-        --   group = document_highlight_group,
-        -- })
-
-        -- vim.api.nvim_create_autocmd("CursorMoved", {
-        --   pattern = "<buffer>",
-        --   callback = function()
-        --       vim.lsp.buf.clear_references()
-        --   end,
-        --   group = document_highlight_group,
-        -- })
-        -- vim.api.nvim_exec([[
-        --   augroup lsp_document_highlight
-        --     autocmd! * <buffer>
-        --     autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        --     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        --   augroup END
-        -- ]], false)
-    -- end
 end
 
 local border_style = {
@@ -111,8 +80,8 @@ nnoremap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions({initial_m
 nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 nnoremap("gr", "<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>")
 nnoremap("gi", "<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>")
-nnoremap("<leader>dw", "<cmd>lua require('telescope.builtin').diagnostics()<CR>")
-nnoremap("<leader>dd", "<cmd>lua require('telescope.builtin').diagnostics({bufnr=0}) <CR>")
+nnoremap("<leader>dw", "<cmd>lua require('telescope.builtin').diagnostics({initial_mode='normal'})<CR>")
+nnoremap("<leader>dd", "<cmd>lua require('telescope.builtin').diagnostics({initial_mode='normal',bufnr=0}) <CR>")
 nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>ws", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
 nnoremap("<leader>ds", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
