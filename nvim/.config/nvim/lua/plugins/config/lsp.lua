@@ -15,27 +15,34 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
     if client.supports_method("textDocument/codeAction") then
-    vim.api.nvim_clear_autocmds({ group = lsp_code_action_group, buffer = bufnr })
-    vim.api.nvim_create_autocmd({ "CursorHold" }, {
-      group = lsp_code_action_group,
-      buffer = bufnr,
-      callback = function(params)
-        lightbulb.update_lightbulb()
-      end,
-    })
+        vim.api.nvim_clear_autocmds({ group = lsp_code_action_group, buffer = bufnr })
+        vim.api.nvim_create_autocmd({ "CursorHold" }, {
+          group = lsp_code_action_group,
+          buffer = bufnr,
+          callback = function(params)
+            lightbulb.update_lightbulb()
+          end,
+        })
     end
 
     -- if client.resolved_capabilities.document_highlight then
         vim.api.nvim_clear_autocmds { buffer = bufnr, group = lsp_document_highlight_group}
         vim.api.nvim_create_autocmd("CursorHold", {
             callback = function(params)
-                vim.lsp.buf.clear_references()
+                -- vim.lsp.buf.clear_references()
                 vim.lsp.buf.document_highlight()
             end,
             buffer = bufnr,
             group = lsp_document_highlight_group,
             desc = "Document Highlight",
         })
+        vim.api.nvim_create_autocmd("CursorMoved", {
+            callback = vim.lsp.buf.clear_references,
+            buffer = bufnr,
+            group = lsp_document_highlight_group,
+            desc = "Clear All the References",
+        })
+    -- end
 end
 
 local border_style = {
