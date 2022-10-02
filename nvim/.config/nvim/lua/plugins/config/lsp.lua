@@ -93,7 +93,7 @@ nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>ws", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
 nnoremap("<leader>ds", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>")
 nnoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 inoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
@@ -182,7 +182,7 @@ local lsp_autosave_group = vim.api.nvim_create_augroup("lsp_autosave", { clear =
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = {"*.rs", "*.go", "*.scala"},
   callback = function()
-      vim.lsp.buf.formatting_sync()
+      vim.lsp.buf.format()
   end,
   group = lsp_autosave_group,
 })
