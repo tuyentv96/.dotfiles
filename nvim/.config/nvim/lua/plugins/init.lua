@@ -8,10 +8,10 @@ return require('packer').startup({function(use)
   use {
     'wbthomason/packer.nvim',
   }
-  use {
-    'SmiteshP/nvim-navic',
-    config = get_config('navic')
-  }
+  -- use {
+  --   'SmiteshP/nvim-navic',
+  --   config = get_config('navic')
+  -- }
   -- use {
   --     'nathom/filetype.nvim',
   --     config = get_config('filetype'),
@@ -211,7 +211,7 @@ return require('packer').startup({function(use)
       config = get_config('lspsignature')
   }
 
-  require('plugins.config.winbar').create_winbar()
+  -- require('plugins.config.winbar').create_winbar()
 end,
 config = {
   display = {
