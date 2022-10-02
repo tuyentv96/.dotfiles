@@ -76,6 +76,7 @@ end
 
 local set_options = {
     "hidden",
+    "nowrap",
     -- "spell",
 }
 
