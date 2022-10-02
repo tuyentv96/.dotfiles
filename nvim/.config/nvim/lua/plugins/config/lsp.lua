@@ -20,9 +20,9 @@ local function attach_navic(client, bufnr)
 end
 
 local on_attach = function(client, bufnr)
-    -- attach_navic(client, bufnr)
+    attach_navic(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
     -- if client.supports_method("textDocument/codeAction") then
     --     vim.api.nvim_clear_autocmds({ group = lsp_code_action_group, buffer = bufnr })
