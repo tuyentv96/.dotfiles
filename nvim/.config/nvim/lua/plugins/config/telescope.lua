@@ -33,7 +33,7 @@ telescope.setup({
           }
         },
         path_display = {
-            shorten = { len = 4, exclude = {-1}}
+            shorten = { len = 4, exclude = {-1, -2}}
         },
         preview = {
             treesitter = false,
@@ -68,7 +68,7 @@ telescope.setup({
     pickers = {
         buffers = {
             initial_mode = 'normal',
-            path_display = {shorten={len=6,exclude={-1,-2,-3} }},
+            -- path_display = {shorten={len=4,exclude={-1} }},
               mappings = {
                 i = {
                   ["<C-c>"] = actions.delete_buffer,
@@ -78,12 +78,12 @@ telescope.setup({
                 }
             }
         },
-        grep_string = {
-            path_display={shorten={len=6,exclude={-1,-2,-3}}},
-        },
-        live_grep = {
-            path_display={shorten={len=6,exclude={-1,-2,-3}}},
-        }
+        -- grep_string = {
+        --     path_display={shorten={len=4,exclude={-1}}},
+        -- },
+        -- live_grep = {
+        --     path_display={shorten={len=4,exclude={-1}}},
+        -- }
     },
 })
 
