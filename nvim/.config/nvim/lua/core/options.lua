@@ -1,7 +1,8 @@
 require("core.utils")
-
+local statusline = require("plugins/config/statusline")
 local options = {
     mouse = "a",
+    winbar = "%f",
     foldenable = false,
     lazyredraw = true,
     laststatus = 3,
@@ -85,4 +86,4 @@ for _, option in pairs(set_options) do
     vim.cmd("set " .. option)
 end
 
-require("plugins/config/statusline").init()
+statusline.init()
