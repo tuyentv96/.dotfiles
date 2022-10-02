@@ -2,7 +2,7 @@ require("core.utils")
 local statusline = require("plugins/config/statusline")
 local options = {
     mouse = "a",
-    winbar = "%f",
+    -- winbar = "%{%v:lua.require'core.utils'.get_filename()%} %{%v:lua.require'nvim-navic'.get_location()%}",
     foldenable = false,
     lazyredraw = true,
     laststatus = 3,
@@ -49,10 +49,12 @@ local options = {
     shiftwidth = 4,
     tabstop = 4,
     softtabstop = 4,
+
 }
 
 -- vim.opt.shortmess:remove("F"):append("c")
 vim.opt.shortmess:remove("F")
+vim.opt.spelloptions:append("camel")
 -- vim.cmd("syntax off")
 vim.cmd("filetype indent plugin on")
 vim.cmd("let $LANG='en_US.UTF-8'")
@@ -80,6 +82,7 @@ end
 
 local set_options = {
     "hidden",
+    "spell",
 }
 
 for _, option in pairs(set_options) do

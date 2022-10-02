@@ -10,7 +10,17 @@ local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 local lsp_document_highlight_group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
 local lsp_code_action_group = vim.api.nvim_create_augroup("lsp_code_action", { clear = true })
 
+local function attach_navic(client, bufnr)
+  vim.g.navic_silence = true
+  local status_ok, navic = pcall(require, "nvim-navic")
+  if not status_ok then
+    return
+  end
+  navic.attach(client, bufnr)
+end
+
 local on_attach = function(client, bufnr)
+    attach_navic(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -93,7 +103,7 @@ nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>ws", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
 nnoremap("<leader>ds", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>")
+nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.format({ async = false })<CR>")
 nnoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 inoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
@@ -182,7 +192,7 @@ local lsp_autosave_group = vim.api.nvim_create_augroup("lsp_autosave", { clear =
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = {"*.rs", "*.go", "*.scala"},
   callback = function()
-      vim.lsp.buf.format()
+      vim.lsp.buf.format({ async = false })
   end,
   group = lsp_autosave_group,
 })
