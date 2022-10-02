@@ -171,7 +171,7 @@ return require('packer').startup({function(use)
           -- { 'hrsh7th/cmp-nvim-lua' },
           { 'saadparwaiz1/cmp_luasnip' },
           { 'onsails/lspkind-nvim' },
-          { 'tzachar/cmp-tabnine', run='./install.sh'}
+          -- { 'tzachar/cmp-tabnine', run='./install.sh'}
           -- { 'hrsh7th/cmp-nvim-lsp-signature-help'},
       },
       config = get_config('nvimcmp')
