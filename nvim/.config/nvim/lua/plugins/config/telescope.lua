@@ -23,17 +23,17 @@ telescope.setup({
         file_sorter      = require("telescope.sorters").get_fzy_sorter,
         prompt_prefix    = " >",
         color_devicons   = true,
-        layout_strategy = "vertical",
+        layout_strategy = "horizontal",
         layout_config = {
-          vertical = {
-            height = 0.95,
-            preview_cutoff = 10,
+          horizontal = {
+            height = 0.99,
+            preview_cutoff = 40,
             prompt_position = "bottom",
-            width = 0.95
+            width = 0.99
           }
         },
         path_display = {
-            truncate = 2
+            shorten = { len = 4, exclude = {-1}}
         },
         preview = {
             treesitter = false,
