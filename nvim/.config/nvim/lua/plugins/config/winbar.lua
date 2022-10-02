@@ -123,7 +123,7 @@ vim.api.nvim_create_augroup("_winbar", {})
 
 M.create_winbar = function()
     vim.api.nvim_create_autocmd(
-      { "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+      { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
       {
         group = "_winbar",
         callback = function()
