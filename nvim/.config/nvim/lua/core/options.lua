@@ -54,7 +54,7 @@ local options = {
 
 -- vim.opt.shortmess:remove("F"):append("c")
 vim.opt.shortmess:remove("F")
-vim.opt.spelloptions:append("camel")
+-- vim.opt.spelloptions:append("camel")
 -- vim.cmd("syntax off")
 vim.cmd("filetype indent plugin on")
 vim.cmd("let $LANG='en_US.UTF-8'")
@@ -76,7 +76,7 @@ end
 
 local set_options = {
     "hidden",
-    "spell",
+    -- "spell",
 }
 
 for _, option in pairs(set_options) do

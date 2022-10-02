@@ -119,13 +119,21 @@ M.get_winbar = function()
   end
 end
 
-vim.api.nvim_create_augroup("_winbar", {})
+vim.api.nvim_create_augroup("winbar_group", {})
 
 M.create_winbar = function()
     vim.api.nvim_create_autocmd(
-      { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+      { 
+          -- "CursorMoved",
+          "CursorHold",
+          "BufWinEnter",
+          -- "BufFilePost",
+          -- "InsertEnter",
+          -- "BufWritePost",
+          -- "TabClosed",
+      },
       {
-        group = "_winbar",
+        group = "winbar_group",
         callback = function()
           local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, "lsp_floating_window")
           if not status_ok then
