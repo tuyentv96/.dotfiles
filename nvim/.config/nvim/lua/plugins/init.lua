@@ -1,5 +1,5 @@
 local function get_config(name)
-    return string.format("require(\"plugins/config/%s\")", name)
+    return string.format("require(\"plugins.config.%s\")", name)
 end
 
 return require('packer').startup({function(use)

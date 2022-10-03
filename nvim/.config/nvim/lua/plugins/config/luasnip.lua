@@ -3,8 +3,6 @@ if not present then
    return
 end
 
-require("core.utils")
-
 luasnip.config.set_config {
     history = true,
     -- updateevents = "TextChanged,TextChangedI",
