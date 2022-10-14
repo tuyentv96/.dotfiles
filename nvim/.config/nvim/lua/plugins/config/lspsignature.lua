@@ -7,9 +7,9 @@ require'lsp_signature'.setup({
   toggle_key = "<c-k>",
   doc_lines = 0,
   verbose = false,
-  fix_pos = true,
-  always_trigger = true,
-  check_completion_visible = true,
+  fix_pos = false,
+  always_trigger = false,
+  check_completion_visible = false,
   floating_window_off_x = 3, -- adjust float windows x position.
   floating_window_off_y = -2, -- adjust float windows y position. e.g. set to -2 can make floating window move up 2 lines
 })
