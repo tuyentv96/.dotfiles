@@ -1,11 +1,14 @@
 require'lsp_signature'.setup({
-  bind = false,
+  bind = true,
   hint_enable = false,
   handler_opts = {
         border = "single"   -- double, rounded, single, shadow, none
   },
   toggle_key = "<c-k>",
+  wrap = false,
   doc_lines = 0,
+  max_height = 4, -- max height of signature floating_window
+  max_width = 80, -- max_width of signature floating_window
   verbose = false,
   fix_pos = false,
   always_trigger = false,
