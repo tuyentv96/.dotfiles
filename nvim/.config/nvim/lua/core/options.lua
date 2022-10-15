@@ -23,7 +23,7 @@ local options = {
     -- o - auto-insert comment leading after O in normal mode
     formatoptions = 'tcro',
     linebreak = true,
-    cmdheight = 1,
+    cmdheight = 2,
     completeopt = { "menuone", "noselect", "noinsert" },
     fileencoding = "utf-8",
     encoding = "utf-8",
