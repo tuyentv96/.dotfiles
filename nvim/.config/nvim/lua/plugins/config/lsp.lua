@@ -85,7 +85,7 @@ local show_lsp_signature_help = function()
   vim.lsp.buf.signature_help()
 end
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lsp_config = function(_config)
 	return vim.tbl_deep_extend("force", {
 		capabilities = capabilities,
