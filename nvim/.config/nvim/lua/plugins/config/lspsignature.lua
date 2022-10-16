@@ -17,6 +17,6 @@ require'lsp_signature'.setup({
   fix_pos = false,
   always_trigger = false,
   check_completion_visible = true,
-  floating_window_off_x = 0, -- adjust float windows x position.
-  floating_window_off_y = 0, -- adjust float windows y position. e.g. set to -2 can make floating window move up 2 lines
+  -- floating_window_off_x = 0, -- adjust float windows x position.
+  -- floating_window_off_y = 0, -- adjust float windows y position. e.g. set to -2 can make floating window move up 2 lines
 })
