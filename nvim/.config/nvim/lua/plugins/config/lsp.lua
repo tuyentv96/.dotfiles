@@ -108,6 +108,7 @@ nnoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 inoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<leader>[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
+nnoremap("<leader>lr", ":LspRestart<CR>")
 -- inoremap("<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = lsp_diagnostics
