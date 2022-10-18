@@ -96,10 +96,10 @@ return require('packer').startup({function(use)
   -- use 'Yggdroot/indentLine'
   -- use 'cespare/vim-toml'
   -- use 'stephpy/vim-yaml'
-  use {
-      'godlygeek/tabular',
-      config = get_config('tabular'),
-  }
+  -- use {
+  --     'godlygeek/tabular',
+  --     config = get_config('tabular'),
+  -- }
   -- use 'plasticboy/vim-markdown'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
