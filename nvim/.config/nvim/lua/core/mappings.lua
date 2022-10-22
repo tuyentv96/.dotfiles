@@ -50,8 +50,8 @@ vnoremap("<leader>y", '"+y')
 nnoremap("<leader>Y", 'gg"+yG')
 
 -- cut to clipboard
-nnoremap("<leader>d", '"_d')
-vnoremap("<leader>d", '"_d')
+-- nnoremap("<leader>d", '"_d')
+-- vnoremap("<leader>d", '"_d')
 
 -- clear highlight
 nnoremap("<leader>h", ":noh<CR>")
