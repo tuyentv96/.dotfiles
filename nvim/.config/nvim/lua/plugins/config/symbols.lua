@@ -5,10 +5,10 @@ local opts = {
   position = 'right',
   relative_width = true,
   width = 25,
-  auto_close = true,
+  auto_close = false,
   show_numbers = false,
   show_relative_numbers = false,
-  show_symbol_details = true,
+  show_symbol_details = false,
   preview_bg_highlight = 'Pmenu',
   autofold_depth = nil,
   auto_unfold_hover = false,
@@ -29,7 +29,7 @@ local opts = {
     fold_reset = "R",
   },
   lsp_blacklist = {},
-  symbol_blacklist = {},
+  symbol_blacklist = {'Variable', 'Constant'},
   symbols = {
     File = {icon = "", hl = "TSURI"},
     Module = {icon = "", hl = "TSNamespace"},
@@ -64,4 +64,4 @@ require("symbols-outline").setup(opts)
 
 require("core.utils")
 
-nnoremap("<leader>l", ":SymbolsOutline<cr>")
+nnoremap("<leader>l", ":SymbolsOutlineOpen<cr>")
