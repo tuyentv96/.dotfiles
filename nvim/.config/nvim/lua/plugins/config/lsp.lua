@@ -21,6 +21,7 @@ end
 
 local on_attach = function(client, bufnr)
     attach_navic(client, bufnr)
+
     -- Enable completion triggered by <c-x><c-o>
     -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -108,7 +109,7 @@ nnoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 inoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 nnoremap("<leader>dk", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 nnoremap("<leader>dj", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
-nnoremap("<leader>lr", ":LspRestart<CR>")
+-- nnoremap("<leader>lr", ":LspRestart<CR>")
 -- inoremap("<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = lsp_diagnostics

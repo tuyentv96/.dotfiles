@@ -211,6 +211,11 @@ return require('packer').startup({function(use)
       config = get_config('lspsignature')
   }
 
+  use {
+      'simrat39/symbols-outline.nvim',
+      config = get_config('symbols')
+  }
+
   require('plugins.config.winbar').create_winbar()
 end,
 config = {
