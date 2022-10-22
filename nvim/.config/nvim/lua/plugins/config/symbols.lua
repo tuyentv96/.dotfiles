@@ -5,10 +5,10 @@ local opts = {
   position = 'right',
   relative_width = true,
   width = 25,
-  auto_close = false,
+  auto_close = true,
   show_numbers = false,
   show_relative_numbers = false,
-  show_symbol_details = false,
+  show_symbol_details = true,
   preview_bg_highlight = 'Pmenu',
   autofold_depth = nil,
   auto_unfold_hover = false,
@@ -64,4 +64,4 @@ require("symbols-outline").setup(opts)
 
 require("core.utils")
 
-nnoremap("<leader>l", ":SymbolsOutlineOpen<cr>")
+nnoremap("<leader>l", ":SymbolsOutline<cr>")
