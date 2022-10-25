@@ -153,7 +153,7 @@ nvimtree.setup { -- BEGIN_DEFAULT_OPTS
   view = {
     adaptive_size = false,
     centralize_selection = false,
-    width = 30,
+    width = 40,
     hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,
@@ -242,7 +242,7 @@ nvimtree.setup { -- BEGIN_DEFAULT_OPTS
     auto_open = true,
   },
   update_focused_file = {
-    enable = false,
+    enable = true,
     update_root = false,
     ignore_list = {},
   },
