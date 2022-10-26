@@ -2,7 +2,7 @@ local palette = require('colors.palette')
 local utils = require("colors.utils")
 local prop = utils.prop
 
-return {
+local M = {
     TSStrong             = prop(palette.none, palette.none, 'bold'),
     TSEmphasis           = prop(palette.none, palette.none, 'bold'),
     TSUnderline          = prop(palette.none, palette.none, 'underline'),
@@ -58,3 +58,5 @@ return {
     TSVariable           = palette.Fg,
     TSVariableBuiltin    = palette.Blue,
 }
+
+return M

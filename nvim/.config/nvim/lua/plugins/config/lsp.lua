@@ -102,7 +102,7 @@ nnoremap("<leader>dw", "<cmd>lua require('telescope.builtin').diagnostics({initi
 nnoremap("<leader>dd", "<cmd>lua require('telescope.builtin').diagnostics({initial_mode='normal',bufnr=0}) <CR>")
 nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>ws", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
-nnoremap("<leader>ds", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
+nnoremap("<leader>l", "<cmd>lua require('telescope.builtin').lsp_document_symbols({initial_mode='normal',ignore_symbols = {'Variable', 'Constant', 'Package'}})<CR>")
 nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 nnoremap("<leader>fc", "<cmd>lua vim.lsp.buf.format({ async = false, timeout_ms = 5000 })<CR>")
 nnoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
