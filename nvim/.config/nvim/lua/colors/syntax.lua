@@ -27,7 +27,7 @@ return {
     SpecialChar    = palette.Yellow,
     Type           = palette.Yellow,
     Function       = palette.Green,
-    Method       = palette.Green,
+    Method       = palette.Yellow,
     String         = palette.Green,
     Character      = palette.Green,
     Constant       = palette.Aqua,
@@ -39,5 +39,4 @@ return {
     Delimiter      = palette.Fg0,
     Ignore         = palette.Grey,
     Underlined     = prop(palette.none,palette.none,'underline'),
-    Class         = palette.Yellow,
 }
