@@ -244,7 +244,7 @@ nvimtree.setup { -- BEGIN_DEFAULT_OPTS
   update_focused_file = {
     enable = true,
     update_root = false,
-    ignore_list = {},
+    ignore_list = {'.git'},
   },
   ignore_ft_on_setup = {},
   system_open = {
@@ -263,9 +263,9 @@ nvimtree.setup { -- BEGIN_DEFAULT_OPTS
     },
   },
   filters = {
-    dotfiles = false,
+    dotfiles = true,
     custom = {'.DS_Store'},
-    exclude = {},
+    exclude = {'.env', '.gitignore', '.scalafmt.conf'},
   },
   filesystem_watchers = {
     enable = false,
