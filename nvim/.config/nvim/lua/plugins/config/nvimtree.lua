@@ -265,7 +265,7 @@ nvimtree.setup { -- BEGIN_DEFAULT_OPTS
   filters = {
     dotfiles = true,
     custom = {'.DS_Store'},
-    exclude = {'.env', '.gitignore', '.scalafmt.conf'},
+    exclude = {'.env', '.gitignore', '.scalafmt.conf', '.github'},
   },
   filesystem_watchers = {
     enable = false,
