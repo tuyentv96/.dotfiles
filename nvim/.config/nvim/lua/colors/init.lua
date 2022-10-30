@@ -1,16 +1,16 @@
 vim.o.background = "dark"
 vim.o.termguicolors = true
 
-local utils      = require("colors.utils")
-local terminal   = require("colors.terminal")
-local highlight  = require("colors.highlights")
-local syntax     = require("colors.syntax")
+local utils = require("colors.utils")
+local terminal = require("colors.terminal")
+local highlight = require("colors.highlights")
+local syntax = require("colors.syntax")
 local treesitter = require("colors.treesitter")
-local nvimtree   = require("colors.nvimtree")
-local hop        = require("colors.hop")
-local cmp        = require("colors.nvimcmp")
-local git        = require("colors.git")
-local status        = require("colors.status")
+local nvimtree = require("colors.nvimtree")
+local hop = require("colors.hop")
+local cmp = require("colors.nvimcmp")
+local git = require("colors.git")
+local status = require("colors.status")
 -- local org        = require("colors.org")
 
 local skeletons = {
@@ -26,5 +26,5 @@ local skeletons = {
 }
 
 for _, skeleton in ipairs(skeletons) do
-    utils.initialise(skeleton)
+  utils.initialise(skeleton)
 end

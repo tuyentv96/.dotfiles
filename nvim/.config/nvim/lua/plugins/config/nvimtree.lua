@@ -1,6 +1,6 @@
 local present, nvimtree = pcall(require, "nvim-tree")
 if not present then
-   return
+  return
 end
 
 -- nvimtree.setup {
@@ -129,7 +129,7 @@ end
 --   },
 -- }
 
-nvimtree.setup { -- BEGIN_DEFAULT_OPTS
+nvimtree.setup({ -- BEGIN_DEFAULT_OPTS
   auto_reload_on_write = false,
   create_in_closed_folder = false,
   disable_netrw = false,
@@ -244,7 +244,7 @@ nvimtree.setup { -- BEGIN_DEFAULT_OPTS
   update_focused_file = {
     enable = true,
     update_root = false,
-    ignore_list = {'.git'},
+    ignore_list = { ".git" },
   },
   ignore_ft_on_setup = {},
   system_open = {
@@ -264,8 +264,8 @@ nvimtree.setup { -- BEGIN_DEFAULT_OPTS
   },
   filters = {
     dotfiles = true,
-    custom = {'.DS_Store'},
-    exclude = {'.env', '.gitignore', '.scalafmt.conf', '.github'},
+    custom = { ".DS_Store" },
+    exclude = { ".env", ".gitignore", ".scalafmt.conf", ".github" },
   },
   filesystem_watchers = {
     enable = false,
@@ -335,4 +335,4 @@ nvimtree.setup { -- BEGIN_DEFAULT_OPTS
       watcher = false,
     },
   },
-} -- END_DEFAULT_OPTS
+}) -- END_DEFAULT_OPTS

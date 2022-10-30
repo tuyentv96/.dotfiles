@@ -3,16 +3,16 @@ local utils = require("colors.utils")
 local prop = utils.prop
 
 local colors = {
-  fg1    = '#282828',
-  color2 = '#504945',
-  fg2    = '#ddc7a1',
-  color3 = '#32302f',
-  color4 = '#a89984',
-  color5 = '#7daea3',
-  color6 = '#a9b665',
-  color7 = '#d8a657',
-  color8 = '#d3869b',
-  color9 = '#ea6962',
+  fg1 = "#282828",
+  color2 = "#504945",
+  fg2 = "#ddc7a1",
+  color3 = "#32302f",
+  color4 = "#a89984",
+  color5 = "#7daea3",
+  color6 = "#a9b665",
+  color7 = "#d8a657",
+  color8 = "#d3869b",
+  color9 = "#ea6962",
 }
 
 -- return {
@@ -30,17 +30,17 @@ local colors = {
 -- }
 
 M = {
-    StatusModeN           = prop(palette.bg0, palette.fg1, 'bold'),
-    StatusModeC           = prop(palette.bg0, palette.blue, 'bold'),
-    StatusModeI           = prop(palette.bg0, palette.green, 'bold'),
-    StatusModeR           = prop(palette.bg0, palette.yellow, 'bold'),
-    StatusModeT           = prop(palette.bg0, palette.purple, 'bold'),
-    StatusModeV           = prop(palette.bg0, palette.red, 'bold'),
+  StatusModeN = prop(palette.bg0, palette.fg1, "bold"),
+  StatusModeC = prop(palette.bg0, palette.blue, "bold"),
+  StatusModeI = prop(palette.bg0, palette.green, "bold"),
+  StatusModeR = prop(palette.bg0, palette.yellow, "bold"),
+  StatusModeT = prop(palette.bg0, palette.purple, "bold"),
+  StatusModeV = prop(palette.bg0, palette.red, "bold"),
 
-    StatusBranch      = prop(palette.fg1, palette.bg_statusline3),
-    StatusFile        = prop(palette.fg1, palette.bg_statusline1),
-    StatusLineTransition1 = prop(palette.red, palette.bg_statusline1),
-    StatusLineTransition2 = prop(palette.red, palette.bg_statusline1),
+  StatusBranch = prop(palette.fg1, palette.bg_statusline3),
+  StatusFile = prop(palette.fg1, palette.bg_statusline1),
+  StatusLineTransition1 = prop(palette.red, palette.bg_statusline1),
+  StatusLineTransition2 = prop(palette.red, palette.bg_statusline1),
 }
 
 return M

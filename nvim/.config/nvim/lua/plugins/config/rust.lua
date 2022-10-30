@@ -8,7 +8,6 @@
 --    return
 -- end
 
-
 -- local utils = require("core.utils")
 
 -- local extension_path = HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
@@ -103,7 +102,7 @@
 --         on_attach = function(client, bufnr)
 --           -- Hover actions
 --             vim.keymap.set("n", "<C-a>", rusttools.hover_actions.hover_actions, { buffer = bufnr })
---             utils.on_attach(client, bufnr) 
+--             utils.on_attach(client, bufnr)
 --         end,
 --         capabilities = utils.capabilities,
 --         settings = {
@@ -148,7 +147,6 @@
 -- cmd([[
 --     augroup rust.Commands
 --     autocmd!
---     autocmd BufWritePre *.rs :silent! lua vim.lsp.buf.formatting_sync() 
+--     autocmd BufWritePre *.rs :silent! lua vim.lsp.buf.formatting_sync()
 --     augroup end
 -- ]])
-

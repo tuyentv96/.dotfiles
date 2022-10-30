@@ -2,22 +2,22 @@ local metals_config = require("metals").bare_config()
 local lsp = require("plugins.config.lsp")
 
 metals_config.init_options = {
-    statusBarProvider = "on",
-    treeViewProvider = false,
-    decorationProvider = false,
+  statusBarProvider = "on",
+  treeViewProvider = false,
+  decorationProvider = false,
 }
 
 metals_config.settings = {
-    showImplicitArguments = false,
-    showInferredType = false,
-    showImplicitConversionsAndClasses = false,
-    superMethodLensesEnabled = false,
-    excludedPackages = {
-        "akka.actor.typed.javadsl",
-        "com.github.swagger.akka.javadsl",
-        "akka.stream.javadsl",
-    },
-    --fallbackScalaVersion = "2.13.6",
+  showImplicitArguments = false,
+  showInferredType = false,
+  showImplicitConversionsAndClasses = false,
+  superMethodLensesEnabled = false,
+  excludedPackages = {
+    "akka.actor.typed.javadsl",
+    "com.github.swagger.akka.javadsl",
+    "akka.stream.javadsl",
+  },
+  --fallbackScalaVersion = "2.13.6",
 }
 
 metals_config.handlers["textDocument/publishDiagnostics"] = lsp.lsp_diagnostics
@@ -26,8 +26,8 @@ metals_config.handlers["textDocument/hover"] = lsp.lsp_hover
 metals_config.capabilities = lsp.capabilities
 
 local function on_attach(client, bufnr)
-    lsp.on_attach(client,bufnr)
-    -- setup_dap(execute_command)
+  lsp.on_attach(client, bufnr)
+  -- setup_dap(execute_command)
 end
 
 metals_config.on_attach = on_attach

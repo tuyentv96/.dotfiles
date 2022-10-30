@@ -3,8 +3,8 @@ require("core.utils")
 --Remap space as leader key
 nnoremap("<Space>", "<Nop>")
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- No arrow keys --- force yourself to use the home row
 -- nnoremap("<up>", "<nop>")
@@ -60,11 +60,10 @@ nnoremap("<leader>n", ":NvimTreeToggle<cr>")
 nnoremap("<leader>wr", "<C-w>o :NvimTreeToggle<CR> <C-w>l")
 nnoremap("<leader>wo", "<C-w>o")
 
-nnoremap("<C-h>","<C-w>h")
-nnoremap("<C-j>","<C-w>j")
-nnoremap("<C-k>","<C-w>k")
-nnoremap("<C-l>","<C-w>l")
-
+nnoremap("<C-h>", "<C-w>h")
+nnoremap("<C-j>", "<C-w>j")
+nnoremap("<C-k>", "<C-w>k")
+nnoremap("<C-l>", "<C-w>l")
 
 -- Resize with arrows
 -- nnoremap("<A-u>", ":resize -5<CR>")
@@ -83,17 +82,17 @@ inoremap("<A-k>", "<C-o>k")
 inoremap("<A-l>", "<C-o>l")
 
 -- search center
-nnoremap("n","nzz")
-nnoremap("N","Nzz")
-nnoremap("*","*zz")
-nnoremap("#","#zz")
+nnoremap("n", "nzz")
+nnoremap("N", "Nzz")
+nnoremap("*", "*zz")
+nnoremap("#", "#zz")
 
-nmap("H","^")
-vmap("H","^")
-omap("H","^")
+nmap("H", "^")
+vmap("H", "^")
+omap("H", "^")
 
-nmap("L","$")
-vmap("L","$")
-omap("L","$")
+nmap("L", "$")
+vmap("L", "$")
+omap("L", "$")
 
 tmap("<C-o>", "<C-\\><C-n>")

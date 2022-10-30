@@ -1,6 +1,6 @@
 local present, lspconfig = pcall(require, "lspconfig")
 if not present then
-   return
+  return
 end
 -- local lightbulb = require("plugins.config.lightbulb")
 
@@ -20,40 +20,40 @@ local function attach_navic(client, bufnr)
 end
 
 local on_attach = function(client, bufnr)
-    attach_navic(client, bufnr)
+  attach_navic(client, bufnr)
 
-    -- Enable completion triggered by <c-x><c-o>
-    -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  -- Enable completion triggered by <c-x><c-o>
+  -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-    -- if client.supports_method("textDocument/codeAction") then
-    --     vim.api.nvim_clear_autocmds({ group = lsp_code_action_group, buffer = bufnr })
-    --     vim.api.nvim_create_autocmd({ "CursorHold" }, {
-    --       group = lsp_code_action_group,
-    --       buffer = bufnr,
-    --       callback = function(params)
-    --         lightbulb.update_lightbulb()
-    --       end,
-    --     })
-    -- end
+  -- if client.supports_method("textDocument/codeAction") then
+  --     vim.api.nvim_clear_autocmds({ group = lsp_code_action_group, buffer = bufnr })
+  --     vim.api.nvim_create_autocmd({ "CursorHold" }, {
+  --       group = lsp_code_action_group,
+  --       buffer = bufnr,
+  --       callback = function(params)
+  --         lightbulb.update_lightbulb()
+  --       end,
+  --     })
+  -- end
 
-    -- if client.resolved_capabilities.document_highlight then
-        vim.api.nvim_clear_autocmds { buffer = bufnr, group = lsp_document_highlight_group}
-        vim.api.nvim_create_autocmd("CursorHold", {
-            callback = function(params)
-                -- vim.lsp.buf.clear_references()
-                vim.lsp.buf.document_highlight()
-            end,
-            buffer = bufnr,
-            group = lsp_document_highlight_group,
-            desc = "Document Highlight",
-        })
-        vim.api.nvim_create_autocmd("CursorMoved", {
-            callback = vim.lsp.buf.clear_references,
-            buffer = bufnr,
-            group = lsp_document_highlight_group,
-            desc = "Clear All the References",
-        })
-    -- end
+  -- if client.resolved_capabilities.document_highlight then
+  vim.api.nvim_clear_autocmds({ buffer = bufnr, group = lsp_document_highlight_group })
+  vim.api.nvim_create_autocmd("CursorHold", {
+    callback = function(params)
+      -- vim.lsp.buf.clear_references()
+      vim.lsp.buf.document_highlight()
+    end,
+    buffer = bufnr,
+    group = lsp_document_highlight_group,
+    desc = "Document Highlight",
+  })
+  vim.api.nvim_create_autocmd("CursorMoved", {
+    callback = vim.lsp.buf.clear_references,
+    buffer = bufnr,
+    group = lsp_document_highlight_group,
+    desc = "Clear All the References",
+  })
+  -- end
 end
 
 local border_style = {
@@ -78,8 +78,8 @@ local lsp_diagnostics = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, 
 local lsp_hover = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 
 local lsp_signature_help = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    offset_x = 1,
-    offset_y = -2,
+  offset_x = 1,
+  offset_y = -2,
 })
 
 local show_lsp_signature_help = function()
@@ -88,10 +88,10 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lsp_config = function(_config)
-	return vim.tbl_deep_extend("force", {
-		capabilities = capabilities,
-        on_attach = on_attach,
-	}, _config or {})
+  return vim.tbl_deep_extend("force", {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }, _config or {})
 end
 
 nnoremap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions({initial_mode='normal'})<CR>")
@@ -102,7 +102,10 @@ nnoremap("<leader>dw", "<cmd>lua require('telescope.builtin').diagnostics({initi
 nnoremap("<leader>dd", "<cmd>lua require('telescope.builtin').diagnostics({initial_mode='normal',bufnr=0}) <CR>")
 nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>ws", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
-nnoremap("<leader>l", "<cmd>lua require('telescope.builtin').lsp_document_symbols({initial_mode='normal',show_line=true,ignore_symbols = {'Variable', 'Constant', 'Package', 'Field'}})<CR>")
+nnoremap(
+  "<leader>l",
+  "<cmd>lua require('telescope.builtin').lsp_document_symbols({initial_mode='normal',show_line=true,ignore_symbols = {'Variable', 'Constant', 'Package', 'Field'}})<CR>"
+)
 nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 nnoremap("<leader>k", "<cmd>lua vim.lsp.buf.format({ async = false, timeout_ms = 5000 })<CR>")
 nnoremap("<c-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
@@ -130,40 +133,40 @@ vim.lsp.handlers["textDocument/signatureHelp"] = lsp_signature_help
 
 -- Rust
 lspconfig.rust_analyzer.setup(lsp_config({
-        settings = {
-            -- to enable rust-analyzer settings visit:
-            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-            ["rust-analyzer"] = {
-                -- enable clippy on save
-                checkOnSave = {
-                    command = "clippy"
-                },
-            }
-        }
+  settings = {
+    -- to enable rust-analyzer settings visit:
+    -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+    ["rust-analyzer"] = {
+      -- enable clippy on save
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
 }))
 
 -- Python
 lspconfig.pyright.setup(lsp_config({
-     settings = {
-      python = {
-        analysis = {
-          autoSearchPaths = false,
-          diagnosticMode = "workspace",
-          useLibraryCodeForTypes = false
-        }
-      }
-    }
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = false,
+        diagnosticMode = "workspace",
+        useLibraryCodeForTypes = false,
+      },
+    },
+  },
 }))
 
 -- Golang
 lspconfig.gopls.setup(lsp_config({
-    cmd = { "gopls"},
-    settings = {
-      gopls = { analyses = { unusedparams = true }, staticcheck = true },
-    },
+  cmd = { "gopls" },
+  settings = {
+    gopls = { analyses = { unusedparams = true }, staticcheck = true },
+  },
 }))
 
-lspconfig.dartls.setup{}
+lspconfig.dartls.setup({})
 
 -- lua
 -- lspconfig.sumneko_lua.setup(lsp_config({
@@ -193,8 +196,8 @@ lspconfig.dartls.setup{}
 -- local lsp_autosave_group = vim.api.nvim_create_augroup("lsp_autosave", { clear = true })
 -- vim.api.nvim_create_autocmd("BufWritePost", {
 --   pattern = {
---       "*.rs", 
---       "*.go", 
+--       "*.rs",
+--       "*.go",
 --       -- "*.scala"
 --   },
 --   callback = function()
@@ -204,8 +207,8 @@ lspconfig.dartls.setup{}
 -- })
 
 return {
-    capabilities = capabilities,
-    lsp_diagnostics = lsp_diagnostics,
-    lsp_hover = lsp_hover,
-    on_attach = on_attach,
+  capabilities = capabilities,
+  lsp_diagnostics = lsp_diagnostics,
+  lsp_hover = lsp_hover,
+  on_attach = on_attach,
 }

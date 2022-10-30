@@ -37,4 +37,3 @@
 --     autocmd FileType go nnoremap <leader>cb :GoBuild <CR>
 --     augroup end
 -- ]])
-

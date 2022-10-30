@@ -1,8 +1,8 @@
-require'lsp_signature'.setup({
+require("lsp_signature").setup({
   bind = true,
   hint_enable = false,
   handler_opts = {
-        border = "single"   -- double, rounded, single, shadow, none
+    border = "single", -- double, rounded, single, shadow, none
   },
   toggle_key = "<c-k>",
   wrap = true,

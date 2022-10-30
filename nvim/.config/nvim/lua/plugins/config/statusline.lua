@@ -9,41 +9,41 @@ end
 -- Copyright (c) 2020-2021 hoob3rt
 -- MIT license, see LICENSE for more details.
 local mode_map = {
-  ['n']      = 'NORMAL',
-  ['no']     = 'O-PENDING',
-  ['nov']    = 'O-PENDING',
-  ['noV']    = 'O-PENDING',
-  ['no\22']  = 'O-PENDING',
-  ['niI']    = 'NORMAL',
-  ['niR']    = 'NORMAL',
-  ['niV']    = 'NORMAL',
-  ['nt']     = 'NORMAL',
-  ['v']      = 'VISUAL',
-  ['vs']     = 'VISUAL',
-  ['V']      = 'V-LINE',
-  ['Vs']     = 'V-LINE',
-  ['\22']    = 'V-BLOCK',
-  ['\22s']   = 'V-BLOCK',
-  ['s']      = 'SELECT',
-  ['S']      = 'S-LINE',
-  ['\19']    = 'S-BLOCK',
-  ['i']      = 'INSERT',
-  ['ic']     = 'INSERT',
-  ['ix']     = 'INSERT',
-  ['R']      = 'REPLACE',
-  ['Rc']     = 'REPLACE',
-  ['Rx']     = 'REPLACE',
-  ['Rv']     = 'V-REPLACE',
-  ['Rvc']    = 'V-REPLACE',
-  ['Rvx']    = 'V-REPLACE',
-  ['c']      = 'COMMAND',
-  ['cv']     = 'EX',
-  ['ce']     = 'EX',
-  ['r']      = 'REPLACE',
-  ['rm']     = 'MORE',
-  ['r?']     = 'CONFIRM',
-  ['!']      = 'SHELL',
-  ['t']      = 'TERMINAL',
+  ["n"] = "NORMAL",
+  ["no"] = "O-PENDING",
+  ["nov"] = "O-PENDING",
+  ["noV"] = "O-PENDING",
+  ["no\22"] = "O-PENDING",
+  ["niI"] = "NORMAL",
+  ["niR"] = "NORMAL",
+  ["niV"] = "NORMAL",
+  ["nt"] = "NORMAL",
+  ["v"] = "VISUAL",
+  ["vs"] = "VISUAL",
+  ["V"] = "V-LINE",
+  ["Vs"] = "V-LINE",
+  ["\22"] = "V-BLOCK",
+  ["\22s"] = "V-BLOCK",
+  ["s"] = "SELECT",
+  ["S"] = "S-LINE",
+  ["\19"] = "S-BLOCK",
+  ["i"] = "INSERT",
+  ["ic"] = "INSERT",
+  ["ix"] = "INSERT",
+  ["R"] = "REPLACE",
+  ["Rc"] = "REPLACE",
+  ["Rx"] = "REPLACE",
+  ["Rv"] = "V-REPLACE",
+  ["Rvc"] = "V-REPLACE",
+  ["Rvx"] = "V-REPLACE",
+  ["c"] = "COMMAND",
+  ["cv"] = "EX",
+  ["ce"] = "EX",
+  ["r"] = "REPLACE",
+  ["rm"] = "MORE",
+  ["r?"] = "CONFIRM",
+  ["!"] = "SHELL",
+  ["t"] = "TERMINAL",
 }
 
 M.get_git_branch = function()
@@ -51,52 +51,52 @@ M.get_git_branch = function()
   if isempty(branch) then
     return ""
   else
-    return  "%#StatusBranch#  " .. branch .. " "
+    return "%#StatusBranch#  " .. branch .. " "
   end
 end
 
 M.get_file_type = function()
-    local f_extension = vim.bo.filetype
-    if isempty(f_extension) then
-        return ""
-    else
-        return "%#StatusBranch# " .. f_extension .. " % "
-    end
+  local f_extension = vim.bo.filetype
+  if isempty(f_extension) then
+    return ""
+  else
+    return "%#StatusBranch# " .. f_extension .. " % "
+  end
 end
 
-M.get_mode = function ()
+M.get_mode = function()
   local mode_code = vim.api.nvim_get_mode().mode
   local mode = mode_map[mode_code] or string.upper(mode_code)
   return "%#StatusMode" .. mode:sub(1, 1) .. "# " .. mode .. " %*"
 end
 
 M.lsp_progress = function()
-	local lsp = vim.lsp.util.get_progress_messages()[1]
-	if lsp then
-		local name = lsp.name or ""
-		local msg = lsp.message or ""
-		local percentage = lsp.percentage or 0
-		local title = lsp.title or ""
-        if percentage > 0 then
-            return string.format(" %%<%s: %s %s (%s%%%%) ", name, title, msg, percentage)
-        else
-            return string.format(" %%<%s: %s %s ", name, title, msg)
-        end
-	end
+  local lsp = vim.lsp.util.get_progress_messages()[1]
+  if lsp then
+    local name = lsp.name or ""
+    local msg = lsp.message or ""
+    local percentage = lsp.percentage or 0
+    local title = lsp.title or ""
+    if percentage > 0 then
+      return string.format(" %%<%s: %s %s (%s%%%%) ", name, title, msg, percentage)
+    else
+      return string.format(" %%<%s: %s %s ", name, title, msg)
+    end
+  end
 
-	return ""
+  return ""
 end
 
 M.metals_lsp_progress = function()
   if isempty(vim.g.metals_status) then
     return ""
   else
-    return  " metals: %{%g:metals_status%} "
+    return " metals: %{%g:metals_status%} "
   end
 end
 
 M.file_name = function()
-    return vim.fn.expand('%:~:.')
+  return vim.fn.expand("%:~:.")
 end
 
 M.get_statusline = function()
@@ -111,7 +111,7 @@ M.get_statusline = function()
     "%=",
     " %{&fileencoding?&fileencoding:&encoding} ",
     "%{%v:lua.status.get_file_type()%}",
-    '%#StatusLine# %4l:%L ',
+    "%#StatusLine# %4l:%L ",
   }
   return table.concat(parts)
 end
@@ -119,7 +119,7 @@ end
 _G.status = M
 
 M.init = function()
-    vim.o.statusline=M.get_statusline()
+  vim.o.statusline = M.get_statusline()
 end
 
 return M

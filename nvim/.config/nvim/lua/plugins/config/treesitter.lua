@@ -1,18 +1,17 @@
-
 require("nvim-treesitter.configs").setup({
   playground = { enable = false },
   ensure_installed = {
-      'rust',
-      'go',
-      'scala',
-      'java',
-      'python',
-      'yaml',
-      'lua',
-      'json',
-      'dockerfile',
-      'c',
-      'dart'
+    "rust",
+    "go",
+    "scala",
+    "java",
+    "python",
+    "yaml",
+    "lua",
+    "json",
+    "dockerfile",
+    "c",
+    "dart",
   },
   indent = {
     enable = false,
@@ -23,11 +22,11 @@ require("nvim-treesitter.configs").setup({
   },
   highlight = {
     enable = true,
-    disable = { },
+    disable = {},
     additional_vim_regex_highlighting = {},
   },
   textobjects = { enable = false },
   incremental_selection = {
     enable = false,
-  }
+  },
 })

@@ -18,7 +18,6 @@ vim.cmd([[
     let test#python#pytest#options = '--log-cli-level=INFO --capture=tee-sys'
 ]])
 
-
 nnoremap("<leader>tn", ":TestNearest<CR>")
 nnoremap("<leader>tl", ":TestLast<CR>")
 nnoremap("<leader>tf", ":TestFile<CR>")

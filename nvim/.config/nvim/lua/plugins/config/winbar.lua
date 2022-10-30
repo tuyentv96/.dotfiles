@@ -30,8 +30,8 @@ M.winbar_filetype_exclude = {
 }
 
 M.get_filename = function()
-  local filename = vim.fn.expand "%:t"
-  local extension = vim.fn.expand "%:e"
+  local filename = vim.fn.expand("%:t")
+  local extension = vim.fn.expand("%:e")
 
   if not utils.isempty(filename) then
     local file_icon, file_icon_color =
@@ -97,7 +97,7 @@ M.get_winbar = function()
     end
   end
 
-  if not  utils.isempty(value) and utils.get_buf_option "mod" then
+  if not utils.isempty(value) and utils.get_buf_option("mod") then
     local mod = "%#LspCodeLens#" .. " " .. "%*"
     if gps_added then
       value = value .. " " .. mod
@@ -122,26 +122,23 @@ end
 vim.api.nvim_create_augroup("winbar_group", {})
 
 M.create_winbar = function()
-    vim.api.nvim_create_autocmd(
-      { 
-          -- "CursorMoved",
-          "CursorHold",
-          "BufWinEnter",
-          -- "BufFilePost",
-          -- "InsertEnter",
-          -- "BufWritePost",
-          -- "TabClosed",
-      },
-      {
-        group = "winbar_group",
-        callback = function()
-          local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, "lsp_floating_window")
-          if not status_ok then
-            require("plugins.config.winbar").get_winbar()
-          end
-        end,
-      }
-    )
+  vim.api.nvim_create_autocmd({
+    -- "CursorMoved",
+    "CursorHold",
+    "BufWinEnter",
+    -- "BufFilePost",
+    -- "InsertEnter",
+    -- "BufWritePost",
+    -- "TabClosed",
+  }, {
+    group = "winbar_group",
+    callback = function()
+      local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, "lsp_floating_window")
+      if not status_ok then
+        require("plugins.config.winbar").get_winbar()
+      end
+    end,
+  })
 end
 
 return M

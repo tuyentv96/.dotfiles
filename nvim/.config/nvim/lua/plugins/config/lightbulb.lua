@@ -30,9 +30,7 @@ local function _update_sign(priority, old_line, new_line, bufnr)
   bufnr = bufnr or "%"
 
   if old_line then
-    vim.fn.sign_unplace(
-      SIGN_GROUP, { id = old_line, buffer = bufnr }
-    )
+    vim.fn.sign_unplace(SIGN_GROUP, { id = old_line, buffer = bufnr })
 
     -- Update current lightbulb line
     vim.b.lightbulb_line = nil
@@ -40,10 +38,7 @@ local function _update_sign(priority, old_line, new_line, bufnr)
 
   -- Avoid redrawing lightbulb if code action line did not change
   if new_line and (vim.b.lightbulb_line ~= new_line) then
-    vim.fn.sign_place(
-      new_line, SIGN_GROUP, SIGN_NAME, bufnr,
-      { lnum = new_line, priority = priority }
-    )
+    vim.fn.sign_place(new_line, SIGN_GROUP, SIGN_NAME, bufnr, { lnum = new_line, priority = priority })
     -- Update current lightbulb line
     vim.b.lightbulb_line = new_line
   end
@@ -54,7 +49,7 @@ end
 local function mk_handler(fn)
   return function(...)
     local config_or_client_id = select(4, ...)
-    local is_new = type(config_or_client_id) ~= 'number'
+    local is_new = type(config_or_client_id) ~= "number"
     if is_new then
       fn(...)
     else
@@ -101,7 +96,6 @@ local function handler_factory(opts, line, bufnr)
         _update_sign(opts.sign.priority, vim.b.lightbulb_line, line + 1, bufnr)
       end
     end
-
   end
 
   return mk_handler(code_action_handler)
@@ -143,11 +137,9 @@ local update_lightbulb = function(config)
   local params = lsp_util.make_range_params()
   params.context = context
   local bufnr = vim.api.nvim_get_current_buf()
-  vim.lsp.buf_request_all(
-    0, 'textDocument/codeAction', params, handler_factory(opts, params.range.start.line, bufnr)
-  )
+  vim.lsp.buf_request_all(0, "textDocument/codeAction", params, handler_factory(opts, params.range.start.line, bufnr))
 end
 
 return {
-    update_lightbulb = update_lightbulb
+  update_lightbulb = update_lightbulb,
 }
