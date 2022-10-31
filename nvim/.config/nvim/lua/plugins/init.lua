@@ -199,9 +199,9 @@ return require("packer").startup({
       config = get_config("vimtest"),
     })
 
-    use({
-      "skywind3000/asyncrun.vim",
-    })
+    -- use({
+    --   "skywind3000/asyncrun.vim",
+    -- })
 
     -- use {
     --     'mfussenegger/nvim-dap-python',
