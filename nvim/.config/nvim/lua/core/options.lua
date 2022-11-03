@@ -2,7 +2,7 @@ require("core.utils")
 local statusline = require("plugins.config.statusline")
 local options = {
   mouse = "a",
-  winbar = "%#NavicText# %f",
+  winbar = "%#WinbarText# %f",
   foldenable = false,
   lazyredraw = true,
   laststatus = 3,

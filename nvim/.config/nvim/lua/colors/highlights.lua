@@ -83,6 +83,6 @@ M.healthError = palette.Red
 M.healthSuccess = palette.Green
 M.healthWarning = palette.Yellow
 
-M.NavicText = palette.Blue
+M.WinbarText = palette.Blue
 
 return M
