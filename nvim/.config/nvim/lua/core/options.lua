@@ -2,7 +2,7 @@ require("core.utils")
 local statusline = require("plugins.config.statusline")
 local options = {
   mouse = "a",
-  -- winbar = "%{%v:lua.require'core.utils'.get_filename()%} %{%v:lua.require'nvim-navic'.get_location()%}",
+  winbar = "%#NavicText# %f",
   foldenable = false,
   lazyredraw = true,
   laststatus = 3,

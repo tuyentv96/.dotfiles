@@ -10,17 +10,17 @@ local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 local lsp_document_highlight_group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
 local lsp_code_action_group = vim.api.nvim_create_augroup("lsp_code_action", { clear = true })
 
-local function attach_navic(client, bufnr)
-  vim.g.navic_silence = true
-  local status_ok, navic = pcall(require, "nvim-navic")
-  if not status_ok then
-    return
-  end
-  navic.attach(client, bufnr)
-end
+-- local function attach_navic(client, bufnr)
+--   vim.g.navic_silence = true
+--   local status_ok, navic = pcall(require, "nvim-navic")
+--   if not status_ok then
+--     return
+--   end
+--   navic.attach(client, bufnr)
+-- end
 
 local on_attach = function(client, bufnr)
-  attach_navic(client, bufnr)
+  -- attach_navic(client, bufnr)
 
   -- Enable completion triggered by <c-x><c-o>
   -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -40,19 +40,19 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_clear_autocmds({ buffer = bufnr, group = lsp_document_highlight_group })
   vim.api.nvim_create_autocmd("CursorHold", {
     callback = function(params)
-      -- vim.lsp.buf.clear_references()
+      vim.lsp.buf.clear_references()
       vim.lsp.buf.document_highlight()
     end,
     buffer = bufnr,
     group = lsp_document_highlight_group,
     desc = "Document Highlight",
   })
-  vim.api.nvim_create_autocmd("CursorMoved", {
-    callback = vim.lsp.buf.clear_references,
-    buffer = bufnr,
-    group = lsp_document_highlight_group,
-    desc = "Clear All the References",
-  })
+  -- vim.api.nvim_create_autocmd("CursorMoved", {
+  --   callback = vim.lsp.buf.clear_references,
+  --   buffer = bufnr,
+  --   group = lsp_document_highlight_group,
+  --   desc = "Clear All the References",
+  -- })
   -- end
 end
 

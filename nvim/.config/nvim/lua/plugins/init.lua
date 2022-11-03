@@ -9,10 +9,10 @@ return require("packer").startup({
     use({
       "wbthomason/packer.nvim",
     })
-    use({
-      "SmiteshP/nvim-navic",
-      config = get_config("navic"),
-    })
+    -- use({
+    --   "SmiteshP/nvim-navic",
+    --   config = get_config("navic"),
+    -- })
     -- use {
     --     'nathom/filetype.nvim',
     --     config = get_config('filetype'),
@@ -217,7 +217,7 @@ return require("packer").startup({
     --     config = get_config('symbols')
     -- }
 
-    require("plugins.config.winbar").create_winbar()
+    -- require("plugins.config.winbar").create_winbar()
   end,
   config = {
     display = {
