@@ -14,8 +14,8 @@ vim.g.maplocalleader = " "
 
 -- Quick-save
 nnoremap("<leader>s", ":w<CR>")
-nnoremap("<leader>q", ":q<CR>")
-nnoremap("<leader>wq", ":wq<CR>")
+-- nnoremap("<leader>q", ":q<CR>")
+-- nnoremap("<leader>wq", ":wq<CR>")
 
 -- Left and right can switch buffers
 -- nnoremap("m", ":bp<CR>")
