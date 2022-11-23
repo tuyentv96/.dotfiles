@@ -102,7 +102,7 @@ end
 M.diagnostic_error = function()
   local num = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.ERROR })
   if num > 0 then
-    return "%#StatusError#  " .. num .. " "
+    return "%#StatusError#  " .. num
   end
 
   return ""
@@ -111,7 +111,7 @@ end
 M.diagnostic_warning = function()
   local num = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.WARN })
   if num > 0 then
-    return "%#StatusWarning#  " .. num .. " "
+    return "%#StatusWarning#  " .. num
   end
 
   return ""
@@ -129,6 +129,7 @@ M.get_statusline = function()
     "%=",
     "%{%v:lua.status.diagnostic_warning()%}",
     "%{%v:lua.status.diagnostic_error()%}",
+    " ",
     -- " %{&fileencoding?&fileencoding:&encoding} ",
     "%{%v:lua.status.get_file_type()%}",
     "%#StatusLine# %4l:%L ",
