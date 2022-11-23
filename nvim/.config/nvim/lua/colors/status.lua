@@ -41,6 +41,8 @@ M = {
   StatusFile = prop(palette.fg1, palette.bg_statusline1),
   StatusLineTransition1 = prop(palette.red, palette.bg_statusline1),
   StatusLineTransition2 = prop(palette.red, palette.bg_statusline1),
+  StatusError = prop(palette.red, palette.bg_statusline1),
+  StatusWarning = prop(palette.yellow, palette.bg_statusline1),
 }
 
 return M
