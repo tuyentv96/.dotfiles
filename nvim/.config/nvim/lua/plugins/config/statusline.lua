@@ -100,21 +100,21 @@ M.file_name = function()
 end
 
 M.diagnostic_error = function()
-    local num = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.ERROR })
-    if num > 0 then
-        return '%#StatusError#  ' .. num .. ' '
-    end
+  local num = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.ERROR })
+  if num > 0 then
+    return "%#StatusError#  " .. num .. " "
+  end
 
-    return ''
+  return ""
 end
 
 M.diagnostic_warning = function()
-    local num = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.WARN })
-    if num > 0 then
-        return '%#StatusWarning#  ' .. num .. ' '
-    end
+  local num = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.WARN })
+  if num > 0 then
+    return "%#StatusWarning#  " .. num .. " "
+  end
 
-    return ''
+  return ""
 end
 
 M.get_statusline = function()

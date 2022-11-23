@@ -98,8 +98,14 @@ nnoremap("gd", "<cmd>lua require('telescope.builtin').lsp_definitions({initial_m
 nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 nnoremap("gr", "<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>")
 nnoremap("gi", "<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>")
-nnoremap("<leader>dw", "<cmd>lua require('telescope.builtin').diagnostics({initial_mode='normal', severity=vim.diagnostic.severity.ERROR})<CR>")
-nnoremap("<leader>dd", "<cmd>lua require('telescope.builtin').diagnostics({initial_mode='normal', bufnr=0, severity=vim.diagnostic.severity.ERROR}) <CR>")
+nnoremap(
+  "<leader>dw",
+  "<cmd>lua require('telescope.builtin').diagnostics({initial_mode='normal', severity=vim.diagnostic.severity.ERROR})<CR>"
+)
+nnoremap(
+  "<leader>dd",
+  "<cmd>lua require('telescope.builtin').diagnostics({initial_mode='normal', bufnr=0, severity=vim.diagnostic.severity.ERROR}) <CR>"
+)
 nnoremap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>")
 nnoremap("<leader>ws", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>")
 nnoremap(
