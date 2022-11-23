@@ -96,7 +96,7 @@ M.metals_lsp_progress = function()
 end
 
 M.file_name = function()
-  return vim.fn.expand("%:~:.")
+  return vim.fn.expand("%:t")
 end
 
 M.diagnostic_error = function()
