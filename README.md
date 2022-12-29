@@ -20,3 +20,6 @@
 
 ## Clean
 - Run: `./clean`
+
+## Common Issues:
+- https://morgan.cugerone.com/blog/workarounds-to-git-worktree-using-bare-repository-and-cannot-fetch-remote-branches/
