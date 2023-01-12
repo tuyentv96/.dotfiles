@@ -1,0 +1,25 @@
+theme = "gruvbox"
+
+[editor]
+mouse = true
+bufferline = "always"
+cursorline = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+git-ignore = true	
+
+[editor.lsp]
+display-messages = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = []
+right = ["diagnostics", "workspace-diagnostics", "file-type", "position"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
