@@ -86,7 +86,7 @@ return require("packer").startup({
     use({
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
-      event = "BufRead",
+      -- event = "BufRead",
       config = get_config("treesitter"),
     })
     -- use {
@@ -216,6 +216,11 @@ return require("packer").startup({
     --     'simrat39/symbols-outline.nvim',
     --     config = get_config('symbols')
     -- }
+
+    use {
+        'rmagatti/auto-session',
+        config = get_config('session')
+    }
 
     -- require("plugins.config.winbar").create_winbar()
   end,

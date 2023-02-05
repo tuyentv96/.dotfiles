@@ -1,0 +1,4 @@
+os:
+    editCommand: 'open'
+    openCommand: tmux send-keys -t "top-left" ":o {{filename}}:{{line}}" Enter
+    openLinkCommand: open {{link}}

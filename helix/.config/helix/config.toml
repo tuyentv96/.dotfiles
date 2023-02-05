@@ -1,9 +1,14 @@
-theme = "gruvbox"
+theme = "everforest_dark"
 
 [editor]
 mouse = true
 bufferline = "always"
 cursorline = true
+line-number = "relative"
+completion-trigger-len = 1
+color-modes	= true
+rulers = [120]
+auto-save = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -14,12 +19,34 @@ git-ignore = true
 
 [editor.lsp]
 display-messages = true
+display-signature-help-docs	= false
+auto-signature-help	= true
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name"]
-center = []
-right = ["diagnostics", "workspace-diagnostics", "file-type", "position"]
-separator = "│"
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+right = ["workspace-diagnostics", "file-type"]
+
+[keys.normal]
+esc = ["keep_primary_selection", "collapse_selection"]
+C-q = [":buffer-close"]
+"space" = {e = ":fmt"}
+H = ["goto_first_nonwhitespace"]
+L = ["goto_line_end"]
+";" = ["repeat_last_motion"]
+V = ["goto_first_nonwhitespace", "select_mode", "goto_line_end"]
+C-v = ["copy_selection_on_next_line"]
+D = ["kill_to_line_end"]
+C = ["kill_to_line_end", "insert_mode"]
+C-r = ["redo"]
+
+[keys.select]
+H = ["goto_first_nonwhitespace"]
+L = ["goto_line_end"]
+C-v = ["copy_selection_on_next_line"]
+";" = ["repeat_last_motion"]
+
+[editor.indent-guides]
+render = true
+
+[keys.insert]
+C-u = "kill_to_line_start"

@@ -15,8 +15,9 @@ nnoremap(
   "<cmd>lua require('telescope.builtin').grep_string({search=vim.fn.expand('<cword>'), initial_mode='normal'})<CR>"
 )
 nnoremap("<Leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
-nnoremap("<Leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
+nnoremap("<Leader>fh", "<cmd>lua require('telescope.builtin').command_history()<CR>")
 nnoremap("<Leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>")
+nnoremap("<Leader>fc", "<cmd>lua require('telescope.builtin').commands()<CR>")
 -- nnoremap("<Leader>fp", "<cmd>lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>")
 -- nnoremap("<Leader>gw", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees({initial_mode='normal'})<CR>")
 

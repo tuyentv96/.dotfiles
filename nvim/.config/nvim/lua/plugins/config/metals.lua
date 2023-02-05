@@ -17,6 +17,7 @@ metals_config.settings = {
     "com.github.swagger.akka.javadsl",
     "akka.stream.javadsl",
   },
+  ammoniteJvmProperties = {"-Xmx2G", "-Xms100M"},
   --fallbackScalaVersion = "2.13.6",
 }
 

@@ -78,6 +78,7 @@ local lsp_diagnostics = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, 
 local lsp_hover = vim.lsp.with(vim.lsp.handlers.hover, pop_opts)
 
 local lsp_signature_help = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  focusable = false
   -- offset_x = -10,
   -- offset_y = 1,
 })
