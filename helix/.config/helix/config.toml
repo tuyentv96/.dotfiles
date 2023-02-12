@@ -52,3 +52,4 @@ render = true
 
 [keys.insert]
 C-u = "kill_to_line_start"
+C-l = "delete_char_forward"
