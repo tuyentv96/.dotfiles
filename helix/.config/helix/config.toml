@@ -1,4 +1,4 @@
-theme = "everforest_dark"
+theme = "gruvbox"
 
 [editor]
 mouse = true
@@ -9,6 +9,7 @@ completion-trigger-len = 1
 color-modes	= true
 rulers = [120]
 auto-save = true
+auto-pairs = false
 
 [editor.cursor-shape]
 insert = "bar"
@@ -39,6 +40,8 @@ D = ["ensure_selections_forward", "kill_to_line_end"]
 C = ["ensure_selections_forward", "kill_to_line_end", "insert_mode"]
 C-r = ["redo"]
 "'" = ["flip_selections"]
+G = ["goto_last_line"]
+m = {w = ["move_next_word_start", "move_prev_word_start"]} # match word
 
 [keys.select]
 H = ["goto_first_nonwhitespace"]
@@ -46,6 +49,8 @@ L = ["goto_line_end"]
 C-v = ["copy_selection_on_next_line"]
 ";" = ["repeat_last_motion"]
 "'" = ["flip_selections"]
+G = ["goto_last_line"]
+m = {w = ["move_next_word_start", "move_prev_word_start"]} # match word
 
 [editor.indent-guides]
 render = true
