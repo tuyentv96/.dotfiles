@@ -33,12 +33,12 @@ C-q = [":buffer-close"]
 "space" = {e = ":fmt"}
 H = ["goto_first_nonwhitespace"]
 L = ["goto_line_end"]
-";" = ["repeat_last_motion"]
+";" = ["trim_selections"]
 C-v = ["copy_selection_on_next_line"]
 D = ["ensure_selections_forward", "kill_to_line_end"]
 C = ["ensure_selections_forward", "kill_to_line_end", "insert_mode"]
 C-r = ["redo"]
-"'" = ["flip_selections"]
+"'" = ["repeat_last_motion"]
 G = ["goto_last_line"]
 m = {w = ["move_next_word_start", "move_prev_word_start"]} # match word
 
@@ -46,8 +46,8 @@ m = {w = ["move_next_word_start", "move_prev_word_start"]} # match word
 H = ["goto_first_nonwhitespace"]
 L = ["goto_line_end"]
 C-v = ["copy_selection_on_next_line"]
-";" = ["repeat_last_motion"]
-"'" = ["flip_selections"]
+";" = ["trim_selections"]
+"'" = ["repeat_last_motion"]
 G = ["goto_last_line"]
 m = {w = ["move_next_word_start", "move_prev_word_start"]} # match word
 
