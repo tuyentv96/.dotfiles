@@ -10,6 +10,7 @@ color-modes	= true
 rulers = [120]
 auto-save = true
 auto-pairs = true
+scrolloff = 10
 
 [editor.cursor-shape]
 insert = "bar"
