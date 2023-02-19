@@ -9,7 +9,7 @@ completion-trigger-len = 1
 color-modes	= true
 rulers = [120]
 auto-save = true
-auto-pairs = false
+auto-pairs = true
 
 [editor.cursor-shape]
 insert = "bar"
