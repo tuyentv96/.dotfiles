@@ -14,3 +14,15 @@ name = "python"
 roots = ["pyproject.toml"]
 language-server = { command = "pyright-langserver", args = ["--stdio"] }
 config = {} # <- this is the important line
+
+[[language]]
+name = "rust"
+scope = "source.rust"
+injection-regex = "rust"
+file-types = ["rs"]
+roots = ["Cargo.toml", "Cargo.lock"]
+auto-format = true
+comment-token = "//"
+language-server = { command = "rust-analyzer" }
+indent = { tab-width = 4, unit = "    " }
+config = { cargo.allFeatures = true, chekOnSave.command = "clippy" }
