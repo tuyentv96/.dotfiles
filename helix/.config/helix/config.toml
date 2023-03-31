@@ -25,7 +25,7 @@ display-signature-help-docs	= false
 auto-signature-help	= true
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name"]
+left = ["mode", "version-control", "file-name", "spinner"]
 right = ["workspace-diagnostics", "file-type"]
 
 [keys.normal]
