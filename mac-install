@@ -8,3 +8,5 @@ if [[ -z $DOTFILES ]]; then
 fi
 
 STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES $DOTFILES/install
+# set git template
+git config --global init.templatedir '~/.git-templates'
