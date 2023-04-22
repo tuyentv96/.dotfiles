@@ -2,6 +2,7 @@
 
 ## Dependencies
 - neovim (Editor)
+- helix (Modal Editor)
 - tmux (Terminal Multiplexer)
 - alacritty (Terminal Emulator)
 - fish (Shell)
