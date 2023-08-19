@@ -22,7 +22,7 @@ window:
   opacity: 1
 
 font:
-  size: 15
+  size: 12.5
   # Normal (roman) font face
   normal:
     # Font family
