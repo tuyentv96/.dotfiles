@@ -27,8 +27,8 @@ display-signature-help-docs	= false
 auto-signature-help	= true
 
 [editor.statusline]
-left = ["mode", "version-control", "file-name", "spinner"]
-right = ["workspace-diagnostics", "file-type"]
+left = ["mode", "version-control", "file-name", "file-modification-indicator", "spinner"]
+right = ["workspace-diagnostics", "file-type", "total-line-numbers"]
 
 [keys.normal]
 esc = ["keep_primary_selection", "collapse_selection"]
