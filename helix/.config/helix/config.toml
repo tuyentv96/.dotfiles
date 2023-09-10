@@ -1,6 +1,8 @@
 theme = "gruvbox"
 
 [editor]
+true-color = true
+completion-replace = true
 mouse = true
 bufferline = "always"
 cursorline = true
