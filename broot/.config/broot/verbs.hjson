@@ -41,7 +41,7 @@ verbs: [
 
 	# always open with editor
 	{
-		key: enter
+		key: o
         execution: "tmux send-keys -t \"top-left\" \":o {file}\" Enter;"
 		leave_broot: false
 		apply_to: "file"
@@ -93,22 +93,23 @@ verbs: [
     # }
 
     # A popular set of shortcuts for going up and down:
-    {
-        key: ctrl-k
-        execution: ":line_up"
-    }
-    {
-        key: ctrl-j
-        execution: ":line_down"
-    }
-    {
-        key: ctrl-u
-        execution: ":page_up"
-    }
-    {
-        key: ctrl-d
-        execution: ":page_down"
-    }
+    #
+    # {
+    #     key: ctrl-k
+    #     execution: ":line_up"
+    # }
+    # {
+    #     key: ctrl-j
+    #     execution: ":line_down"
+    # }
+    # {
+    #     key: ctrl-u
+    #     execution: ":page_up"
+    # }
+    # {
+    #     key: ctrl-d
+    #     execution: ":page_down"
+    # }
 
     # If you develop using git, you might like to often switch
     # to the git status filter:
