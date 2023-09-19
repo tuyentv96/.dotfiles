@@ -36,14 +36,14 @@ verbs: [
         invocation: edit
         shortcut: e
         execution: "tmux send-keys -t \"top-left\" \":o {file}:{line}\" Enter;"
-        leave_broot: false
+        leave_broot: true
     }
 
 	# always open with editor
 	{
 		key: o
         execution: "tmux send-keys -t \"top-left\" \":o {file}\" Enter;"
-		leave_broot: false
+		leave_broot: true
 		apply_to: "file"
 	}
 
