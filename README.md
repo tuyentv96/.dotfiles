@@ -16,6 +16,10 @@
     - Fisher: `curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher`
     - Fzf: `fisher install PatrickF1/fzf.fish`
 - Install stow, run: `brew install stow`
+- Install lazyzgit, run: `brew install lazygit`
+- Install fzf, run: `brew install fzf`
+- Install helix, run: `brew install helix`
+- Install broot, run: `brew install broot`
 - Setup configs, run: `./mac-install`
 - Install fisher:
 
