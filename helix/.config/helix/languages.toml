@@ -9,6 +9,16 @@
 # config = { "isHttpEnabled" = true, "metals.ammoniteJvmProperties" = ["-Xmx1G"]}
 # config = {metals = {showImplicitArguments = false, showInferredType = false, showImplicitConversionsAndClasses = false,superMethodLensesEnabled = false, ammoniteJvmProperties = ["-Xmx2G"]}}
 
+[language-server.scls]
+command = "simple-completion-language-server"
+
+[language-server.scls.config]
+max_completion_items = 10     # set max completion results len for each group: words, snippets, unicode-input
+snippets_first = false         # completions will return before snippets by default
+feature_words = true          # enable completion by word
+feature_snippets = false       # enable snippets
+feature_unicode_input = false  # enable "unicode input" (experimental feature)
+
 [language-server.gopls]
 command = "gopls"
 
@@ -44,7 +54,7 @@ file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstr
 shebangs = ["python"]
 roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
 comment-token = "#"
-language-servers = ["pyright"]
+language-servers = ["pyright", "scls"]
 # TODO: pyls needs utf-8 offsets
 indent = { tab-width = 4, unit = "    " }
 
@@ -56,7 +66,7 @@ file-types = ["rs"]
 roots = ["Cargo.toml", "Cargo.lock"]
 auto-format = true
 comment-token = "//"
-language-servers = ["rust-analyzer"]
+language-servers = ["rust-analyzer", "scls"]
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]
@@ -67,6 +77,24 @@ file-types = ["go"]
 roots = ["go.work", "go.mod"]
 auto-format = true
 comment-token = "//"
-language-servers = ["gopls"]
+language-servers = ["gopls", "scls"]
 # TODO: gopls needs utf-8 offsets?
 indent = { tab-width = 4, unit = "\t" }
+
+[[language]]
+name = "scala"
+scope = "source.scala"
+roots = ["build.sbt", "build.sc", "build.gradle", "build.gradle.kts", "pom.xml", ".scala-build"]
+file-types = ["scala", "sbt", "sc"]
+comment-token = "//"
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["metals", "scls"]
+
+[[language]]
+name = "yaml"
+scope = "source.yaml"
+file-types = ["yml", "yaml"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["yaml-language-server", "scls"]
+injection-regex = "yml|yaml"
