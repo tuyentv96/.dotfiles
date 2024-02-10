@@ -46,6 +46,9 @@ inlayHints.discriminantHints.enable = "fieldless"
 inlayHints.lifetimeElisionHints.enable = "skip_trivial"
 inlayHints.typeHints.hideClosureInitialization = false
 
+[language-server.pyright.config]
+python.analysis.typeCheckingMode = "off"
+
 [[language]]
 name = "python"
 scope = "source.python"
