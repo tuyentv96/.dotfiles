@@ -26,6 +26,9 @@ display-messages = true
 display-signature-help-docs	= false
 auto-signature-help	= true
 
+[editor.lsp.inline-diagnostics]
+cursor-line = ["error"]
+
 [editor.statusline]
 left = ["mode", "version-control", "file-name", "read-only-indicator", "file-modification-indicator", "spinner"]
 right = ["workspace-diagnostics", "file-type", "total-line-numbers", "position"]
@@ -33,7 +36,7 @@ right = ["workspace-diagnostics", "file-type", "total-line-numbers", "position"]
 [keys.normal]
 esc = ["keep_primary_selection", "collapse_selection"]
 C-q = [":buffer-close"]
-"space" = {e = ":fmt", l = ":reload-all"}
+"space" = {e = ":fmt", l = ":reload-all", "space" = ":w"}
 H = ["goto_first_nonwhitespace"]
 L = ["goto_line_end"]
 ";" = ["trim_selections"]
