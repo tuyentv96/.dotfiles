@@ -29,7 +29,7 @@ display-diagnostic-message = true
 
 [editor.lsp.inline-diagnostics]
 cursor-line = "warning"
-other-lines = "error"
+# other-lines = "error"
 
 [editor.statusline]
 left = ["mode", "version-control", "file-name", "read-only-indicator", "file-modification-indicator", "spinner"]
