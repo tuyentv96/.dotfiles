@@ -1,14 +1,3 @@
-# [[language]]
-# name = "scala"
-# scope = "source.scala"
-# roots = ["build.sbt", "build.sc", "build.gradle", "pom.xml", ".scala-build"]
-# file-types = ["scala", "sbt", "sc"]
-# comment-token = "//"
-# indent = { tab-width = 2, unit = "  " }
-# language-server = { command = "metals" }
-# config = { "isHttpEnabled" = true, "metals.ammoniteJvmProperties" = ["-Xmx1G"]}
-# config = {metals = {showImplicitArguments = false, showInferredType = false, showImplicitConversionsAndClasses = false,superMethodLensesEnabled = false, ammoniteJvmProperties = ["-Xmx2G"]}}
-
 [language-server.scls]
 command = "simple-completion-language-server"
 
@@ -51,53 +40,24 @@ python.analysis.typeCheckingMode = "off"
 
 [[language]]
 name = "python"
-scope = "source.python"
-injection-regex = "python"
-file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstruct", "rpy", "cpy", "ipy", "pyt", "SConscript"]
-shebangs = ["python"]
-roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
-comment-token = "#"
 language-servers = ["pyright", "scls"]
-# TODO: pyls needs utf-8 offsets
-indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "rust"
-scope = "source.rust"
-injection-regex = "rust"
-file-types = ["rs"]
-roots = ["Cargo.toml", "Cargo.lock"]
-auto-format = true
-comment-token = "//"
 language-servers = ["rust-analyzer", "scls"]
-indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "go"
-scope = "source.go"
-injection-regex = "go"
-file-types = ["go"]
-roots = ["go.work", "go.mod"]
-auto-format = true
-comment-token = "//"
 language-servers = ["gopls", "scls"]
-# TODO: gopls needs utf-8 offsets?
-indent = { tab-width = 4, unit = "\t" }
 
 [[language]]
 name = "scala"
-scope = "source.scala"
-roots = ["build.sbt", "build.sc", "build.gradle", "build.gradle.kts", "pom.xml", ".scala-build"]
-file-types = ["scala", "sbt", "sc"]
-comment-token = "//"
-indent = { tab-width = 2, unit = "  " }
 language-servers = ["metals", "scls"]
 
 [[language]]
 name = "yaml"
 scope = "source.yaml"
 file-types = ["yml", "yaml"]
-comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
 language-servers = ["yaml-language-server", "scls"]
 injection-regex = "yml|yaml"
