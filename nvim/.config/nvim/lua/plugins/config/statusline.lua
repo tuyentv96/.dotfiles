@@ -71,7 +71,7 @@ M.get_mode = function()
 end
 
 M.lsp_progress = function()
-  local lsp = vim.lsp.util.get_progress_messages()[1]
+  local lsp = vim.lsp.status()
   if lsp then
     local name = lsp.name or ""
     local msg = lsp.message or ""
@@ -140,7 +140,10 @@ end
 _G.status = M
 
 M.init = function()
-  vim.o.statusline = M.get_statusline()
+  -- vim.o.statusline = M.get_statusline()
+  require('lualine').setup {
+    options = { theme  = 'gruvbox' },
+  }
 end
 
 return M

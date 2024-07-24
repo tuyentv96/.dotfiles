@@ -1,7 +1,6 @@
 HOME = os.getenv("HOME")
 cmd = vim.cmd
 
-local Path = require("plenary.path")
 local M = {}
 
 function noremap(mode, shortcut, command, opts)
@@ -94,6 +93,7 @@ M.disable_plugins = function(plugins)
 end
 
 M.is_file_exist = function(file_path)
+  local Path = require("plenary.path")
   return Path:new(file_path):exists()
 end
 
